@@ -1,0 +1,94 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>INSPINIA | @ViewBag.Title</title>
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
+    <!-- Add local styles, mostly for plugins css file -->
+    @if (IsSectionDefined("Styles"))
+    {@RenderSection("Styles", required: false)}
+
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="favicon.ico">
+    <!-- Web Fonts -->
+    <link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Open+Sans:400,300,600,800&amp;subset=cyrillic,latin">
+    <!-- Main -->
+    <link href="~/Content/bootstrap.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/assets/css/shop.style.css">
+    <!-- CSS Header and Footer -->
+    <link rel="stylesheet" href="~/assets/css/headers/header-v5.css">
+    <link rel="stylesheet" href="~/assets/css/footers/footer-v4.css">
+    <link href="~/Content/animate.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/assets/plugins/line-icons/line-icons.css">
+    <link href="~/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
+    <link rel="stylesheet" href="~/assets/plugins/scrollbar/css/jquery.mCustomScrollbar.css">
+    <link rel="stylesheet" href="~/assets/plugins/owl-carousel/owl-carousel/owl.carousel.css">
+    <link rel="stylesheet" href="~/assets/plugins/revolution-slider/rs-plugin/css/settings.css">
+
+</head>
+<body class="top-navigation">
+
+    <script src="~/Scripts/jquery-2.1.1.min.js"></script>
+    <script src="~/assets/plugins/jquery/jquery-migrate.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+
+    <!-- Skin configuration box -->
+    @Html.Partial("_SkinConfig")
+
+    <!-- Wrapper-->
+    <!-- PageClass give you ability to specify custom style for specific view based on action -->
+    <div id="wrapper" class="@Html.PageClass()">
+
+        <!-- Page wraper -->
+        <div id="page-wrapper" class="gray-bg @ViewBag.SpecialClass">
+
+            <!-- Top Navbar -->
+            @Html.Partial("_TopNavbar")
+
+            <!-- Main view  -->
+            @RenderBody()
+
+            <!-- Footer -->
+            @Html.Partial("_Footer")
+
+        </div>
+        <!-- End page wrapper-->
+
+    </div>
+    <!-- End wrapper-->
+    <!-- Section for main scripts render -->
+
+    <!-- JS Global Compulsory -->
+
+    <!-- JS Implementing Plugins -->
+    <script src="~/assets/plugins/back-to-top.js"></script>
+    <script src="~/assets/plugins/smoothScroll.js"></script>
+    <script src="~/assets/plugins/jquery.parallax.js"></script>
+    <script src="~/assets/plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>
+    <script src="~/assets/plugins/scrollbar/js/jquery.mCustomScrollbar.concat.min.js"></script>
+    <script src="~/assets/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
+    <script src="~/assets/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="~/assets/js/shop.app.js"></script>
+    <script src="~/assets/js/plugins/owl-carousel.js"></script>
+    <script src="~/assets/js/plugins/revolution-slider.js"></script>
+    @*<script src="~/assets/js/plugins/style-switcher.js"></script>*@
+
+    <script>
+        jQuery(document).ready(function () {
+            App.init();
+            App.initScrollBar();
+            App.initParallaxBg();
+            OwlCarousel.initOwlCarousel();
+            RevolutionSlider.initRSfullWidth();
+        });
+    </script>
+
+    <!-- Handler for local scripts -->
+    @RenderSection("scripts", required: false)
+
+    @Html.Partial("_NotificationsPartial")
+</body>
+</html>

@@ -1,0 +1,17 @@
+C:\Users\Daniel\Documents\Visual Studio 2015\Projects\EuroPallets\EuroPallets.Data\bin\Debug\EuroPallets.Data.dll.config
+C:\Users\Daniel\Documents\Visual Studio 2015\Projects\EuroPallets\EuroPallets.Data\bin\Debug\EuroPallets.Data.dll
+C:\Users\Daniel\Documents\Visual Studio 2015\Projects\EuroPallets\EuroPallets.Data\bin\Debug\EuroPallets.Data.pdb
+C:\Users\Daniel\Documents\Visual Studio 2015\Projects\EuroPallets\EuroPallets.Data\bin\Debug\EntityFramework.dll
+C:\Users\Daniel\Documents\Visual Studio 2015\Projects\EuroPallets\EuroPallets.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\Daniel\Documents\Visual Studio 2015\Projects\EuroPallets\EuroPallets.Data\bin\Debug\EuroPallets.Models.dll
+C:\Users\Daniel\Documents\Visual Studio 2015\Projects\EuroPallets\EuroPallets.Data\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\Daniel\Documents\Visual Studio 2015\Projects\EuroPallets\EuroPallets.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\Daniel\Documents\Visual Studio 2015\Projects\EuroPallets\EuroPallets.Data\bin\Debug\Z.EntityFramework.Extensions.SqlServer.dll
+C:\Users\Daniel\Documents\Visual Studio 2015\Projects\EuroPallets\EuroPallets.Data\bin\Debug\EuroPallets.Models.pdb
+C:\Users\Daniel\Documents\Visual Studio 2015\Projects\EuroPallets\EuroPallets.Data\bin\Debug\EntityFramework.xml
+C:\Users\Daniel\Documents\Visual Studio 2015\Projects\EuroPallets\EuroPallets.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\Daniel\Documents\Visual Studio 2015\Projects\EuroPallets\EuroPallets.Data\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\Daniel\Documents\Visual Studio 2015\Projects\EuroPallets\EuroPallets.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\Daniel\Documents\Visual Studio 2015\Projects\EuroPallets\EuroPallets.Data\obj\Debug\EuroPallets.Data.csprojResolveAssemblyReference.cache
+C:\Users\Daniel\Documents\Visual Studio 2015\Projects\EuroPallets\EuroPallets.Data\obj\Debug\EuroPallets.Data.dll
+C:\Users\Daniel\Documents\Visual Studio 2015\Projects\EuroPallets\EuroPallets.Data\obj\Debug\EuroPallets.Data.pdb

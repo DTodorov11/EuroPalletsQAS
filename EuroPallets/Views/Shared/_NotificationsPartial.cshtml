@@ -1,0 +1,20 @@
+﻿@if (this.TempData["Success"] != null)
+{
+    <script>
+        toastr.success("@TempData["Success"]", 'Success', { positionClass: "toast-bottom-right", });
+    </script>
+}
+
+@if (this.TempData["Error"] != null)
+{
+    <script>
+        toastr.error("@TempData["Error"]", 'Error', { positionClass: "toast-bottom-right", });
+    </script>
+}
+
+@if (this.TempData["Email"] != null)
+{
+    <script>
+        toastr.info("@TempData["Email"]", 'Success', { positionClass: "toast-bottom-right", });
+    </script>
+}

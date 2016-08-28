@@ -1,0 +1,75 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 14
+VisualStudioVersion = 14.0.25123.0
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EuroPallets.Web", "EuroPallets\EuroPallets.Web.csproj", "{836C2AF9-7873-48AB-B8A2-764D9A43650D}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EuroPallets.Tests", "EuroPallets.Tests\EuroPallets.Tests.csproj", "{7988B8ED-AD73-4452-9B9E-E35942442A19}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EuroPallets.Models", "EuroPallets.Models\EuroPallets.Models.csproj", "{DB898B20-9280-4107-9ED7-F0191D1D6E13}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EuroPallets.Services", "EuroPallets.Services\EuroPallets.Services.csproj", "{0BDEB1EB-5140-48AD-9D8C-50F9E420745C}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Data", "Data", "{BCABB7CE-479F-4F9F-B71A-7A045C756A78}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EuroPallets.Data", "EuroPallets.Data\EuroPallets.Data.csproj", "{3AB58C2D-B7A6-432E-9480-0FF305B42864}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Services", "Services", "{48D9C768-5650-4DC4-865C-C1923E1DD382}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Web", "Web", "{1648DCE8-CA90-4AB7-8CDE-D5009E9456FC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Test", "Test", "{A2CA6C17-A12C-4E0A-A4C8-8506C60D5626}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Common", "Common", "{7FA637D0-A05F-4DC5-B512-22A3A4E32CB5}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "EuroPallets.Common", "EuroPallets.Common\EuroPallets.Common.csproj", "{5402CE3D-8AE5-458D-B4B3-4F3E4573F3E6}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "External Libraries", "External Libraries", "{0B617DA8-2072-4528-95F4-081C0304F90E}"
+	ProjectSection(SolutionItems) = preProject
+		External Libraries\System.Web.Mvc.Expressions.dll = External Libraries\System.Web.Mvc.Expressions.dll
+	EndProjectSection
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{836C2AF9-7873-48AB-B8A2-764D9A43650D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{836C2AF9-7873-48AB-B8A2-764D9A43650D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{836C2AF9-7873-48AB-B8A2-764D9A43650D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{836C2AF9-7873-48AB-B8A2-764D9A43650D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{7988B8ED-AD73-4452-9B9E-E35942442A19}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{7988B8ED-AD73-4452-9B9E-E35942442A19}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{7988B8ED-AD73-4452-9B9E-E35942442A19}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{7988B8ED-AD73-4452-9B9E-E35942442A19}.Release|Any CPU.Build.0 = Release|Any CPU
+		{DB898B20-9280-4107-9ED7-F0191D1D6E13}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{DB898B20-9280-4107-9ED7-F0191D1D6E13}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{DB898B20-9280-4107-9ED7-F0191D1D6E13}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{DB898B20-9280-4107-9ED7-F0191D1D6E13}.Release|Any CPU.Build.0 = Release|Any CPU
+		{0BDEB1EB-5140-48AD-9D8C-50F9E420745C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{0BDEB1EB-5140-48AD-9D8C-50F9E420745C}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{0BDEB1EB-5140-48AD-9D8C-50F9E420745C}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{0BDEB1EB-5140-48AD-9D8C-50F9E420745C}.Release|Any CPU.Build.0 = Release|Any CPU
+		{3AB58C2D-B7A6-432E-9480-0FF305B42864}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3AB58C2D-B7A6-432E-9480-0FF305B42864}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3AB58C2D-B7A6-432E-9480-0FF305B42864}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3AB58C2D-B7A6-432E-9480-0FF305B42864}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5402CE3D-8AE5-458D-B4B3-4F3E4573F3E6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5402CE3D-8AE5-458D-B4B3-4F3E4573F3E6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5402CE3D-8AE5-458D-B4B3-4F3E4573F3E6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5402CE3D-8AE5-458D-B4B3-4F3E4573F3E6}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{836C2AF9-7873-48AB-B8A2-764D9A43650D} = {1648DCE8-CA90-4AB7-8CDE-D5009E9456FC}
+		{7988B8ED-AD73-4452-9B9E-E35942442A19} = {A2CA6C17-A12C-4E0A-A4C8-8506C60D5626}
+		{DB898B20-9280-4107-9ED7-F0191D1D6E13} = {BCABB7CE-479F-4F9F-B71A-7A045C756A78}
+		{0BDEB1EB-5140-48AD-9D8C-50F9E420745C} = {48D9C768-5650-4DC4-865C-C1923E1DD382}
+		{3AB58C2D-B7A6-432E-9480-0FF305B42864} = {BCABB7CE-479F-4F9F-B71A-7A045C756A78}
+		{5402CE3D-8AE5-458D-B4B3-4F3E4573F3E6} = {7FA637D0-A05F-4DC5-B512-22A3A4E32CB5}
+	EndGlobalSection
+EndGlobal

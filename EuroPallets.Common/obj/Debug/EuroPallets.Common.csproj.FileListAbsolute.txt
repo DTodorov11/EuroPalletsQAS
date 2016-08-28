@@ -1,0 +1,5 @@
+C:\Users\Daniel\Documents\Visual Studio 2015\Projects\EuroPallets\EuroPallets.Common\bin\Debug\EuroPallets.Common.dll
+C:\Users\Daniel\Documents\Visual Studio 2015\Projects\EuroPallets\EuroPallets.Common\bin\Debug\EuroPallets.Common.pdb
+C:\Users\Daniel\Documents\Visual Studio 2015\Projects\EuroPallets\EuroPallets.Common\obj\Debug\EuroPallets.Common.dll
+C:\Users\Daniel\Documents\Visual Studio 2015\Projects\EuroPallets\EuroPallets.Common\obj\Debug\EuroPallets.Common.pdb
+C:\Users\Daniel\Documents\Visual Studio 2015\Projects\EuroPallets\EuroPallets.Common\obj\Debug\EuroPallets.Common.csprojResolveAssemblyReference.cache

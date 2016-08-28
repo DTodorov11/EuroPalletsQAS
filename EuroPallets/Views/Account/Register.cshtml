@@ -35,7 +35,7 @@
             </div>
 
             <div class="col-md-5">
-                @using (Html.BeginForm("Register", "Account", FormMethod.Post, new {novalidate = "novalidate", @class = "log -reg-block sky-form", role = "form", data_toggle = "validator" }))
+                @using (Html.BeginForm("Register", "Account", FormMethod.Post, new { novalidate = "novalidate", @class = "log -reg-block sky-form", role = "form", data_toggle = "validator" }))
                 {
                     @Html.AntiForgeryToken()
                     @Html.ValidationSummary()
@@ -47,8 +47,8 @@
                             <div class="col-sm-6">
                                 <section>
                                     <label class="input">
-                                        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", placeholder = "First name", required = "required" })
-                                        
+                                        @Html.TextBoxFor(m => m.FirstName, new { @class = "form-control", placeholder = "Първо име", required = "required" })
+
                                         @*<input type="text" name="firstname" placeholder="First name" class="form-control">*@
                                     </label>
                                 </section>
@@ -56,7 +56,7 @@
                             <div class="col-sm-6">
                                 <section>
                                     <label class="input">
-                                        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", placeholder = "Last name" })
+                                        @Html.TextBoxFor(m => m.LastName, new { @class = "form-control", placeholder = "Фамилно име" })
                                         @*<input type="text" name="lastname" placeholder="Last name" class="form-control">*@
                                     </label>
                                 </section>
@@ -75,7 +75,7 @@
                             <div class="col-xs-6">
                                 <label class="select">
                                     <select name="month" class="form-control">
-                                        <option disabled="" selected="" value="0">Month</option>
+                                        <option disabled="" selected="" value="0">Месец</option>
                                         <option>January</option>
                                         <option>February</option>
                                         <option>March</option>
@@ -98,19 +98,20 @@
                                 <input type="text" name="year" placeholder="Year" class="form-control">
                             </div>
                         </div>
+                        @*<section>
+                                <label class="input">
+                                    <input type="text" name="username" placeholder="Username" class="form-control">
+                                </label>
+                            </section>*@
                         <section>
                             <label class="input">
-                                <input type="text" name="username" placeholder="Username" class="form-control">
+                                @Html.TextBoxFor(x => x.Email, new { @class = "form-control", placeholder = "Имейл" })
+                                @*<input type="email" name="email" placeholder="Email address" class="form-control">*@
                             </label>
                         </section>
                         <section>
                             <label class="input">
-                                <input type="email" name="email" placeholder="Email address" class="form-control">
-                            </label>
-                        </section>
-                        <section>
-                            <label class="input">
-                                @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Password" })
+                                @Html.PasswordFor(m => m.Password, new { @class = "form-control", placeholder = "Парола" })
 
                                 @Html.ValidationMessageFor(x => x.Password)
                                 @*<input type="password" name="password" placeholder="Password" id="password" class="form-control">*@
@@ -118,7 +119,13 @@
                         </section>
                         <section>
                             <label class="input">
-                                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Confirm password" })
+                                @Html.PasswordFor(m => m.ConfirmPassword, new { @class = "form-control", placeholder = "Потвърдете парола" })
+                                @*<input type="password" name="passwordConfirm" placeholder="Confirm password" class="form-control">*@
+                            </label>
+                        </section>
+                        <section>
+                            <label class="input">
+                                @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control", placeholder = "Tелефонен номер" })
                                 @*<input type="password" name="passwordConfirm" placeholder="Confirm password" class="form-control">*@
                             </label>
                         </section>

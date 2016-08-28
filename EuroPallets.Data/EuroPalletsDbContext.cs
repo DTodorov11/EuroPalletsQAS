@@ -4,9 +4,11 @@ namespace EuroPallets.Data
     using EuroPallets.Models;
     using EuroPallets.Models.Base;
     using Microsoft.AspNet.Identity.EntityFramework;
+    using Migrations;
     using System;
     using System.Collections.Generic;
     using System.Data.Entity;
+    using System.Data.Entity.ModelConfiguration.Conventions;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
@@ -18,6 +20,7 @@ namespace EuroPallets.Data
         {
             //disable lazy loading and proxy creation to avoid
             //circular reference
+            Database.SetInitializer(new MigrateDatabaseToLatestVersion<EuroPalletsDbContext, Configuration>());
             this.Configuration.ProxyCreationEnabled = true;
             this.Configuration.LazyLoadingEnabled = true;
         }
@@ -36,10 +39,14 @@ namespace EuroPallets.Data
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
-            modelBuilder.Entity<IdentityUserLogin>().HasKey<string>(l => l.UserId);
-            modelBuilder.Entity<IdentityRole>().HasKey<string>(r => r.Id);
+            modelBuilder.Entity<IdentityUserLogin>().HasKey(l => l.UserId);
+            modelBuilder.Entity<IdentityRole>().HasKey(r => r.Id);
             modelBuilder.Entity<IdentityUserRole>().HasKey(r => new { r.RoleId, r.UserId });
-            this.OnModelCreating(modelBuilder);
+            modelBuilder.Entity<Specification>().HasKey(x => x.EuroPalletFurnitureId).HasRequired(x=>x.EuroPalletFurniture);
+
+
+            modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();
+            modelBuilder.Conventions.Remove<ManyToManyCascadeDeleteConvention>();
         }
         private void ApplyAuditInfoRules()
         {

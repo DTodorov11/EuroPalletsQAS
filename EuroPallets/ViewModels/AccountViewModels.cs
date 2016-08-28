@@ -85,6 +85,10 @@ namespace EuroPallets.ViewModels
 
         public string LastName { get; set; }
 
+        [DataType(DataType.PhoneNumber)]
+        [RegularExpression("^(?!0+$)(\\+\\d{1,3}[- ]?)?(?!0+$)\\d{4,15}$", ErrorMessage = "Please enter valid phone no.")]
+        public string PhoneNumber { get; set; }
+
         public DateTime BirthDay { get; set; }
 
         public Gender Gender { get; set; }

@@ -75,6 +75,10 @@
     <None Include="packages.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\EuroPallets.Common\EuroPallets.Common.csproj">
+      <Project>{5402CE3D-8AE5-458D-B4B3-4F3E4573F3E6}</Project>
+      <Name>EuroPallets.Common</Name>
+    </ProjectReference>
     <ProjectReference Include="..\EuroPallets.Models\EuroPallets.Models.csproj">
       <Project>{db898b20-9280-4107-9ed7-f0191d1d6e13}</Project>
       <Name>EuroPallets.Models</Name>

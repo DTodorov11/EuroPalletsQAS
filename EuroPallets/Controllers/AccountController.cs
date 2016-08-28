@@ -10,6 +10,11 @@ using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using EuroPallets.Models;
 using EuroPallets.ViewModels;
+using System.Net.Mail;
+using EuroPallets.Common;
+using EuroPallets.ViewModels.EmailViewModel;
+using System.IO;
+using System.Text.RegularExpressions;
 
 namespace EuroPallets.Controllers
 {
@@ -23,7 +28,7 @@ namespace EuroPallets.Controllers
         {
         }
 
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
+        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager)
         {
             UserManager = userManager;
             SignInManager = signInManager;
@@ -40,9 +45,9 @@ namespace EuroPallets.Controllers
             {
                 return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -81,7 +86,9 @@ namespace EuroPallets.Controllers
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+                var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+
+            
             switch (result)
             {
                 case SignInStatus.Success:
@@ -126,7 +133,7 @@ namespace EuroPallets.Controllers
             // If a user enters incorrect codes for a specified amount of time then the user account 
             // will be locked out for a specified amount of time. 
             // You can configure the account lockout settings in IdentityConfig
-            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent:  model.RememberMe, rememberBrowser: model.RememberBrowser);
+            var result = await SignInManager.TwoFactorSignInAsync(model.Provider, model.Code, isPersistent: model.RememberMe, rememberBrowser: model.RememberBrowser);
             switch (result)
             {
                 case SignInStatus.Success:
@@ -153,29 +160,68 @@ namespace EuroPallets.Controllers
         [HttpPost]
         [AllowAnonymous]
         [ValidateAntiForgeryToken]
-        public async Task<ActionResult> Register(RegisterViewModel model,string month,string day,string year)
-         {
+        public async Task<ActionResult> Register(RegisterViewModel model, string month, string day, string year)
+        {
             if (ModelState.IsValid)
             {
-                var user = new User { UserName = model.Email, Email = model.Email };
+                var user = new User
+                {
+                    UserName = Regex.Split(model.Email,"@")[0],
+                    Email = model.Email,
+                    PhoneNumber=model.PhoneNumber
+
+                };
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
-                    
-                    // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                    // Send an email with this link
-                    // string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
-                    // var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
-                    // await UserManager.SendEmailAsync(user.Id, "Confirm your account", "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>");
+                    this.UserManager.AddToRoles(user.Id, GlobalConstants.CustomerRoleName);
 
+                    //await SignInManager.SignInAsync(user, isPersistent:false, rememberBrowser:false);
+
+                    string code = await UserManager.GenerateEmailConfirmationTokenAsync(user.Id);
+                    var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+                    var task =Task.Factory.StartNew(() => { SendConfirmEmailAsync(user.Email, callbackUrl); });
+                    task.Wait();
+                    await Task.Run(() => SendConfirmEmailAsync(user.Email, callbackUrl));
+                    this.TempData["Error"] = GlobalConstants.SuccessfullRegistration;
                     return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
             }
-
-            // If we got this far, something failed, redisplay form
             return View(model);
+        }
+
+         static async void SendConfirmEmailAsync(string email, string callbackUrl)
+        {
+            var body = string.Empty;
+            if (System.IO.File.Exists(GlobalConstants.EmailtemplateFolder + EmailType.ConfirmationEmail + ".txt"))
+            {
+                using (StreamReader reader = new StreamReader(GlobalConstants.EmailtemplateFolder + EmailType.ConfirmationEmail + ".txt"))
+                {
+                    body = reader.ReadToEnd();
+                }
+
+                body = body.Replace("{ConfirmationLink}", "<a href =\"" + callbackUrl + "\">Activation Link</a>");
+                body = body.Replace("{Email}", email);
+                body = body.Replace("{UserName}", email);
+            }
+            else
+            {
+                body = "Please confirm your account by clicking <a href=\"" + callbackUrl + "\">here</a>";
+            }
+
+            using (MailMessage mailMessage = new MailMessage())
+            {
+                mailMessage.Subject = "Confirm your account";
+                mailMessage.Body = body;
+                mailMessage.IsBodyHtml = true;
+                mailMessage.To.Add(email);
+
+                using (SmtpClient smtp = new SmtpClient())
+                {
+                    await smtp.SendMailAsync(mailMessage);
+                }
+            }
         }
 
         //

@@ -1,5 +1,4 @@
-﻿using EuroPallets.Web.Infrastructure.Mapping;
-using System;
+﻿using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
@@ -19,8 +18,8 @@ namespace EuroPallets
             RouteConfig.RegisterRoutes(RouteTable.Routes);
             BundleConfig.RegisterBundles(BundleTable.Bundles);
 
-            var autoMapperConfig = new AutoMapperConfig();
-            autoMapperConfig.Execute(Assembly.GetExecutingAssembly());
+            //var autoMapperConfig = new AutoMapperConfig();
+            //autoMapperConfig.Execute(Assembly.GetExecutingAssembly());
         }
     }
 }

@@ -33,7 +33,7 @@
 
         public Category Category { get; set; }
 
-        public int SpecificationId { get; set; }
+        public int? SpecificationId { get; set; }
 
         public Specification Specification { get; set; }
 

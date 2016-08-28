@@ -15,3 +15,22 @@ C:\Users\Daniel\Documents\Visual Studio 2015\Projects\EuroPallets\EuroPallets.Da
 C:\Users\Daniel\Documents\Visual Studio 2015\Projects\EuroPallets\EuroPallets.Data\obj\Debug\EuroPallets.Data.csprojResolveAssemblyReference.cache
 C:\Users\Daniel\Documents\Visual Studio 2015\Projects\EuroPallets\EuroPallets.Data\obj\Debug\EuroPallets.Data.dll
 C:\Users\Daniel\Documents\Visual Studio 2015\Projects\EuroPallets\EuroPallets.Data\obj\Debug\EuroPallets.Data.pdb
+C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets.Data\bin\Debug\EuroPallets.Data.dll.config
+C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets.Data\bin\Debug\EuroPallets.Data.dll
+C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets.Data\bin\Debug\EuroPallets.Data.pdb
+C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets.Data\bin\Debug\EntityFramework.dll
+C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets.Data\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets.Data\bin\Debug\EuroPallets.Models.dll
+C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets.Data\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets.Data\bin\Debug\Z.EntityFramework.Extensions.SqlServer.dll
+C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets.Data\bin\Debug\EuroPallets.Models.pdb
+C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets.Data\bin\Debug\EntityFramework.xml
+C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets.Data\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets.Data\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets.Data\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets.Data\obj\Debug\EuroPallets.Data.csprojResolveAssemblyReference.cache
+C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets.Data\obj\Debug\EuroPallets.Data.dll
+C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets.Data\obj\Debug\EuroPallets.Data.pdb
+C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets.Data\bin\Debug\EuroPallets.Common.dll
+C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets.Data\bin\Debug\EuroPallets.Common.pdb

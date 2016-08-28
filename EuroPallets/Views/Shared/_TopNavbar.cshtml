@@ -38,14 +38,29 @@
                         </li>
                     </ul><!--/end left-topbar-->
                 </div>
-                <div class="col-sm-6">
-                    <ul class="list-inline right-topbar pull-right">
-                        <li><a href="#">Account</a></li>
-                        <li><a href="shop-ui-add-to-cart.html">Wishlist (0)</a></li>
-                        <li>@Html.ActionLink("Login","Login","Account") | @Html.ActionLink("Register", "Register", "Account")</li>
-                        <li><i class="search fa fa-search search-button"></i></li>
-                    </ul>
-                </div>
+                @if (User.Identity.IsAuthenticated)
+                {
+                    <div class="col-sm-6">
+                        <ul class="list-inline right-topbar pull-right">
+                            <li><a href="#">Account</a></li>
+                            <li><a href="shop-ui-add-to-cart.html">Wishlist (0)</a></li>
+                            <li>Hello, @User.Identity.Name</li>
+                            <li><i class="search fa fa-search search-button"></i></li>
+                        </ul>
+                    </div>
+                }
+                else
+                {
+                    <div class="col-sm-6">
+                        <ul class="list-inline right-topbar pull-right">
+                            @*<li><a href="#">Account</a></li>*@
+                            @*<li><a href="shop-ui-add-to-cart.html">Wishlist (0)</a></li>*@
+                            <li>@Html.ActionLink("Login", "Login", "Account") | @Html.ActionLink("Register", "Register", "Account")</li>
+                            @*<li><i class="search fa fa-search search-button"></i></li>*@
+                        </ul>
+                    </div>
+                }
+
             </div>
         </div><!--/container-->
     </div>

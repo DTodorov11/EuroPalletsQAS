@@ -11,7 +11,7 @@ namespace EuroPallets.Models
 {
     public class User : IdentityUser
     {
-        public int ShopingCartId { get; set; }
+        public int? ShopingCartId { get; set; }
         public ShopingCart ShopingCart { get; set; }
 
 

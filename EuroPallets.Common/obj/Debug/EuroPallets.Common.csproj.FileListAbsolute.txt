@@ -8,3 +8,7 @@ C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets.Common\bin\Debug\Eur
 C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets.Common\obj\Debug\EuroPallets.Common.csprojResolveAssemblyReference.cache
 C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets.Common\obj\Debug\EuroPallets.Common.dll
 C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets.Common\obj\Debug\EuroPallets.Common.pdb
+C:\Users\Daniel\Documents\GitHub\EuroPallets\EuroPallets.Common\bin\Debug\EuroPallets.Common.dll
+C:\Users\Daniel\Documents\GitHub\EuroPallets\EuroPallets.Common\bin\Debug\EuroPallets.Common.pdb
+C:\Users\Daniel\Documents\GitHub\EuroPallets\EuroPallets.Common\obj\Debug\EuroPallets.Common.dll
+C:\Users\Daniel\Documents\GitHub\EuroPallets\EuroPallets.Common\obj\Debug\EuroPallets.Common.pdb

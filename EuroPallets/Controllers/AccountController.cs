@@ -88,7 +88,6 @@ namespace EuroPallets.Controllers
             // To enable password failures to trigger account lockout, change to shouldLockout: true
                 var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
 
-            
             switch (result)
             {
                 case SignInStatus.Success:
@@ -439,8 +438,7 @@ namespace EuroPallets.Controllers
 
         //
         // POST: /Account/LogOff
-        [HttpPost]
-        [ValidateAntiForgeryToken]
+     
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);

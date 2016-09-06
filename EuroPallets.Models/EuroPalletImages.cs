@@ -7,8 +7,24 @@ using System.Threading.Tasks;
 
 namespace EuroPallets.Models
 {
-    public class EuroPalletImages : BaseModel<int>
+    public class EuroPalletImage : BaseModel<int>
     {
-        public EuroPalletFurniture EuroPalletFurniture { get; set; }
+        private ICollection<EuroPalletFurnitureEuroPalletImages> euroPalletFurnitureEuroPalletImages;
+
+        public EuroPalletImage()
+        {
+            this.euroPalletFurnitureEuroPalletImages = new HashSet<EuroPalletFurnitureEuroPalletImages>();
+
+        }
+        public int? EuroPalletFurnitureID { get; set; }
+
+        public virtual EuroPalletFurniture EuroPalletFurniture { get; set; }
+
+        public byte[] Image { get; set; }
+        public ICollection<EuroPalletFurnitureEuroPalletImages> EuroPalletFurnitureEuroPalletImages
+        {
+            get { return this.euroPalletFurnitureEuroPalletImages; }
+            set { this.euroPalletFurnitureEuroPalletImages = value; }
+        }
     }
 }

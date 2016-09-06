@@ -5,6 +5,7 @@ namespace EuroPallets.Models.Base
     using System;
     using System.Collections.Generic;
     using System.ComponentModel.DataAnnotations;
+    using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
@@ -22,6 +23,7 @@ namespace EuroPallets.Models.Base
 
         public DateTime? ModifiedOn { get; set; }
 
+        [Index]
         public bool isDeleted { get; set; }
     }
 }

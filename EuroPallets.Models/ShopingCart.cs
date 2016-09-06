@@ -15,5 +15,8 @@ namespace EuroPallets.Models
         }
 
         public ICollection<EuroPalletFurniture> EuroPalletFurnitures { get; set; }
+
+        public string UserID { get; set; }
+        public virtual User User { get; set; }
     }
 }

@@ -11,6 +11,8 @@ namespace EuroPallets.Data
     public interface IEvroPalletsData
     {
         IRepository<User> Users { get; }
+        IRepository<EuroPalletFurniture> EuroPalletFurnitures { get; }
+        IRepository<ShopingCart> ShopingCarts { get; }
         int SaveChanges();   
     }
 }

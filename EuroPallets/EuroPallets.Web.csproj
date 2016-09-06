@@ -229,7 +229,9 @@
     <Compile Include="App_Start\Startup.Auth.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdminController.cs" />
+    <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
+    <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\TestController.cs" />
@@ -242,6 +244,7 @@
     <Compile Include="ViewModels\ManageViewModels.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
+    <Compile Include="ViewModels\ProductsViewModel\ProductsViewModel.cs" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\css\animate.css" />
@@ -279,6 +282,12 @@
     <Content Include="assets\js\plugins\summernote\summernote.min.js" />
     <Content Include="assets\plugins\revolution-slider\rs-plugin\assets\loader.gif" />
     <Content Include="assets\plugins\revolution-slider\rs-plugin\assets\timer.png" />
+    <Content Include="Content\images\ajax-loader.gif" />
+    <Content Include="Content\images\Products\60-diy-furniture-from-euro-pallets-amazing-craft-ideas-for-you-41-130.jpg" />
+    <Content Include="Content\images\Products\diy-furniture-from-euro-pallets-101-craft-ideas-for-wood-pallets-41-359.jpg" />
+    <Content Include="Content\jquery-mobile-custom.min.css" />
+    <Content Include="Content\jquery.mobile.icons.min.css" />
+    <Content Include="Content\bootstrap-slider.min.css" />
     <Content Include="Home\assets\img\1.jpg" />
     <Content Include="Home\assets\img\2.jpg" />
     <Content Include="Home\assets\img\3.jpg" />
@@ -513,6 +522,7 @@
     <Content Include="Content\plugins\slick\fonts\slick.woff" />
     <Content Include="Scripts\app\inspinia.js" />
     <Content Include="Scripts\app\skin.config.min.js" />
+    <Content Include="Scripts\bootstrap-slider.min.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
     <Content Include="Scripts\jquery-2.1.1.js" />
@@ -994,9 +1004,13 @@
     <Content Include="Views\Admin\AdminPanel.cshtml" />
     <Content Include="Views\Products\ShowUserCart.cshtml" />
     <Content Include="Views\Admin\EmailEditor.cshtml" />
+    <Content Include="Views\Shared\_LeftSideBar.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="Models\" />
+    <Folder Include="Views\Base\" />
+    <Folder Include="Views\Image\" />
   </ItemGroup>
   <ItemGroup>
     <Content Include="packages.config" />

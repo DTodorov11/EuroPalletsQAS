@@ -27,6 +27,22 @@ namespace EuroPallets.Data
             }
         }
 
+        public IRepository<EuroPalletFurniture> EuroPalletFurnitures
+        {
+            get
+            {
+                return this.GetRepository<EuroPalletFurniture>();
+            }
+        }
+
+        public IRepository<ShopingCart> ShopingCarts
+        {
+            get
+            {
+                return this.GetRepository<ShopingCart>();
+            }
+        }
+
         public int SaveChanges()
         {
             return this.context.SaveChanges();

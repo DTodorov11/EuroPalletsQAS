@@ -15,7 +15,6 @@ namespace EuroPallets.Models
         public ShopingCart ShopingCart { get; set; }
 
 
-
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {
 

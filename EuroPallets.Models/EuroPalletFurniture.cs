@@ -1,22 +1,29 @@
 ﻿namespace EuroPallets.Models
 {
     using EuroPallets.Models.Base;
+    using Helper;
     using System;
     using System.Collections.Generic;
+    using System.ComponentModel.DataAnnotations.Schema;
     using System.Linq;
     using System.Text;
     using System.Threading.Tasks;
 
     public class EuroPalletFurniture : BaseModel<int>
     {
+        private ICollection<EuroPalletFurnitureEuroPalletImages> euroPalletFurnitureEuroPalletImages;
+
         public EuroPalletFurniture()
         {
-            this.EuroPalletImages = new HashSet<EuroPalletImages>();
+            this.euroPalletFurnitureEuroPalletImages = new HashSet<EuroPalletFurnitureEuroPalletImages>();
+            this.EuroPalletImages = new HashSet<EuroPalletImage>();
             this.GlobalCategorys = new HashSet<GlobalCategory>();
             this.ShopingCarts = new HashSet<ShopingCart>();
         }
 
         public string Name { get; set; }
+
+        public string Name_Description { get; set; }
 
         //public byte[] ShemePicture { get; set; }
         public string Description { get; set; }
@@ -25,11 +32,11 @@
 
         public int Rating { get; set; }
 
-        public ICollection<EuroPalletImages> EuroPalletImages { get; set; }
-        public ICollection<GlobalCategory> GlobalCategorys { get; set; }
-        public ICollection<ShopingCart> ShopingCarts { get; set; }
+        public virtual ICollection<EuroPalletImage> EuroPalletImages { get; set; }
+        public virtual ICollection<GlobalCategory> GlobalCategorys { get; set; }
+        public virtual ICollection<ShopingCart> ShopingCarts { get; set; }
 
-        public int CategoryId { get; set; }
+        public int? CategoryId { get; set; }
 
         public Category Category { get; set; }
 
@@ -42,5 +49,14 @@
         public int Quantity { get; set; }
 
         public bool IsAvailable { get; set; }
+
+        [NotMapped]
+        public Pager Pager { get; set; }
+
+        public ICollection<EuroPalletFurnitureEuroPalletImages> EuroPalletFurnitureEuroPalletImages
+        {
+            get { return this.euroPalletFurnitureEuroPalletImages; }
+            set { this.euroPalletFurnitureEuroPalletImages = value; }
+        }
     }
 }

@@ -10,6 +10,13 @@ namespace EuroPallets.Data
 {
     public interface IEuroPalletsDbContext
     {
+        IDbSet<Category> Categories { get; set; }
+        IDbSet<EuroPalletFurniture> EuroPalletFurnituries { get; set; }
+        IDbSet<EuroPalletImage> EuroPalletImages { get; set; }
+        IDbSet<GlobalCategory> GlobalCategories { get; set; }
+        IDbSet<ShopingCart> ShopingCart { get; set; }
+        IDbSet<Specification> Specifications { get; set; }
+        IDbSet<AnonymousShopingCart> AnonymousShopingCarts { get; set; }
         int SaveChanges();
     }
 }

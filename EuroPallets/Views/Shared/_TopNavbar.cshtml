@@ -1,5 +1,4 @@
-﻿
-   <!--=== Header v5 ===-->
+﻿<!--=== Header v5 ===-->
 <div class="header-v5 header-static">
     <!-- Topbar v3 -->
     <div class="topbar-v3">
@@ -46,6 +45,7 @@
                             <li><a href="shop-ui-add-to-cart.html">Wishlist (0)</a></li>
                             <li>Hello, @User.Identity.Name</li>
                             <li><i class="search fa fa-search search-button"></i></li>
+                            <li>@Html.ActionLink("Log out", "LogOff", "Account")</li>
                         </ul>
                     </div>
                 }

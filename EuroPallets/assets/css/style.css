@@ -521,7 +521,6 @@ body.canvas-menu.mini-navbar nav.navbar-static-side {
   margin-top: 0;
 }
 .top-navigation .navbar-brand {
-  background: #1ab394;
   color: #fff;
   padding: 15px 25px;
 }
@@ -3489,7 +3488,7 @@ ol.unstyled {
   bottom: 0;
   left: 0;
   padding: 10px 20px;
-  position: absolute;
+  /*position: absolute;*/
   right: 0;
 }
 .footer.fixed_full {

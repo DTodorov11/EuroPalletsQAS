@@ -243,6 +243,7 @@
 /*Badge Open*/
 .header-v5 .shop-badge:hover .badge-open {
     display: block;
+    z-index:100000;
 }
 
 .header-v5 .badge-open {

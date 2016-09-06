@@ -7,7 +7,6 @@ namespace EuroPallets.ViewModels.EmailViewModel
 {
     public enum EmailType
     {
-        ConfirmationEmail =1 ,
-
+        ConfirmationEmail = 1,
     }
 }

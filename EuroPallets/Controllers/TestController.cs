@@ -20,16 +20,21 @@ namespace EuroPallets.Controllers
             this.userServices = userServices;
         }
 
-        // GET: Test
-        public ActionResult Index()
-        {
-            EuroPalletsDbContext context = new EuroPalletsDbContext();
-            var test = context.Users.ToList();
+        //// GET: Test
+        //[HttpGet]
+        //public ActionResult Index(int? page)
+        //{
+        //    var dummyItems = Enumerable.Range(1, 150).Select(x => "Item " + x);
+        //    var pager = new Pager(dummyItems.Count(), page);
 
-            var currentUsers = this.userServices.TakeUserByUserName("");
+        //    var viewModel = new IndexViewModels
+        //    {
+        //        Items = dummyItems.Skip((pager.CurrentPage - 1) * pager.PageSize).Take(pager.PageSize),
+        //        Pager = pager
+        //    };
 
-            return View();
-        }
+        //    return View(viewModel);
+        //}
 
         public ActionResult Test()
         {

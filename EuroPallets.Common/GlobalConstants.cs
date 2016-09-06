@@ -15,9 +15,14 @@ namespace EuroPallets.Common
         public const string CustomerRoleName = "Customer";
 
         public const string SuccessfullRegistration = "Successfull Registration";
+        public const string SuccessfullAddProductToCard = "Successfull Add Product To Cart";
+
+        public const string RegistrationIsNeeded = "You need to create account to procceed this action !";
+
 
 #if DEBUG
-        public const string EmailtemplateFolder = "../../Users/LapTop/Documents/GitHub/EuroPalletsQAS/EuroPallets/Content/EmailEditor/";
+        public const string EmailtemplateFolder = "../../Users/Daniel/Documents/GitHub/EuroPallets/EuroPallets/Content/EmailEditor/";
+        //public const string EmailtemplateFolder = "../../Users/LapTop/Documents/GitHub/EuroPalletsQAS/EuroPallets/Content/EmailEditor/";
 #else
         public const string EmailtemplateFolder = "C:\\...\\...\\...\\Content\\EmailEditor\\";
 #endif

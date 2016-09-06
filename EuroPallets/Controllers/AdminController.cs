@@ -36,7 +36,7 @@ namespace EuroPallets.Controllers
                     }
                     return this.View();
                 }
-                catch (System.Exception ex) { }
+                catch (Exception ex) { }
             }
             return this.RedirectToAction("Index", "Admin");
         }

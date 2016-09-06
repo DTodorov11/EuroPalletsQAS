@@ -1,110 +1,101 @@
-﻿
+﻿@model EuroPallets.ViewModels.ProductsViewModel.ProductsViewModel
+
 <link href="~/assets/css/animate.css" rel="stylesheet">
 <link href="~/assets/css/style.css" rel="stylesheet">
 
+
+
 <div id="wrapper">
-    <div id="page-wrapper" class="gray-bg">
-        <div class="row border-bottom">
-            <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0">
-                <div class="navbar-header">
-                    <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
-                    <form role="search" class="navbar-form-custom" action="search_results.html">
-                        <div class="form-group">
-                            <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
-                        </div>
-                    </form>
-                </div>
+    @*== LEFT SIDE BAR ==*@
+    <div class="col-md-2">
+        @Html.Partial("_LeftSideBar")
+    </div>
 
-            </nav>
-        </div>
-        <div class="wrapper wrapper-content animated fadeInRight">
+    @*== END LEFT SIDE BAR ==*@
 
-            @for (int i = 0; i < 3; i++)
-            {
+    @*== SEARCH ==*@
+    <div class="col-md-10 col-xs-12">
+        <div id="page-wrapper" class="gray-bg">
+            <div class="row border-bottom">
+                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0; z-index: 0">
+                    <div class="navbar-header">
+                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
+                        <form role="search" class="navbar-form-custom" action="search_results.html">
+                            <div class="form-group">
+                                <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
+                            </div>
+                        </form>
+                    </div>
+
+                </nav>
+            </div>
+            @*== END SEARCH ==*@
+
+            <div class="wrapper wrapper-content animated fadeInRight">
                 <div class="row">
-                    <div class="col-md-4">
-                        <div class="ibox">
-                            <div class="ibox-content product-box">
 
-                                <div class="product-imitation">
-                                    <img id="logo-header" src="/assets/img/logo.png" alt="Logo">
-                                </div>
-                                <div class="product-desc">
-                                    <span class="product-price">
-                                        $10
-                                    </span>
-                                    <small class="text-muted">Category</small>
-                                    <a href="#" class="product-name"> Product</a>
-
-
-
-                                    <div class="small m-t-xs">
-                                        Many desktop publishing packages and web page editors now.
+                    @foreach (var item in Model.EuroPalletFurniture)
+                    {
+                        <div class="col-md-4">
+                            <div class="ibox">
+                                <div class="ibox-content product-box">
+                                    <div class="product-imitation">
+                                        <img id="logo-header" style="width:100%" src=@Url.Action("Show", "Image", new { id = item.Id }) alt="Logo">
                                     </div>
-                                    <div class="m-t text-righ">
-
-                                        <a href="/Products/ShowProductDetails/12" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="ibox">
-                            <div class="ibox-content product-box">
-
-                                <div class="product-imitation">
-                                    <img id="logo-header" src="/assets/img/logo.png" alt="Logo">
-                                </div>
-                                <div class="product-desc">
-                                    <span class="product-price">
-                                        $10
-                                    </span>
-                                    <small class="text-muted">Category</small>
-                                    <a href="#" class="product-name"> Product</a>
-
-
-
-                                    <div class="small m-t-xs">
-                                        Many desktop publishing packages and web page editors now.
-                                    </div>
-                                    <div class="m-t text-righ">
-
-                                        <a href="/Products/ShowProductDetails/12" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
+                                    <div class="product-desc">
+                                        <span class="product-price">
+                                            $10
+                                        </span>
+                                        <small class="text-muted">Category</small>
+                                        <a href="#" class="product-name"> Product</a>
+                                        <div class="small m-t-xs">
+                                            Many desktop publishing packages and web page editors now.
+                                        </div>
+                                        <div class="m-t text-righ">
+                                            <a href=@Url.Action("ShowProductDetails", "Products",new {id=item.Id }) class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
+                                        </div>
                                     </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="ibox">
-                            <div class="ibox-content product-box">
+                    }
 
-                                <div class="product-imitation">
-                                    <img id="logo-header" src="/assets/img/logo.png" alt="Logo">
-                                </div>
-                                <div class="product-desc">
-                                    <span class="product-price">
-                                        $10
-                                    </span>
-                                    <small class="text-muted">Category</small>
-                                    <a href="#" class="product-name"> Product</a>
-
-
-
-                                    <div class="small m-t-xs">
-                                        Many desktop publishing packages and web page editors now.
-                                    </div>
-                                    <div class="m-t text-righ">
-
-                                        <a href="/Products/ShowProductDetails/12" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
                 </div>
-            }
+
+                @*== PAGER ==*@
+                @if (Model.Pager.EndPage > 1)
+                {
+                    <ul class="pagination">
+                        @if (Model.Pager.CurrentPage > 1)
+                        {
+                        <li>
+                            <a href="~/Products/Index">First</a>
+                        </li>
+                        <li>
+                            <a href="~/Products/Index?page=@(Model.Pager.CurrentPage - 1)">Previous</a>
+                        </li>
+                        }
+
+                        @for (var page = Model.Pager.StartPage; page <= Model.Pager.EndPage; page++)
+                        {
+                        <li class="@(page == Model.Pager.CurrentPage ? "active" : "")">
+                            <a href="~/Products/Index?page=@page">@page</a>
+                        </li>
+                        }
+
+                        @if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
+                        {
+                        <li>
+                            <a href="~/Products/Index?page=@(Model.Pager.CurrentPage + 1)">Next</a>
+                        </li>
+                        <li>
+                            <a href="~/Products/Index?page=@(Model.Pager.TotalPages)">Last</a>
+                        </li>
+                        }
+                    </ul>
+                }
+                @*==END PAGER==*@
+            </div>
         </div>
     </div>
 </div>
@@ -116,3 +107,4 @@
 <!-- Custom and plugin javascript -->
 <script src="~/assets/js/inspinia.js"></script>
 <script src="~/assets/js/plugins/pace/pace.min.js"></script>
+

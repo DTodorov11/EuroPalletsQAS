@@ -69,15 +69,15 @@ namespace EuroPallets.Controllers
                     this.Data.ShopingCarts.Add(new ShopingCart());
                     this.Data.SaveChanges();
 
-                    var cart = this.Data.ShopingCarts.All().ToList().LastOrDefault();
+                    var cartId = this.Data.ShopingCarts.All().Select(x => x.Id).ToList().LastOrDefault();
 
                     this.Data.ShopingCartEuroPalllets.Add(new ShopingCartEuroPalllets()
                     {
                         ItemQuantity = 1,
                         EuroPalletFurnitureID = productToAdd.Id,
-                        ShopingCartID = cart.Id
+                        ShopingCartID = cartId
                     });
-                    this.UserProfile.ShopingCartEuroPallletsId = cart.Id;
+                    this.UserProfile.ShopingCartEuroPallletsId = cartId;
                     this.Data.SaveChanges();
                 }
                 else
@@ -87,7 +87,7 @@ namespace EuroPallets.Controllers
                        .Where(x => x.Id == this.UserProfile.ShopingCartEuroPallletsId)
                        .ToList();
 
-                    if (cart[0].ShopingCartEuroPalllets.Where(x=>x.EuroPalletFurnitureID== productToAdd.Id).FirstOrDefault() != null)
+                    if (cart[0].ShopingCartEuroPalllets.Where(x => x.EuroPalletFurnitureID == productToAdd.Id).FirstOrDefault() != null)
                     {
                         cart[0].ShopingCartEuroPalllets.Where(x => x.EuroPalletFurnitureID == productToAdd.Id)
                             .FirstOrDefault().ItemQuantity += 1;

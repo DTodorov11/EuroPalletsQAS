@@ -38,11 +38,11 @@
 
         public int? CategoryId { get; set; }
 
-        public Category Category { get; set; }
+        public virtual Category Category { get; set; }
 
         public int? SpecificationId { get; set; }
 
-        public Specification Specification { get; set; }
+        public virtual Specification Specification { get; set; }
 
         public decimal DeliveryPrice { get; set; }
 
@@ -53,7 +53,7 @@
         [NotMapped]
         public Pager Pager { get; set; }
 
-        public ICollection<EuroPalletFurnitureEuroPalletImages> EuroPalletFurnitureEuroPalletImages
+        public virtual ICollection<EuroPalletFurnitureEuroPalletImages> EuroPalletFurnitureEuroPalletImages
         {
             get { return this.euroPalletFurnitureEuroPalletImages; }
             set { this.euroPalletFurnitureEuroPalletImages = value; }

@@ -27,6 +27,14 @@ namespace EuroPallets.Data
             }
         }
 
+        public IRepository<ShopingCartEuroPalllets> ShopingCartEuroPalllets
+        {
+            get
+            {
+                return this.GetRepository<ShopingCartEuroPalllets>();
+            }
+        }
+
         public IRepository<EuroPalletFurniture> EuroPalletFurnitures
         {
             get

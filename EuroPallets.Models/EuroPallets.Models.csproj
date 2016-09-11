@@ -68,6 +68,7 @@
     <Compile Include="GlobalCategory.cs" />
     <Compile Include="Helper\Pager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="ShopingCartEuroPalllets.cs" />
     <Compile Include="Specification.cs" />
     <Compile Include="ShopingCart.cs" />
     <Compile Include="User.cs" />

@@ -36,6 +36,7 @@ namespace EuroPallets.Data
         public virtual IDbSet<GlobalCategory> GlobalCategories { get; set; }
         public virtual IDbSet<ShopingCart> ShopingCart { get; set; }
         public virtual IDbSet<Specification> Specifications { get; set; }
+        public virtual IDbSet<ShopingCartEuroPalllets> ShopingCartEuroPalllets { get; set; }
         public virtual IDbSet<AnonymousShopingCart> AnonymousShopingCarts { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
@@ -44,7 +45,7 @@ namespace EuroPallets.Data
             modelBuilder.Entity<IdentityRole>().HasKey(r => r.Id);
             modelBuilder.Entity<IdentityUserRole>().HasKey(r => new { r.RoleId, r.UserId });
             modelBuilder.Entity<Specification>().HasKey(x => x.EuroPalletFurnitureId).HasRequired(x=>x.EuroPalletFurniture);
-            modelBuilder.Entity<ShopingCart>().HasKey(x => x.UserID).HasRequired(x => x.User);
+            //modelBuilder.Entity<ShopingCart>().HasKey(x => x.UserID).HasRequired(x => x.User);
 
 
             //modelBuilder.Conventions.Remove<OneToManyCascadeDeleteConvention>();

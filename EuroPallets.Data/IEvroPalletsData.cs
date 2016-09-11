@@ -13,6 +13,7 @@ namespace EuroPallets.Data
         IRepository<User> Users { get; }
         IRepository<EuroPalletFurniture> EuroPalletFurnitures { get; }
         IRepository<ShopingCart> ShopingCarts { get; }
+        IRepository<ShopingCartEuroPalllets> ShopingCartEuroPalllets { get; }
         int SaveChanges();   
     }
 }

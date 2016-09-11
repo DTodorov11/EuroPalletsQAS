@@ -14,7 +14,7 @@ namespace EuroPallets.Models
     {
         public int EuroPalletFurnitureId { get; set; }
 
-        public EuroPalletFurniture EuroPalletFurniture { get; set; }
+        public virtual EuroPalletFurniture EuroPalletFurniture { get; set; }
 
         public string Type { get; set; }
         public string Material { get; set; }

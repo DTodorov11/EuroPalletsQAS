@@ -45,9 +45,11 @@ namespace EuroPallets.Controllers
 
         public ActionResult ShowUserCart(string userId)
         {
-            ShopingCart userCard = this.Data.Users.Find(userId).ShopingCart;
+            //ShopingCart userCard = this.Data.Users.Find(userId).ShopingCartEuroPalllets.
 
-            return View(userCard);
+            //return View(userCard);
+
+            return View();
         }
 
         #region Helper
@@ -60,10 +62,37 @@ namespace EuroPallets.Controllers
             {
                 //TODO
                 //CHECK IF ITEM IS ALLREADY EXIST
+                if (this.UserProfile.ShopingCartEuroPalllets == null)
+                {
+                    this.Data.ShopingCarts.Add(new ShopingCart());
+                    this.Data.SaveChanges();
 
-                this.UserProfile.ShopingCart.EuroPalletFurnitures.Add(productToAdd);
+                    var asd = this.Data.ShopingCarts.All().ToList().LastOrDefault().Id;
 
-                this.Data.SaveChanges();
+                    this.Data.ShopingCartEuroPalllets.Add(new ShopingCartEuroPalllets()
+                    {
+                        ItemQuantity = 1,
+                        EuroPalletFurnitureID = productToAdd.Id,
+                        ShopingCartID = asd
+                    });
+
+                    this.Data.SaveChanges();
+                }
+                else
+                {
+                    //if (this.UserProfile.ShopingCart.EuroPalletFurnitures.Any(x => x.Id == productToAdd.Id))
+                    //{
+
+                    //}
+                    //else
+                    //{
+                    //    this.UserProfile.ShopingCart.EuroPalletFurnitures.Add(productToAdd);
+                    //}
+
+                    this.Data.SaveChanges();
+                    var currentuser = this.UserProfile;
+                }
+
             }
             else
             {

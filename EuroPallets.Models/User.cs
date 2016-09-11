@@ -11,9 +11,15 @@ namespace EuroPallets.Models
 {
     public class User : IdentityUser
     {
-        public int? ShopingCartId { get; set; }
-        public ShopingCart ShopingCart { get; set; }
+        public User()
+        {
+            //this.ShopingCartEuroPalllets = new HashSet<ShopingCartEuroPalllets>();
+        }
+        //public int? ShopingCartId { get; set; }
+        //public virtual ShopingCart ShopingCart { get; set; }
 
+        public int ShopingCartEuroPallletsId { get; set; }
+        public virtual ShopingCartEuroPalllets ShopingCartEuroPalllets { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)
         {

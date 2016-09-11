@@ -12,3 +12,4 @@ C:\Users\Daniel\Documents\GitHub\EuroPallets\EuroPallets.Common\bin\Debug\EuroPa
 C:\Users\Daniel\Documents\GitHub\EuroPallets\EuroPallets.Common\bin\Debug\EuroPallets.Common.pdb
 C:\Users\Daniel\Documents\GitHub\EuroPallets\EuroPallets.Common\obj\Debug\EuroPallets.Common.dll
 C:\Users\Daniel\Documents\GitHub\EuroPallets\EuroPallets.Common\obj\Debug\EuroPallets.Common.pdb
+C:\Users\Daniel\Documents\GitHub\EuroPallets\EuroPallets.Common\obj\Debug\EuroPallets.Common.csprojResolveAssemblyReference.cache

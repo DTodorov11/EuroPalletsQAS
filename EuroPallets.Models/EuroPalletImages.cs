@@ -21,7 +21,7 @@ namespace EuroPallets.Models
         public virtual EuroPalletFurniture EuroPalletFurniture { get; set; }
 
         public byte[] Image { get; set; }
-        public ICollection<EuroPalletFurnitureEuroPalletImages> EuroPalletFurnitureEuroPalletImages
+        public virtual ICollection<EuroPalletFurnitureEuroPalletImages> EuroPalletFurnitureEuroPalletImages
         {
             get { return this.euroPalletFurnitureEuroPalletImages; }
             set { this.euroPalletFurnitureEuroPalletImages = value; }

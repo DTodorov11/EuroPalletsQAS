@@ -16,6 +16,6 @@ namespace EuroPallets.Models
             this.EuroPalletFurnitures = new HashSet<EuroPalletFurniture>();
         }
 
-        public ICollection<EuroPalletFurniture> EuroPalletFurnitures { get; set; }
+        public virtual ICollection<EuroPalletFurniture> EuroPalletFurnitures { get; set; }
     }
 }

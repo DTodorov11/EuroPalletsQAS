@@ -256,6 +256,7 @@
     <Content Include="assets\css\plugins\summernote\summernote-bs3.css" />
     <Content Include="assets\css\plugins\summernote\summernote.css" />
     <Content Include="assets\css\plugins\toastr\toastr.min.css" />
+    <Content Include="assets\css\plugins\toastr\toastr.min.js" />
     <Content Include="assets\css\style.css" />
     <Content Include="assets\img\1.jpg" />
     <Content Include="assets\css\app.css" />

@@ -74,8 +74,8 @@ namespace EuroPallets.Data.Migrations
 
         private static void SeedEuroPalletsFurnitures(EuroPalletsDbContext context)
         {
-            var image = GetPhoto(@"C:\Users\Daniel\Documents\GitHub\EuroPallets\EuroPallets\Content\images\Products\diy-furniture-from-euro-pallets-101-craft-ideas-for-wood-pallets-41-359.jpg");
-            var image2 = GetPhoto(@"C:\Users\Daniel\Documents\GitHub\EuroPallets\EuroPallets\Content\images\Products\60-diy-furniture-from-euro-pallets-amazing-craft-ideas-for-you-41-130.jpg");
+            var image = GetPhoto(@"C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets\Content\images\Products\diy-furniture-from-euro-pallets-101-craft-ideas-for-wood-pallets-41-359.jpg");
+            var image2 = GetPhoto(@"C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets\Content\images\Products\60-diy-furniture-from-euro-pallets-amazing-craft-ideas-for-you-41-130.jpg");
 
             for (int i = 0; i < 10; i++)
             {

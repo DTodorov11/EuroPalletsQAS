@@ -65,7 +65,7 @@ namespace EuroPallets.Data
             {
                 //TODO
                 //EXCEPTION
-                throw new Exception(ex.ToString());
+               throw new Exception(ex.ToString());
             }
         }
         private void ApplyAuditInfoRules()

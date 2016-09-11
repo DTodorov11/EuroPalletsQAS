@@ -1,14 +1,16 @@
-﻿using Microsoft.AspNet.Identity;
-using Microsoft.AspNet.Identity.EntityFramework;
-using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Security.Claims;
-using System.Text;
-using System.Threading.Tasks;
+﻿
 
 namespace EuroPallets.Models
 {
+    using Microsoft.AspNet.Identity;
+    using Microsoft.AspNet.Identity.EntityFramework;
+    using System;
+    using System.Collections.Generic;
+    using System.Linq;
+    using System.Security.Claims;
+    using System.Text;
+    using System.Threading.Tasks;
+
     public class User : IdentityUser
     {
         public User()
@@ -18,7 +20,7 @@ namespace EuroPallets.Models
         //public int? ShopingCartId { get; set; }
         //public virtual ShopingCart ShopingCart { get; set; }
 
-        public int ShopingCartEuroPallletsId { get; set; }
+        public int? ShopingCartEuroPallletsId { get; set; }
         public virtual ShopingCartEuroPalllets ShopingCartEuroPalllets { get; set; }
 
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<User> manager)

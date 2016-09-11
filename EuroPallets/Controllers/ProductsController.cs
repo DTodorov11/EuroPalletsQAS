@@ -3,6 +3,7 @@ using EuroPallets.Data;
 using EuroPallets.Models;
 using EuroPallets.Models.Helper;
 using EuroPallets.ViewModels.ProductsViewModel;
+using Microsoft.AspNet.Identity;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -20,7 +21,7 @@ namespace EuroPallets.Controllers
         {
 
         }
-        // GET: Products
+
         public ActionResult Index(int? page)
         {
             var allEuroPalletsFurniture = this.Data.EuroPalletFurnitures.All().ToList();
@@ -36,6 +37,7 @@ namespace EuroPallets.Controllers
 
             return View(viewModel);
         }
+
         public ActionResult ShowProductDetails(int? id)
         {
             var currentFurniture = this.Data.EuroPalletFurnitures.All().FirstOrDefault(x => x.Id == id);
@@ -62,37 +64,45 @@ namespace EuroPallets.Controllers
             {
                 //TODO
                 //CHECK IF ITEM IS ALLREADY EXIST
-                if (this.UserProfile.ShopingCartEuroPalllets == null)
+                if (this.UserProfile.ShopingCartEuroPallletsId == null)
                 {
                     this.Data.ShopingCarts.Add(new ShopingCart());
                     this.Data.SaveChanges();
 
-                    var asd = this.Data.ShopingCarts.All().ToList().LastOrDefault().Id;
+                    var cart = this.Data.ShopingCarts.All().ToList().LastOrDefault();
 
                     this.Data.ShopingCartEuroPalllets.Add(new ShopingCartEuroPalllets()
                     {
                         ItemQuantity = 1,
                         EuroPalletFurnitureID = productToAdd.Id,
-                        ShopingCartID = asd
+                        ShopingCartID = cart.Id
                     });
-
+                    this.UserProfile.ShopingCartEuroPallletsId = cart.Id;
                     this.Data.SaveChanges();
                 }
                 else
                 {
-                    //if (this.UserProfile.ShopingCart.EuroPalletFurnitures.Any(x => x.Id == productToAdd.Id))
-                    //{
+                    var cart = this.Data.ShopingCarts
+                       .All()
+                       .Where(x => x.Id == this.UserProfile.ShopingCartEuroPallletsId)
+                       .ToList();
 
-                    //}
-                    //else
-                    //{
-                    //    this.UserProfile.ShopingCart.EuroPalletFurnitures.Add(productToAdd);
-                    //}
-
+                    if (cart[0].ShopingCartEuroPalllets.Where(x=>x.EuroPalletFurnitureID== productToAdd.Id).FirstOrDefault() != null)
+                    {
+                        cart[0].ShopingCartEuroPalllets.Where(x => x.EuroPalletFurnitureID == productToAdd.Id)
+                            .FirstOrDefault().ItemQuantity += 1;
+                    }
+                    else
+                    {
+                        this.Data.ShopingCartEuroPalllets.Add(new ShopingCartEuroPalllets()
+                        {
+                            ItemQuantity = 1,
+                            EuroPalletFurnitureID = productToAdd.Id,
+                            ShopingCartID = cart[0].Id
+                        });
+                    }
                     this.Data.SaveChanges();
-                    var currentuser = this.UserProfile;
                 }
-
             }
             else
             {

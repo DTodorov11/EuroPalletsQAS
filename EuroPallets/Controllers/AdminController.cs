@@ -1,4 +1,6 @@
 ﻿using EuroPallets.Common;
+using EuroPallets.Models;
+using EuroPallets.ViewModels.ProductsViewModel;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -52,6 +54,19 @@ namespace EuroPallets.Controllers
             }
 
             return this.Json("<h1><span style=\"font-weight: bold; \">No Template</span></h1>");
+        }
+
+        public ActionResult UploadNewItem()
+        {
+            var model = new ProductsViewModel() ;
+            model.EuroPalletFurniture = new List<EuroPalletFurniture>();
+            return this.View(model);
+        }
+
+        [HttpPost]
+        public ActionResult UploadNewItem(ProductsViewModel model)
+        {
+            return this.View();
         }
     }
 }

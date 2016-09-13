@@ -1,0 +1,4 @@
+EuroPallets/bin/EuroPallets.dll.config
+.vs/config/applicationhost.config
+EuroPallets.Data/Migrations/Configuration.cs
+EuroPallets/Web.config

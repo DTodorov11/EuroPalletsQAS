@@ -249,6 +249,9 @@
   <ItemGroup>
     <Content Include="assets\css\animate.css" />
     <Content Include="assets\css\pages\log-reg.css" />
+    <Content Include="assets\css\plugins\dropzone\basic.css" />
+    <Content Include="assets\css\plugins\dropzone\dropzone.css" />
+    <Content Include="assets\css\plugins\images\spritemap.png" />
     <Content Include="assets\css\plugins\slick\ajax-loader.gif" />
     <Content Include="assets\css\plugins\slick\fonts\slick.svg" />
     <Content Include="assets\css\plugins\slick\slick-theme.css" />
@@ -275,6 +278,7 @@
     <Content Include="assets\img\map.png" />
     <Content Include="assets\img\twitter-bg.jpg" />
     <Content Include="assets\js\inspinia.js" />
+    <Content Include="assets\js\plugins\dropzone\dropzone.js" />
     <Content Include="assets\js\plugins\metisMenu\jquery.metisMenu.js" />
     <Content Include="assets\js\plugins\pace\pace.min.js" />
     <Content Include="assets\js\plugins\slick\slick.min.js" />
@@ -1006,6 +1010,17 @@
     <Content Include="Views\Products\ShowUserCart.cshtml" />
     <Content Include="Views\Admin\EmailEditor.cshtml" />
     <Content Include="Views\Shared\_LeftSideBar.cshtml" />
+    <Content Include="Views\Admin\UploadNewItem.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\String.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\TrueOrFalseDropdown.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Password.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Multiline.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Int32.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Enum.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Dropdown.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Double.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
+    <Content Include="Views\Shared\EditorTemplates\Bool.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

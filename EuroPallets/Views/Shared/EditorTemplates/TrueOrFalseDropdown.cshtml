@@ -1,0 +1,20 @@
+
+<div class="form-group">
+    @Html.LabelFor(m => m, new { @class = "col-md-3 control-label" })
+    <div class="col-md-6">
+        @Html.DropDownList(
+    "",
+    new SelectList(
+        new[]
+        {
+            new { Value = "false", Text = "False" },
+            new { Value = "true", Text = "True" },
+        },
+        "Value",
+        "Text",
+        Model
+    ), new { @class = "form-control" })
+
+        @Html.ValidationMessageFor(m => m, null, new { @class = "text-danger" })
+    </div>
+</div>

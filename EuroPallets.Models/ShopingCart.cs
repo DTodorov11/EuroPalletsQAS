@@ -17,6 +17,10 @@ namespace EuroPallets.Models
 
         public virtual ICollection<ShopingCartEuroPalllets> ShopingCartEuroPalllets { get; set; }
 
+
+        public int? UserId { get; set; }
+        public virtual User User { get; set; }
+
         //public virtual ICollection<EuroPalletFurniture> EuroPalletFurnitures { get; set; }
 
         //public string UserID { get; set; }

@@ -14,6 +14,7 @@ namespace EuroPallets.Data
         IRepository<EuroPalletFurniture> EuroPalletFurnitures { get; }
         IRepository<ShopingCart> ShopingCarts { get; }
         IRepository<ShopingCartEuroPalllets> ShopingCartEuroPalllets { get; }
+        IRepository<GlobalCategory> GlobalCategories { get; }
         int SaveChanges();   
     }
 }

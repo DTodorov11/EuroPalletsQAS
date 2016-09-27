@@ -1,6 +1,4 @@
-﻿
-
-namespace EuroPallets.Models
+﻿namespace EuroPallets.Models
 {
     using EuroPallets.Models.Base;
     using System;
@@ -14,8 +12,12 @@ namespace EuroPallets.Models
         public GlobalCategory()
         {
             this.EuroPalletFurnitures = new HashSet<EuroPalletFurniture>();
+            this.SubCategories = new HashSet<SubCategory>();
         }
+        public string Name { get; set; }
 
         public virtual ICollection<EuroPalletFurniture> EuroPalletFurnitures { get; set; }
+
+        public virtual ICollection<SubCategory> SubCategories { get; set; }
     }
 }

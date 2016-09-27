@@ -1,5 +1,6 @@
 ﻿using EuroPallets.Data;
 using EuroPallets.Models;
+using EuroPallets.ViewModels.MainViewModel;
 using System;
 using System.Collections.Generic;
 using System.IO;
@@ -10,11 +11,17 @@ using System.Web.Mvc;
 
 namespace EuroPallets.Controllers
 {
-    public class HomeController : Controller
+    public class HomeController : BaseController
     {
+        public HomeController(IEvroPalletsData data)
+            :base(data)
+        {
+
+        }
+
         public ActionResult Index()
         {
-            return View();
+            return View(this.Data.EuroPalletFurnitures.All());
         }
 
         public ActionResult About()

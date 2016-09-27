@@ -1,4 +1,10 @@
-﻿<!DOCTYPE html>
+﻿@using EuroPallets.ViewModels.MainViewModel;
+
+@{
+    var viewModel = (MainLayoutViewModel)ViewBag.MainLayoutViewModel;
+}
+
+<!DOCTYPE html>
 <html>
 <head>
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
@@ -8,8 +14,6 @@
     <title>INSPINIA | @ViewBag.Title</title>
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,600,700' rel='stylesheet' type='text/css'>
     <!-- Add local styles, mostly for plugins css file -->
- 
-
     <!-- Favicon -->
     <link rel="shortcut icon" href="favicon.ico">
     <!-- Web Fonts -->
@@ -29,7 +33,7 @@
     <link href="~/assets/css/plugins/toastr/toastr.min.css" rel="stylesheet">
 
     <style>
-         .navbar navbar-static-top {
+        .navbar navbar-static-top {
             z-index: 0 !important;
         }
     </style>
@@ -40,10 +44,7 @@
 </head>
 <body class="top-navigation">
 
-    <script src="~/Scripts/jquery-2.1.1.min.js"></script>
-    <script src="~/assets/plugins/jquery/jquery-migrate.min.js"></script>
-    <script src="~/Scripts/bootstrap.min.js"></script>
-
+ 
     <!-- Skin configuration box -->
     @Html.Partial("_SkinConfig")
 
@@ -69,6 +70,9 @@
     </div>
     <!-- End wrapper-->
     <!-- Section for main scripts render -->
+    <script src="~/Scripts/jquery-2.1.1.min.js"></script>
+    <script src="~/assets/plugins/jquery/jquery-migrate.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
     <!-- JS Global Compulsory -->
     <!-- JS Implementing Plugins -->
     <script src="~/assets/plugins/back-to-top.js"></script>
@@ -78,12 +82,11 @@
     <script src="~/assets/plugins/scrollbar/js/jquery.mCustomScrollbar.concat.min.js"></script>
     <script src="~/assets/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
     <script src="~/assets/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+    <script src="~/Scripts/my-custom-js.js"></script>
     <script src="~/assets/js/shop.app.js"></script>
     <script src="~/assets/js/plugins/owl-carousel.js"></script>
     <script src="~/assets/js/plugins/revolution-slider.js"></script>
-    <script src="~/assets/css/plugins/toastr/toastr.min.js"></script>
-    @*<script src="~/assets/js/plugins/style-switcher.js"></script>*@
-
+    @*<script src="~/assets/css/plugins/toastr/toastr.min.js"></script>*@
     <script>
         jQuery(document).ready(function () {
             App.init();

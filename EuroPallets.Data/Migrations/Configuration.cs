@@ -30,13 +30,56 @@ namespace EuroPallets.Data.Migrations
             {
                 SeedAdmins(context);
             }
-
             if (context.EuroPalletFurnituries.Count() < 10)
             {
                 SeedEuroPalletsFurnitures(context);
             }
+            if (!context.GlobalCategories.Any())
+            {
+                SeedGlobalCategories(context);
+            }
+            if (!context.SubCategories.Any())
+            {
+                SeedSubCategories(context);
+            }
         }
 
+        private void SeedSubCategories(EuroPalletsDbContext context)
+        {
+            List<SubCategory> furnituresSubCategories = new List<SubCategory>()
+            {
+                new SubCategory() { Name="Столове" },
+                new SubCategory() { Name="Дивани" },
+                new SubCategory() { Name="Маси" },
+                new SubCategory() { Name="Гардероби" },
+                new SubCategory() { Name="Закачалки" },
+                new SubCategory() { Name="Бюра" },
+                new SubCategory() { Name="Секции" },
+                new SubCategory() { Name="Други" },
+            };
+            var globalCategoryToMapp = context.GlobalCategories.FirstOrDefault(x => x.Name == "Продукти");
+
+            globalCategoryToMapp.SubCategories = furnituresSubCategories;
+            context.SaveChanges();
+        }
+
+        private void SeedGlobalCategories(EuroPalletsDbContext context)
+        {
+            List<GlobalCategory> globalCategoryToAdd = new List<GlobalCategory>()
+            {
+                new GlobalCategory() {Name = "Продукти" },
+                new GlobalCategory() {Name = "Промоции" },
+                new GlobalCategory() {Name = "Подаръци" },
+                new GlobalCategory() {Name = "Страници" },
+            };
+
+            foreach (var item in globalCategoryToAdd)
+            {
+                context.GlobalCategories.Add(item);
+            }
+
+            context.SaveChanges();
+        }
         private static void SeedRoles(EuroPalletsDbContext context)
         {
             using (var roleStore = new RoleStore<IdentityRole>(context))
@@ -71,7 +114,6 @@ namespace EuroPallets.Data.Migrations
                 }
             }
         }
-
         private static void SeedEuroPalletsFurnitures(EuroPalletsDbContext context)
         {
             var image = GetPhoto(@"C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets\Content\images\Products\diy-furniture-from-euro-pallets-101-craft-ideas-for-wood-pallets-41-359.jpg");
@@ -99,10 +141,12 @@ namespace EuroPallets.Data.Migrations
                     Price = 200,
                     Quantity = 5,
                     Rating = 5,
+                    Name_Description = "Тест описание на името",
                 });
             }
             context.SaveChanges();
         }
+
 
         private static byte[] GetPhoto(string filePath)
         {

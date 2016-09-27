@@ -12,10 +12,11 @@
 	                startwidth: 1170,
 	                startheight: 500,
 	                hideThumbs: 10,
-	                navigationStyle: "preview4"
+	                navigationStyle: "preview4",
+	                bannertimeronpause: true
 	            });
-                revapi.revkill();
             });
+            //revapi.revkill();
         },
 
         //Revolution Slider - Full Screen Offset Container
@@ -33,7 +34,8 @@
                      hideCaptionAtLimit: "",
                      dottedOverlay: "twoxtwo",
                      navigationStyle: "preview4",
-                     fullScreenOffsetContainer: ".header"
+                     fullScreenOffsetContainer: ".header",
+                     bannertimeronpause: true
                  });
             });
         }

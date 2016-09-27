@@ -39,4 +39,3 @@ C:\Users\Daniel\Documents\GitHub\EuroPallets\EuroPallets.Models\bin\Debug\Micros
 C:\Users\Daniel\Documents\GitHub\EuroPallets\EuroPallets.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
 C:\Users\Daniel\Documents\GitHub\EuroPallets\EuroPallets.Models\obj\Debug\EuroPallets.Models.dll
 C:\Users\Daniel\Documents\GitHub\EuroPallets\EuroPallets.Models\obj\Debug\EuroPallets.Models.pdb
-C:\Users\Daniel\Documents\GitHub\EuroPallets\EuroPallets.Models\obj\Debug\EuroPallets.Models.csprojResolveAssemblyReference.cache

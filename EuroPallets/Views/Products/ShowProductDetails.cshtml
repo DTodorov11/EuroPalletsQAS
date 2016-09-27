@@ -32,7 +32,7 @@
                                     <small>@Model.Name_Description</small>
                                     <hr>
                                     <div>
-                                        <a href=@Url.Action("AddItemToCard","Products",new {productId = Model.Id }) class="btn btn-primary pull-right">Добави в количката</a>
+                                        <a @*href=@Url.Action("AddItemToCard","Products",new {productId = Model.Id })*@ id="btnAddToCart" class="btn btn-primary pull-right">Добави в количката</a>
                                         <h1 class="product-main-price">@Model.Price <small class="text-muted">с включен ДДС</small> </h1>
                                     </div>
                                     <hr>
@@ -85,11 +85,44 @@
 <!-- slick carousel-->
 <script src="~/assets/js/plugins/slick/slick.min.js"></script>
 
-<script>
-    $(document).ready(function () {
-        $('.product-images').slick({
-            dots: true
-        });
-    });
+@section scripts{
+    <script>
+        $(document).ready(function () {
+            $('.product-images').slick({
+                dots: true
+            });
 
-</script>
+
+            $("#btnAddToCart").on("click", function () {
+                var value = $(this);
+                $.ajax({
+                    url: WebApiResolveUrl('/api/WebApiControllers/ProductWebApi/AddItemToCard'),
+                    type: 'GET',
+                    data: { productId:@Model.Id , userName: @User.Identity.Name },
+
+                    success: function (result) {
+                        console.log(result);
+                    },
+                    error: function (data) {
+                        console.log(data);
+                    }
+                })
+            });
+        });
+
+        function WebApiResolveUrl(url) {
+            var host = window.location.origin;
+
+            return host + url;
+        }
+
+        function ResolveUrl(url) {
+            var baseUrl = window.location.origin;
+            var pathName = window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/'))
+
+            url = baseUrl + pathName + url;
+
+            return url;
+        }
+    </script>
+}

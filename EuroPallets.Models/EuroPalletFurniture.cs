@@ -11,11 +11,8 @@
 
     public class EuroPalletFurniture : BaseModel<int>
     {
-        private ICollection<EuroPalletFurnitureEuroPalletImages> euroPalletFurnitureEuroPalletImages;
-
         public EuroPalletFurniture()
         {
-            this.euroPalletFurnitureEuroPalletImages = new HashSet<EuroPalletFurnitureEuroPalletImages>();
             this.EuroPalletImages = new HashSet<EuroPalletImage>();
             this.GlobalCategorys = new HashSet<GlobalCategory>();
             this.ShopingCarts = new HashSet<ShopingCart>();
@@ -53,10 +50,5 @@
         [NotMapped]
         public Pager Pager { get; set; }
 
-        public virtual ICollection<EuroPalletFurnitureEuroPalletImages> EuroPalletFurnitureEuroPalletImages
-        {
-            get { return this.euroPalletFurnitureEuroPalletImages; }
-            set { this.euroPalletFurnitureEuroPalletImages = value; }
-        }
     }
 }

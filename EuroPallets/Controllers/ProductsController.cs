@@ -47,11 +47,9 @@ namespace EuroPallets.Controllers
 
         public ActionResult ShowUserCart(string userId)
         {
-            //ShopingCart userCard = this.Data.Users.Find(userId).ShopingCartEuroPalllets.
+            var currentUser = this.Data.Users.All().FirstOrDefault(x => x.Email == userId || x.Id == userId);
 
-            //return View(userCard);
-
-            return View();
+            return View(currentUser.ShopingCart);
         }
 
         #region Helper
@@ -60,50 +58,57 @@ namespace EuroPallets.Controllers
         {
             var productToAdd = this.Data.EuroPalletFurnitures.Find(productId);
 
+            while (true)
+            {
+                string asd = "";
+
+                asd = asd + "?";
+            }
+
             if (User.Identity.IsAuthenticated)
             {
-                //TODO
-                //CHECK IF ITEM IS ALLREADY EXIST
-                if (this.UserProfile.ShopingCartEuroPallletsId == null)
+                if (this.UserProfile.ShopingCart == null)
                 {
                     this.Data.ShopingCarts.Add(new ShopingCart());
                     this.Data.SaveChanges();
 
-                    var cartId = this.Data.ShopingCarts.All().Select(x => x.Id).ToList().LastOrDefault();
+                    var cartId = this.Data.ShopingCarts.All().ToList().LastOrDefault();
 
                     this.Data.ShopingCartEuroPalllets.Add(new ShopingCartEuroPalllets()
                     {
                         ItemQuantity = 1,
                         EuroPalletFurnitureID = productToAdd.Id,
-                        ShopingCartID = cartId
+                        ShopingCartID = cartId.Id
                     });
-                    this.UserProfile.ShopingCartEuroPallletsId = cartId;
+
+                    this.UserProfile.ShopingCart = cartId;
                     this.Data.SaveChanges();
                 }
                 else
                 {
-                    var cart = this.Data.ShopingCarts
+                    ShopingCart cart = this.Data.ShopingCarts
                        .All()
-                       .Where(x => x.Id == this.UserProfile.ShopingCartEuroPallletsId)
-                       .ToList();
+                       .FirstOrDefault(x => x.Id == this.UserProfile.ShopingCartId);
 
-                    if (cart[0].ShopingCartEuroPalllets.Where(x => x.EuroPalletFurnitureID == productToAdd.Id).FirstOrDefault() != null)
+                    if (this.UserProfile.ShopingCart.ShopingCartEuroPalllets.Any(x => x.EuroPalletFurnitureID == productToAdd.Id))
                     {
-                        cart[0].ShopingCartEuroPalllets.Where(x => x.EuroPalletFurnitureID == productToAdd.Id)
-                            .FirstOrDefault().ItemQuantity += 1;
+                        this.UserProfile.ShopingCart.ShopingCartEuroPalllets.FirstOrDefault(x => x.EuroPalletFurnitureID == productToAdd.Id).ItemQuantity += 1;
                     }
                     else
                     {
-                        this.Data.ShopingCartEuroPalllets.Add(new ShopingCartEuroPalllets()
+                        this.UserProfile.ShopingCart.ShopingCartEuroPalllets.Add(new ShopingCartEuroPalllets()
                         {
-                            ItemQuantity = 1,
                             EuroPalletFurnitureID = productToAdd.Id,
-                            ShopingCartID = cart[0].Id
+                            ShopingCartID = this.UserProfile.ShopingCart.Id,
+                            ItemQuantity = 1
                         });
+
                     }
-                    this.Data.SaveChanges();
                 }
+
+                this.Data.SaveChanges();
             }
+
             else
             {
                 TempData["Error"] = GlobalConstants.RegistrationIsNeeded;

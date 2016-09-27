@@ -305,3 +305,5 @@ C:\Users\Daniel\Documents\GitHub\EuroPallets\EuroPallets\bin\Microsoft.Owin.Secu
 C:\Users\Daniel\Documents\GitHub\EuroPallets\EuroPallets\obj\Debug\EuroPallets.Web.csprojResolveAssemblyReference.cache
 C:\Users\Daniel\Documents\GitHub\EuroPallets\EuroPallets\obj\Debug\EuroPallets.dll
 C:\Users\Daniel\Documents\GitHub\EuroPallets\EuroPallets\obj\Debug\EuroPallets.pdb
+C:\Users\Daniel\Documents\GitHub\EuroPallets\EuroPallets\bin\System.Web.Http.WebHost.dll
+C:\Users\Daniel\Documents\GitHub\EuroPallets\EuroPallets\bin\System.Web.Http.WebHost.xml

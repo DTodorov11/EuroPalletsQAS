@@ -63,7 +63,6 @@
     <Compile Include="Base\IBaseModel.cs" />
     <Compile Include="Category.cs" />
     <Compile Include="EuroPalletFurniture.cs" />
-    <Compile Include="EuroPalletFurnitureEuroPalletImages.cs" />
     <Compile Include="EuroPalletImages.cs" />
     <Compile Include="GlobalCategory.cs" />
     <Compile Include="Helper\Pager.cs" />
@@ -71,6 +70,7 @@
     <Compile Include="ShopingCartEuroPalllets.cs" />
     <Compile Include="Specification.cs" />
     <Compile Include="ShopingCart.cs" />
+    <Compile Include="SubCategory.cs" />
     <Compile Include="User.cs" />
   </ItemGroup>
   <ItemGroup>

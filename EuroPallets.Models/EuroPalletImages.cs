@@ -9,11 +9,9 @@ namespace EuroPallets.Models
 {
     public class EuroPalletImage : BaseModel<int>
     {
-        private ICollection<EuroPalletFurnitureEuroPalletImages> euroPalletFurnitureEuroPalletImages;
 
         public EuroPalletImage()
         {
-            this.euroPalletFurnitureEuroPalletImages = new HashSet<EuroPalletFurnitureEuroPalletImages>();
 
         }
         public int? EuroPalletFurnitureID { get; set; }
@@ -21,10 +19,6 @@ namespace EuroPallets.Models
         public virtual EuroPalletFurniture EuroPalletFurniture { get; set; }
 
         public byte[] Image { get; set; }
-        public virtual ICollection<EuroPalletFurnitureEuroPalletImages> EuroPalletFurnitureEuroPalletImages
-        {
-            get { return this.euroPalletFurnitureEuroPalletImages; }
-            set { this.euroPalletFurnitureEuroPalletImages = value; }
-        }
+      
     }
 }

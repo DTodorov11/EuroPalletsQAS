@@ -159,7 +159,7 @@ li:first-child {
 .illustration-v1.illustration-img1 {
 	width: 100%;
 	overflow: hidden;
-	background-image: url(../img/blog/07.jpg);
+	background-image: url(../../Content/images/Home/Footer-Promotion/Footer-Promotion-First.jpg);
 	transition: all 0.3s ease-in-out;
 }
 
@@ -205,7 +205,7 @@ li:first-child {
 .illustration-v1.illustration-img2 {
 	width: 100%;
 	overflow: hidden;
-	background-image: url(../img/blog/08.jpg);
+	background-image: url(../../Content/images/Home/Footer-Promotion/Footer-Promotion-Second.jpg);
 	transition: all 0.3s ease-in-out;
 }
 
@@ -540,15 +540,15 @@ li:first-child {
 }
 
 .illustration-v3.illustration-img1 {
-	background-image: url(../img/blog/13.jpg);
+	background-image: url(../../Content/images/Home/Three-Categories/pallet-bed-with-lights.jpg);
 }
 
 .illustration-v3.illustration-img2 {
-	background-image: url(../img/blog/14.jpg);
+	background-image: url(../../Content/images/Home/Three-Categories/Sofa.jpg);
 }
 
 .illustration-v3.illustration-img3 {
-	background-image: url(../img/blog/15.jpg);
+	background-image: url(../../Content/images/Home/Three-Categories/Table.jpg);
 }
 
 .illustration-v3.illustration-img1:hover,
@@ -702,7 +702,7 @@ li:first-child {
 	background-size: cover;
 	background-repeat: no-repeat;
 	background-position: center center;
-	background-image: url(../img/collection-bg.jpg);
+	background-image: url(../../Content/images/Home/footer-banner.jpg);
 }
 
 .collection-banner:before {

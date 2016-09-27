@@ -35,6 +35,14 @@ namespace EuroPallets.Data
             }
         }
 
+        public IRepository<GlobalCategory> GlobalCategories
+        {
+            get
+            {
+                return this.GetRepository<GlobalCategory>();
+            }
+        }
+
         public IRepository<EuroPalletFurniture> EuroPalletFurnitures
         {
             get

@@ -1,0 +1,5 @@
+C:\Users\tododani\Documents\GitHub\EuroPalletsQAS\EuroPallets.Common\bin\Release\EuroPallets.Common.dll
+C:\Users\tododani\Documents\GitHub\EuroPalletsQAS\EuroPallets.Common\bin\Release\EuroPallets.Common.pdb
+C:\Users\tododani\Documents\GitHub\EuroPalletsQAS\EuroPallets.Common\obj\Release\EuroPallets.Common.csprojResolveAssemblyReference.cache
+C:\Users\tododani\Documents\GitHub\EuroPalletsQAS\EuroPallets.Common\obj\Release\EuroPallets.Common.dll
+C:\Users\tododani\Documents\GitHub\EuroPalletsQAS\EuroPallets.Common\obj\Release\EuroPallets.Common.pdb

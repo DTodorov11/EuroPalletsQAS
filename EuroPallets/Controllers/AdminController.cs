@@ -58,9 +58,7 @@ namespace EuroPallets.Controllers
 
         public ActionResult UploadNewItem()
         {
-            var model = new ProductsViewModel() ;
-            model.EuroPalletFurniture = new List<EuroPalletFurniture>();
-            return this.View(model);
+            return this.View(new EuroPalletFurniture());
         }
 
         [HttpPost]

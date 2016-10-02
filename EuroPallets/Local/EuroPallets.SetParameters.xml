@@ -1,0 +1,6 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<parameters>
+  <setParameter name="IIS Web Application Name" value="Default Web Site\mebellete" />
+  <setParameter name="EuroPalletsDbContext-Web.config Connection String" value="Data Source=Home-Server\SQLEXPRESS;Initial Catalog=Pallets;" />
+  <setParameter name="EuroPalletsDbContext_DatabasePublish-Web.config Connection String" value="Data Source=Home-Server\SQLEXPRESS;Initial Catalog=Pallets" />
+</parameters>

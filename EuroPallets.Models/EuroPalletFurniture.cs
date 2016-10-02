@@ -50,5 +50,8 @@
         [NotMapped]
         public Pager Pager { get; set; }
 
+        public string Meta_Tag_Title { get; set; }
+        public string Meta_Tat_Description { get; set; }
+        public string Meta_Tag_Keywords { get; set; }
     }
 }

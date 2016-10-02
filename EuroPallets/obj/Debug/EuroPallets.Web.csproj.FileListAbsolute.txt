@@ -414,3 +414,5 @@ C:\Users\tododani\Documents\GitHub\EuroPalletsQAS\EuroPallets\bin\Microsoft.Owin
 C:\Users\tododani\Documents\GitHub\EuroPalletsQAS\EuroPallets\obj\Debug\EuroPallets.Web.csprojResolveAssemblyReference.cache
 C:\Users\tododani\Documents\GitHub\EuroPalletsQAS\EuroPallets\obj\Debug\EuroPallets.dll
 C:\Users\tododani\Documents\GitHub\EuroPalletsQAS\EuroPallets\obj\Debug\EuroPallets.pdb
+C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets\bin\System.Web.Http.WebHost.dll
+C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets\bin\System.Web.Http.WebHost.xml

@@ -21,5 +21,10 @@ namespace EuroPallets.Services
         {
             return this.data.Users.All().FirstOrDefault(x => x.UserName == userName);
         }
+
+        public User GetById(string id)
+        {
+            return this.data.Users.All().FirstOrDefault(x => x.Id == id);
+        }
     }
 }

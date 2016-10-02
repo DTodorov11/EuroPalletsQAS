@@ -90,3 +90,12 @@ C:\Users\tododani\Documents\GitHub\EuroPalletsQAS\EuroPallets.Data\bin\Debug\Sys
 C:\Users\tododani\Documents\GitHub\EuroPalletsQAS\EuroPallets.Data\obj\Debug\EuroPallets.Data.csprojResolveAssemblyReference.cache
 C:\Users\tododani\Documents\GitHub\EuroPalletsQAS\EuroPallets.Data\obj\Debug\EuroPallets.Data.dll
 C:\Users\tododani\Documents\GitHub\EuroPalletsQAS\EuroPallets.Data\obj\Debug\EuroPallets.Data.pdb
+C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets.Data\bin\Debug\Microsoft.Web.Infrastructure.dll
+C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets.Data\bin\Debug\Newtonsoft.Json.dll
+C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets.Data\bin\Debug\System.Net.Http.Formatting.dll
+C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets.Data\bin\Debug\System.Web.Http.dll
+C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets.Data\bin\Debug\System.Web.Http.WebHost.dll
+C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets.Data\bin\Debug\Newtonsoft.Json.xml
+C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets.Data\bin\Debug\System.Net.Http.Formatting.xml
+C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets.Data\bin\Debug\System.Web.Http.xml
+C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets.Data\bin\Debug\System.Web.Http.WebHost.xml

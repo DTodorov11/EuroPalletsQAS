@@ -39,6 +39,7 @@ namespace EuroPallets.Data
         public virtual IDbSet<ShopingCartEuroPalllets> ShopingCartEuroPalllets { get; set; }
         public virtual IDbSet<AnonymousShopingCart> AnonymousShopingCarts { get; set; }
         public virtual IDbSet<SubCategory> SubCategories { get; set; }
+        public virtual IDbSet<PayPalPayment> PayPalPayments { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

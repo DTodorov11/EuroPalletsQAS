@@ -10,5 +10,6 @@ namespace EuroPallets.Services.Interface
     public interface IUserServices
     {
         User TakeUserByUserName(string userName);
+        User GetById(string id);
     }
 }

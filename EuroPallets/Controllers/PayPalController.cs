@@ -17,19 +17,26 @@ namespace EuroPallets.Controllers
     using Services.Interface;
     using System.Web.Script.Serialization;
     using Newtonsoft.Json;
+    using Ninject;
 
     public class PayPalController : BaseController
     {
         private readonly IPayPalService payPalService;
         private readonly IUserServices userService;
-        protected PayPalController(IUserServices userService, IPayPalService payPalService, IEvroPalletsData data) : base(data)
+
+        public PayPalController(IUserServices userService, IPayPalService payPalService, IEvroPalletsData data) : base(data)
         {
             this.payPalService = payPalService;
             this.userService = userService;
         }
 
+        public ActionResult Index()
+        {
+           return this.RedirectToAction(nameof(this.Pay));
+        }
+
         // GET: PayPal
-        public void Index(PayPalActionViewModel model)
+        public void Pay(PayPalActionViewModel model)
         {
             string business = "stoyan.kafaliev@mailinator.com";
             string item_name = model.Name;

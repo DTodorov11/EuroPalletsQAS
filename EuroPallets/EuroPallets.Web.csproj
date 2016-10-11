@@ -236,6 +236,7 @@
     <Compile Include="Controllers\AdminController.cs" />
     <Compile Include="Controllers\BaseController.cs" />
     <Compile Include="Controllers\BaseWebApiController.cs" />
+    <Compile Include="Controllers\CashOnDeliveryController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ImageController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -249,6 +250,7 @@
     </Compile>
     <Compile Include="Helpers\HMTLHelperExtensions.cs" />
     <Compile Include="ViewModels\AccountViewModels.cs" />
+    <Compile Include="ViewModels\CashOnDelivery\CashOnDeliveryControllerViewModel.cs" />
     <Compile Include="ViewModels\EmailViewModel\EmailType.cs" />
     <Compile Include="ViewModels\MainViewModel\MainLayoutViewModel.cs" />
     <Compile Include="ViewModels\ManageViewModels.cs" />
@@ -1043,6 +1045,8 @@
     <Content Include="Views\Shared\EditorTemplates\Double.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\DateTime.cshtml" />
     <Content Include="Views\Shared\EditorTemplates\Bool.cshtml" />
+    <Content Include="Views\Shared\_PaymentModalPartial.cshtml" />
+    <Content Include="Views\CashOnDelivery\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

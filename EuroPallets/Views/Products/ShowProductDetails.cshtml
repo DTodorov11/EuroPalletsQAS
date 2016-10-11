@@ -1,4 +1,4 @@
-﻿@*@model EuroPallets.Models.EuroPalletFurniture
+﻿@model EuroPallets.Models.EuroPalletFurniture
 
     <link href="~/assets/css/plugins/slick/slick.css" rel="stylesheet">
     <link href="~/assets/css/plugins/slick/slick-theme.css" rel="stylesheet">
@@ -32,7 +32,7 @@
                                         <small>@Model.Name_Description</small>
                                         <hr>
                                         <div>
-                                            <a @*href=@Url.Action("AddItemToCard","Products",new {productId = Model.Id }) id="btnAddToCart" class="btn btn-primary pull-right">Добави в количката</a>
+                                            <a href=@Url.Action("AddItemToCard","Products",new {productId = Model.Id }) id="btnAddToCart" class="btn btn-primary pull-right">Добави в количката</a>
                                             <h1 class="product-main-price">@Model.Price <small class="text-muted">с включен ДДС</small> </h1>
                                         </div>
                                         <hr>
@@ -125,8 +125,8 @@
                 return url;
             }
         </script>
-    }*@
-@model EuroPallets.Models.EuroPalletFurniture
+    }
+@*model EuroPallets.Models.EuroPalletFurniture
 <div class="wrapper">
     <div class="shop-product">
         <div class="container">
@@ -162,8 +162,8 @@
                             </div>
                             <div class="ms-thumb-list ms-dir-h ms-align-bottom" style="margin-top: 5px; position: relative; height: 170px;">
                                 <div class="ms-thumbs-cont" style="width: 555px;">
-      s
-                                    
+                                    s
+
                                 </div>
                             </div>
                         </div>
@@ -539,11 +539,17 @@
                     </div>
                 </div>
 
-
-
-
-
-                <div class="owl-controls clickable"><div class="owl-pagination"><div class="owl-page active"><span class=""></span></div><div class="owl-page"><span class=""></span></div></div></div>
+                <div class="owl-controls clickable">
+                    <div class="owl-pagination">
+                        <div class="owl-page active">
+                            <span class="">
+                            </span>
+                        </div><div class="owl-page">
+                            <span class="">
+                            </span>
+                        </div>
+                    </div>
+                </div>
             </ul>
         </div>
     </div>
@@ -600,15 +606,4 @@
         StyleSwitcher.initStyleSwitcher();
         MasterSliderShowcase2.initMasterSliderShowcase2();
     });
-</script>
-
-<!--[if lt IE 9]>
-    <script src="assets/plugins/respond.js"></script>
-    <script src="assets/plugins/html5shiv.js"></script>
-    <script src="assets/js/plugins/placeholder-IE-fixes.js"></script>
-    <![endif]-->
-
-
-
-<div id="topcontrol" title="" style="position: fixed; bottom: 5px; right: 5px; opacity: 1; cursor: pointer;"></div>
-</body>
+</script>*@

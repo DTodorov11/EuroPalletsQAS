@@ -66,6 +66,7 @@ namespace EuroPallets.App_Start
             kernel.Bind<IUserServices>().To<UserServices>();
             kernel.Bind<IEvroPalletsData>().To<EvroPalletsData>();
             kernel.Bind<IEuroPalletsDbContext>().To<EuroPalletsDbContext>();
+            kernel.Bind<IPayPalService>().To<PayPalService>();
         }        
     }
 }

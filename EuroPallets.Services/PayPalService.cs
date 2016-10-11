@@ -1,6 +1,7 @@
 ﻿
 namespace EuroPallets.Services
 {
+    using Data;
     using EuroPallets.Data.Repositories;
     using EuroPallets.Models;
     using EuroPallets.Services.Interface;
@@ -12,22 +13,22 @@ namespace EuroPallets.Services
 
     public class PayPalService : IPayPalService
     {
-        private readonly IRepository<PayPalPayment> paypalRepo;
+        private readonly IEvroPalletsData data;
 
-        public PayPalService(IRepository<PayPalPayment> paypalRepo)
+        public PayPalService(IEvroPalletsData data)
         {
-            this.paypalRepo = paypalRepo;
+            this.data = data;
         }
 
         public IQueryable<PayPalPayment> GetAllPayPalPayment()
         {
-            return this.paypalRepo.All().Where(x => !x.isDeleted);
+            return this.data.PayPalPayments.All().Where(x => !x.isDeleted);
 
         }
 
         public IQueryable<PayPalPayment> GetAllPayPalPaymentForUser(string id)
         {
-            var membership = this.paypalRepo.All().Where(x => x.UserPaymentId == id);
+            var membership = this.data.PayPalPayments.All().Where(x => x.UserPaymentId == id);
             return membership;
         }
 
@@ -35,8 +36,8 @@ namespace EuroPallets.Services
         {
             try
             {
-                this.paypalRepo.Add(model);
-                this.paypalRepo.SaveChanges();
+                this.data.PayPalPayments.Add(model);
+                this.data.SaveChanges();
                 Logger("Yes Save");
             }
             catch (System.Exception)

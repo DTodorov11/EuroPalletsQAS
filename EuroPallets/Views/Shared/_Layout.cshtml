@@ -96,7 +96,19 @@
             RevolutionSlider.initRSfullWidth();
         });
     </script>
-
+    <script>
+        $('#btnModel').on('click', function () {
+            debugger;
+            $.ajax({
+                url: "/CashOnDelivery/PaymentModalUpdate",
+                cache: false,
+                success: function (html) {
+                    $(".modal-body").append('');
+                    $(".modal-body").append(html);
+                }
+            });
+        })
+    </script>
     <!-- Handler for local scripts -->
     @RenderSection("scripts", required: false)
 

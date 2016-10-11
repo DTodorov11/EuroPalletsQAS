@@ -59,6 +59,14 @@ namespace EuroPallets.Data
             }
         }
 
+        public IRepository<PayPalPayment> PayPalPayments
+        {
+            get
+            {
+                return this.GetRepository<PayPalPayment>();
+            }
+        }
+
         public int SaveChanges()
         {
             return this.context.SaveChanges();

@@ -42,8 +42,31 @@ namespace EuroPallets.Data.Migrations
             {
                 SeedSubCategories(context);
             }
+            if (!context.Categories.Any())
+            {
+                SeedCategories(context);
+            }
         }
 
+        private void SeedCategories(EuroPalletsDbContext context)
+        {
+            List<Category> categoryToSeed = new List<Category>()
+            {
+                new Category() { Name="Всекидневна" },
+                new Category() { Name="Градина" },
+                new Category() { Name="Хол" },
+                new Category() { Name="Баня" },
+                new Category() { Name="Кухня" },
+            };
+
+            foreach (Category category in categoryToSeed)
+            {
+                context.Categories.Add(category);
+            }
+
+            context.SaveChanges();
+        }
+        
         private void SeedSubCategories(EuroPalletsDbContext context)
         {
             List<SubCategory> furnituresSubCategories = new List<SubCategory>()

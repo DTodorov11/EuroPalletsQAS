@@ -17,3 +17,4 @@ C:\Users\tododani\Documents\GitHub\EuroPalletsQAS\EuroPallets.Common\bin\Debug\E
 C:\Users\tododani\Documents\GitHub\EuroPalletsQAS\EuroPallets.Common\bin\Debug\EuroPallets.Common.pdb
 C:\Users\tododani\Documents\GitHub\EuroPalletsQAS\EuroPallets.Common\obj\Debug\EuroPallets.Common.dll
 C:\Users\tododani\Documents\GitHub\EuroPalletsQAS\EuroPallets.Common\obj\Debug\EuroPallets.Common.pdb
+C:\Users\tododani\Documents\GitHub\EuroPalletsQAS\EuroPallets.Common\obj\Debug\EuroPallets.Common.csprojResolveAssemblyReference.cache

@@ -15,8 +15,12 @@ namespace EuroPallets.Data
         IRepository<ShopingCart> ShopingCarts { get; }
         IRepository<ShopingCartEuroPalllets> ShopingCartEuroPalllets { get; }
         IRepository<GlobalCategory> GlobalCategories { get; }
+        IRepository<Category> Category { get; }
 
         IRepository<PayPalPayment> PayPalPayments { get; }
+        IRepository<Specification> Specification { get; }
+        IRepository<EuroPalletImage> EuroPalletImages { get; }
+        
         int SaveChanges();   
     }
 }

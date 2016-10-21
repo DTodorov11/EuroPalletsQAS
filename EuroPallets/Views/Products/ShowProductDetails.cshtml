@@ -1,134 +1,28 @@
 ﻿@model EuroPallets.Models.EuroPalletFurniture
 
-    <link href="~/assets/css/plugins/slick/slick.css" rel="stylesheet">
-    <link href="~/assets/css/plugins/slick/slick-theme.css" rel="stylesheet">
+@{
+    bool isFirst = true;
+}
+@*<link href="~/assets/css/plugins/slick/slick.css" rel="stylesheet">
+    <link href="~/assets/css/plugins/slick/slick-theme.css" rel="stylesheet">*@
 
-    <link href="~/assets/css/animate.css" rel="stylesheet">
-    <link href="~/assets/css/style.css" rel="stylesheet">
-    <div id="wrapper">
-        <div id="page-wrapper" class="gray-bg">
-            <div class="wrapper wrapper-content animated fadeInRight">
-                <div class="row">
-                    <div class="col-lg-12">
-
-                        <div class="ibox product-detail">
-                            <div class="ibox-content">
-                                <div class="row">
-                                    <div class="col-md-5">
-                                        <div class="product-images">
-                                            @foreach (var currentImage in Model.EuroPalletImages)
-                                            {
-                                                <div class="image-imitation" style="padding: 0">
-                                                    <img src=@Url.Action("Details", "Image", new { imgId = currentImage.Id, id = Model.Id }) />
-                                                </div>
-                                            }
-                                        </div>
-                                    </div>
-                                    <div class="col-md-7">
-
-                                        <h2 class="font-bold m-b-xs">
-                                            @Model.Name
-                                        </h2>
-                                        <small>@Model.Name_Description</small>
-                                        <hr>
-                                        <div>
-                                            <a href=@Url.Action("AddItemToCard","Products",new {productId = Model.Id }) id="btnAddToCart" class="btn btn-primary pull-right">Добави в количката</a>
-                                            <h1 class="product-main-price">@Model.Price <small class="text-muted">с включен ДДС</small> </h1>
-                                        </div>
-                                        <hr>
-                                        <h4>Описание на продукта</h4>
-
-                                        <div class="small text-muted">
-                                            @Model.Description
-                                        </div>
-                                        <dl class="dl-horizontal m-t-md small">
-                                            <dt>Description lists</dt>
-                                            <dd>A description list is perfect for defining terms.</dd>
-                                            <dt>Euismod</dt>
-                                            <dd>Vestibulum id ligula porta felis euismod semper eget lacinia odio sem nec elit.</dd>
-                                            <dd>Donec id elit non mi porta gravida at eget metus.</dd>
-                                            <dt>Malesuada porta</dt>
-                                            <dd>Etiam porta sem malesuada magna mollis euismod.</dd>
-                                            <dt>Felis euismod semper eget</dt>
-                                            <dd>Fusce dapibus, tellus ac cursus commodo, tortor mauris condimentum nibh, ut fermentum massa justo sit amet risus.</dd>
-                                        </dl>
-                                        <div class="text-right">
-                                            <div class="btn-group">
-                                                <button class="btn btn-white btn-sm"><i class="fa fa-star"></i> Добави в любими </button>
-                                                <button class="btn btn-white btn-sm"><i class="fa fa-envelope"></i> Запитване за продукта </button>
-                                            </div>
-                                        </div>
-                                    </div>
-                                </div>
-
-                            </div>
-                            <div class="ibox-footer">
-                                <span class="pull-right">
-                                    Наличен в - <i class="fa fa-clock-o"></i> @DateTime.Now
-                                </span>
-                                Всички цена са в български лева и с включен ДДС в тях!
-                            </div>
-                        </div>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-    <script src="~/assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <script src="~/assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-
-    <!-- Custom and plugin javascript -->
-    <script src="~/assets/js/inspinia.js"></script>
-    <script src="~/assets/js/plugins/pace/pace.min.js"></script>
-
-    <!-- slick carousel-->
-    <script src="~/assets/js/plugins/slick/slick.min.js"></script>
-
-    @section scripts{
-        <script>
-            $(document).ready(function () {
-                $('.product-images').slick({
-                    dots: true
-                });
+@*<link href="~/assets/css/animate.css" rel="stylesheet">
+    <link href="~/assets/css/style.css" rel="stylesheet">*@
 
 
-                $("#btnAddToCart").on("click", function () {
-                    var value = $(this);
-                    $.ajax({
-                        url: WebApiResolveUrl('/api/WebApiControllers/ProductWebApi/AddItemToCard'),
-                        type: 'GET',
-                        data: { productId:@Model.Id , userName: @User.Identity.Name },
-
-                        success: function (result) {
-                            console.log(result);
-                        },
-                        error: function (data) {
-                            console.log(data);
-                        }
-                    })
-                });
-            });
-
-            function WebApiResolveUrl(url) {
-                var host = window.location.origin;
-
-                return host + url;
-            }
-
-            function ResolveUrl(url) {
-                var baseUrl = window.location.origin;
-                var pathName = window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/'))
-
-                url = baseUrl + pathName + url;
-
-                return url;
-            }
-        </script>
-    }
-@*model EuroPallets.Models.EuroPalletFurniture
 <div class="wrapper">
+    <!--=== Shop Product ===-->
     <div class="shop-product">
+        <!-- Breadcrumbs v5 -->
+        <div class="container">
+            <ul class="breadcrumb-v5">
+                <li><a href="index.html"><i class="fa fa-home"></i></a></li>
+                <li><a href="#">Products</a></li>
+                <li class="active">New</li>
+            </ul>
+        </div>
+        <!-- End Breadcrumbs v5 -->
+
         <div class="container">
             <div class="row">
                 <div class="col-md-6 md-margin-bottom-50">
@@ -139,31 +33,66 @@
                                 <div class="ms-inner-controls-cont" style="max-width: 550px;">
                                     <div class="ms-view ms-fade-view ms-grab-cursor" style="width: 550px; height: 550px;">
                                         <div class="ms-slide-container">
+                                            @foreach (var Images in Model.EuroPalletImages)
+                                            {
+                                                if (isFirst)
+                                                {
 
-                                            <div class="ms-slide ms-sl-selected" style="width: 550px; height: 550px; opacity: 1;">
-                                                <div class="ms-slide-bgcont" style="height: 100%; opacity: 1;">
-                                                    <img class="ms-brd" src="assets/img/blog/28.jpg" alt="lorem ipsum dolor sit" style="width: 550px; height: 560px; margin-top: -5px; margin-left: 0px;">
-                                                </div>
-                                            </div>
-                                            <div class="ms-slide" style="width: 550px; height: 550px; opacity: 0; visibility: hidden;">
-                                                <div class="ms-slide-bgcont" style="height: 100%; opacity: 1;">
-                                                    <img src="assets/img/blog/29.jpg" alt="lorem ipsum dolor sit" style="width: 550px; height: 560px; margin-top: -5px; margin-left: 0px;">
-                                                </div>
-                                            </div>
-                                            <div class="ms-slide" style="width: 550px; height: 550px; opacity: 0; visibility: hidden;">
-                                                <div class="ms-slide-bgcont" style="height: 100%; opacity: 1;">
-                                                    <img src="assets/img/blog/30.jpg" alt="lorem ipsum dolor sit" style="width: 550px; height: 560px; margin-top: -5px; margin-left: 0px;">
-                                                </div>
-                                            </div>
+                                                    <div class="ms-slide ms-sl-selected" style="width: 550px; height: 550px; opacity: 0; visibility: hidden;">
+                                                        <div class="ms-slide-bgcont" style="height: 100%; opacity: 1;">
+                                                            <img class="ms-brd" src=@Url.Action("Details", "Image", new { imgId = Images.Id, id = Model.Id }) alt="lorem ipsum dolor sit" style="width: 550px; height: 560px; margin-top: -5px; margin-left: 0px;" />
+
+
+                                                        </div>
+                                                    </div>
+                                                    isFirst = false;
+                                                }
+                                                else if (Model.EuroPalletImages.LastOrDefault() == Images)
+                                                {
+                                                    isFirst = true;
+                                                }
+                                                else
+                                                {
+                                                    <div class="ms-slide" style="width: 550px; height: 550px; opacity: 0; visibility: hidden;">
+                                                        <div class="ms-slide-bgcont" style="height: 100%; opacity: 1;">
+                                                            <img class="ms-brd" src=@Url.Action("Details", "Image", new { imgId = Images.Id, id = Model.Id }) alt="lorem ipsum dolor sit" style="width: 550px; height: 560px; margin-top: -5px; margin-left: 0px;" />
+
+                                                        </div>
+                                                    </div>
+                                                }
+                                            }
 
                                         </div>
-                                    </div><div class="ms-nav-next ms-ctrl-hide" style="opacity: 0;"></div><div class="ms-nav-prev ms-ctrl-hide" style="opacity: 0;"></div>
+                                    </div>
+                                    <div class="ms-nav-next ms-ctrl-hide" style="opacity: 0;"></div><div class="ms-nav-prev ms-ctrl-hide" style="opacity: 0;"></div>
                                 </div>
                             </div>
-                            <div class="ms-thumb-list ms-dir-h ms-align-bottom" style="margin-top: 5px; position: relative; height: 170px;">
-                                <div class="ms-thumbs-cont" style="width: 555px;">
-                                    s
 
+
+
+                            <div class="ms-thumb-list ms-dir-h ms-align-bottom" style="margin-top: 5px; position: relative; height: 170px;">
+                                <div class="ms-thumbs-cont" style="width: 555px; transform: translateX(-5px) translateZ(0px);">
+                                    @foreach (var Images in Model.EuroPalletImages)
+                                    {
+                                        if (isFirst)
+                                        {
+                                            <div class="ms-thumb-frame ms-thumb-frame-selected" style="width: 180px; height: 170px; margin-right: 5px;">
+                                                <img class="ms-thumb" src=@Url.Action("Details", "Image", new { imgId = Images.Id, id = Model.Id }) style="max-height:100%;max-width:100%" alt="thumb">
+                                                <div class="ms-thumb-ol">
+                                                </div>
+                                            </div>
+
+
+                                        }
+                                        else
+                                        {
+                                            <div class="ms-thumb-frame" style="width: 180px; height: 170px; margin-right: 5px;">
+                                                <img class="ms-thumb" src=@Url.Action("Details", "Image", new { imgId = Images.Id, id = Model.Id }) style="max-height:100%;max-width:100%" alt="thumb">
+                                                <div class="ms-thumb-ol">
+                                                </div>
+                                            </div>
+                                        }
+                                    }
                                 </div>
                             </div>
                         </div>
@@ -173,7 +102,7 @@
 
                 <div class="col-md-6">
                     <div class="shop-product-heading">
-                        <h2>@Model.Name | @Model.Name_Description</h2>
+                        <h2>Corinna Foley</h2>
                         <ul class="list-inline shop-product-social">
                             <li><a href="#"><i class="fa fa-facebook"></i></a></li>
                             <li><a href="#"><i class="fa fa-twitter"></i></a></li>
@@ -193,7 +122,7 @@
                         </li>
                     </ul><!--/end shop product ratings-->
 
-                    <p>@Model.Description</p><br>
+                    <p>Integer <strong>dapibus ut elit</strong> non volutpat. Integer auctor purus a lectus suscipit fermentum. Vivamus lobortis nec erat consectetur elementum.</p><br>
 
                     <ul class="list-inline shop-product-prices margin-bottom-30">
                         <li class="shop-red">$57.00</li>
@@ -242,9 +171,9 @@
                         <form name="f1" class="product-quantity sm-margin-bottom-20">
                             <button type="button" class="quantity-button" name="subtract" onclick="javascript: subtractQty();" value="-">-</button>
                             <input type="text" class="quantity-field" name="qty" value="1" id="qty">
-                            <button type="button" class="quantity-button" name="add" onclick="javascript: document.getElementById(&quot;qty&quot;).value++;" value="+">+</button>
+                            <button type="button" class="quantity-button" name="add" onclick="javascript: document.getElementById(qty).value++;" value="+">+</button>
                         </form>
-                        <button type="button" class="btn-u btn-u-sea-shop btn-u-lg">Add to Cart</button>
+                        <button type="button" id="btnAddToCart" class="btn-u btn-u-sea-shop btn-u-lg">Добави в количката</button>
                     </div><!--/end product quantity-->
 
                     <ul class="list-inline add-to-wishlist add-to-wishlist-brd">
@@ -263,347 +192,56 @@
         </div>
     </div>
     <!--=== End Shop Product ===-->
-    <!--=== Content Medium ===-->
-    <div class="content-md container">
-        <!--=== Product Service ===-->
-        <div class="row margin-bottom-60">
-            <div class="col-md-4 product-service md-margin-bottom-30">
-                <div class="product-service-heading">
-                    <i class="fa fa-truck"></i>
-                </div>
-                <div class="product-service-in">
-                    <h3>Free Delivery</h3>
-                    <p>Integer mattis lacinia felis vel molestie. Ut eu euismod erat, tincidunt pulvinar semper veliUt porta, leo...</p>
-                    <a href="#">+Read More</a>
-                </div>
-            </div>
-            <div class="col-md-4 product-service md-margin-bottom-30">
-                <div class="product-service-heading">
-                    <i class="icon-earphones-alt"></i>
-                </div>
-                <div class="product-service-in">
-                    <h3>Customer Service</h3>
-                    <p>Integer mattis lacinia felis vel molestie. Ut eu euismod erat, tincidunt pulvinar semper veliUt porta, leo...</p>
-                    <a href="#">+Read More</a>
-                </div>
-            </div>
-            <div class="col-md-4 product-service">
-                <div class="product-service-heading">
-                    <i class="icon-refresh"></i>
-                </div>
-                <div class="product-service-in">
-                    <h3>Free Returns</h3>
-                    <p>Integer mattis lacinia felis vel molestie. Ut eu euismod erat, tincidunt pulvinar semper veliUt porta, leo...</p>
-                    <a href="#">+Read More</a>
-                </div>
-            </div>
-        </div><!--/end row-->
-        <!--=== End Product Service ===-->
-
-        <div class="tab-v6">
-            <ul class="nav nav-tabs" role="tablist">
-                <li class="active"><a href="#description" role="tab" data-toggle="tab">Description</a></li>
-                <li><a href="#reviews" role="tab" data-toggle="tab">Reviews (1)</a></li>
-            </ul>
-
-            <div class="tab-content">
-                <!-- Description -->
-                <div class="tab-pane fade in active" id="description">
-                    <div class="row">
-                        <div class="col-md-7">
-                            <p>Morbi non semper est, eget tincidunt turpis. Vivamus sollicitudin sodales nisi, et venenatis turpis Vivamus sollicitudin ultricies eget. Fusce vitae neque blandit lectus faucibus aliquet nec vel ipsum. Integer mattis lacinia felis vel sollicitudin molestie.</p><br>
-
-                            <h3 class="heading-md margin-bottom-20">Specifies</h3>
-                            <div class="row">
-                                <div class="col-sm-6">
-                                    <ul class="list-unstyled specifies-list">
-                                        <li><i class="fa fa-caret-right"></i>Brand Name: <span>Lacoste</span></li>
-                                        <li><i class="fa fa-caret-right"></i>Technics: <span>Computer</span> Knitted</li>
-                                        <li><i class="fa fa-caret-right"></i>Sleeve Length: <span>Full</span></li>
-                                        <li><i class="fa fa-caret-right"></i>Sleeve Style: <span>Regular</span></li>
-                                        <li><i class="fa fa-caret-right"></i>Pattern Type: <span>PAID</span></li>
-                                        <li><i class="fa fa-caret-right"></i>Style: <span>Casual</span></li>
-                                    </ul>
-                                </div>
-                                <div class="col-sm-6">
-                                    <ul class="list-unstyled specifies-list">
-                                        <li><i class="fa fa-caret-right"></i>Material: <span>Cotton,Nylon</span></li>
-                                        <li><i class="fa fa-caret-right"></i>Item Type: <span>Pullovers</span></li>
-                                        <li><i class="fa fa-caret-right"></i>Thickness: <span>Thin</span></li>
-                                        <li><i class="fa fa-caret-right"></i>Model Number: <span>TM-11013 </span></li>
-                                        <li><i class="fa fa-caret-right"></i>Gender: <span>Men</span></li>
-                                        <li><i class="fa fa-caret-right"></i>MATERIAL: <span>80%COTTON+10%NYLON</span></li>
-                                    </ul>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="col-md-5">
-                            <div class="responsive-video">
-                                <iframe src="//player.vimeo.com/video/72343553" frameborder="0" webkitallowfullscreen="" mozallowfullscreen="" allowfullscreen=""></iframe>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <!-- End Description -->
-                <!-- Reviews -->
-                <div class="tab-pane fade" id="reviews">
-                    <div class="product-comment margin-bottom-40">
-                        <div class="product-comment-in">
-                            <img class="product-comment-img rounded-x" src="assets/img/team/01.jpg" alt="">
-                            <div class="product-comment-dtl">
-                                <h4>Mickel <small>22 days ago</small></h4>
-                                <p>I like the green colour, it's very likeable and reminds me of Hollister. A little loose though but I am very skinny</p>
-                                <ul class="list-inline product-ratings">
-                                    <li class="reply"><a href="#">Reply</a></li>
-                                    <li class="pull-right">
-                                        <ul class="list-inline">
-                                            <li><i class="rating-selected fa fa-star"></i></li>
-                                            <li><i class="rating-selected fa fa-star"></i></li>
-                                            <li><i class="rating-selected fa fa-star"></i></li>
-                                            <li><i class="rating fa fa-star"></i></li>
-                                            <li><i class="rating fa fa-star"></i></li>
-                                        </ul>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                    </div>
-                    <h3 class="heading-md margin-bottom-30">Add a review</h3>
-                    <form action="assets/php/demo-contacts-process.php" method="post" id="sky-form3" class="sky-form sky-changes-4">
-                        <fieldset>
-                            <div class="margin-bottom-30">
-                                <label class="label-v2">Name</label>
-                                <label class="input">
-                                    <input type="text" name="name" id="name">
-                                </label>
-                            </div>
-
-                            <div class="margin-bottom-30">
-                                <label class="label-v2">Email</label>
-                                <label class="input">
-                                    <input type="email" name="email" id="email">
-                                </label>
-                            </div>
-
-                            <div class="margin-bottom-30">
-                                <label class="label-v2">Review</label>
-                                <label class="textarea">
-                                    <textarea rows="7" name="message" id="message"></textarea>
-                                </label>
-                            </div>
-                        </fieldset>
-
-                        <footer class="review-submit">
-                            <label class="label-v2">Review</label>
-                            <div class="stars-ratings">
-                                <input type="radio" name="stars-rating" id="stars-rating-5">
-                                <label for="stars-rating-5"><i class="fa fa-star"></i></label>
-                                <input type="radio" name="stars-rating" id="stars-rating-4">
-                                <label for="stars-rating-4"><i class="fa fa-star"></i></label>
-                                <input type="radio" name="stars-rating" id="stars-rating-3">
-                                <label for="stars-rating-3"><i class="fa fa-star"></i></label>
-                                <input type="radio" name="stars-rating" id="stars-rating-2">
-                                <label for="stars-rating-2"><i class="fa fa-star"></i></label>
-                                <input type="radio" name="stars-rating" id="stars-rating-1">
-                                <label for="stars-rating-1"><i class="fa fa-star"></i></label>
-                            </div>
-                            <button type="button" class="btn-u btn-u-sea-shop btn-u-sm pull-right">Submit</button>
-                        </footer>
-                    </form>
-                </div>
-                <!-- End Reviews -->
-            </div>
-        </div>
-    </div><!--/end container-->
-    <!--=== End Content Medium ===-->
-    <!--=== Illustration v2 ===-->
-    <div class="container">
-        <div class="heading heading-v1 margin-bottom-20">
-            <h2>Product you may like</h2>
-            <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed odio elit, ultrices vel cursus sed, placerat ut leo. Phasellus in magna erat. Etiam gravida convallis augue non tincidunt. Nunc lobortis dapibus neque quis lacinia. Nam dapibus tellus sit amet odio venenatis</p>
-        </div>
-
-        <div class="illustration-v2 margin-bottom-60">
-            <div class="customNavigation margin-bottom-25">
-                <a class="owl-btn prev rounded-x"><i class="fa fa-angle-left"></i></a>
-                <a class="owl-btn next rounded-x"><i class="fa fa-angle-right"></i></a>
-            </div>
-
-            <ul class="list-inline owl-slider-v4 owl-carousel owl-theme" style="opacity: 1; display: block;">
-                <div class="owl-wrapper-outer">
-                    <div class="owl-wrapper" style="width: 2736px; left: 0px; display: block;">
-                        <div class="owl-item" style="width: 228px;">
-                            <li class="item">
-                                <a href="#"><img class="img-responsive" src="assets/img/thumb/09.jpg" alt=""></a>
-                                <div class="product-description-v2">
-                                    <div class="margin-bottom-5">
-                                        <h4 class="title-price"><a href="#">Double-breasted</a></h4>
-                                        <span class="title-price">$95.00</span>
-                                    </div>
-                                    <ul class="list-inline product-ratings">
-                                        <li><i class="rating-selected fa fa-star"></i></li>
-                                        <li><i class="rating-selected fa fa-star"></i></li>
-                                        <li><i class="rating-selected fa fa-star"></i></li>
-                                        <li><i class="rating fa fa-star"></i></li>
-                                        <li><i class="rating fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </div><div class="owl-item" style="width: 228px;">
-                            <li class="item">
-                                <a href="#"><img class="img-responsive" src="assets/img/thumb/07.jpg" alt=""></a>
-                                <div class="product-description-v2">
-                                    <div class="margin-bottom-5">
-                                        <h4 class="title-price"><a href="#">Double-breasted</a></h4>
-                                        <span class="title-price">$60.00</span>
-                                        <span class="title-price line-through">$95.00</span>
-                                    </div>
-                                    <ul class="list-inline product-ratings">
-                                        <li><i class="rating-selected fa fa-star"></i></li>
-                                        <li><i class="rating-selected fa fa-star"></i></li>
-                                        <li><i class="rating-selected fa fa-star"></i></li>
-                                        <li><i class="rating fa fa-star"></i></li>
-                                        <li><i class="rating fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </div><div class="owl-item" style="width: 228px;">
-                            <li class="item">
-                                <a href="#"><img class="img-responsive" src="assets/img/thumb/08.jpg" alt=""></a>
-                                <div class="product-description-v2">
-                                    <div class="margin-bottom-5">
-                                        <h4 class="title-price"><a href="#">Double-breasted</a></h4>
-                                        <span class="title-price">$95.00</span>
-                                    </div>
-                                    <ul class="list-inline product-ratings">
-                                        <li><i class="rating-selected fa fa-star"></i></li>
-                                        <li><i class="rating-selected fa fa-star"></i></li>
-                                        <li><i class="rating-selected fa fa-star"></i></li>
-                                        <li><i class="rating fa fa-star"></i></li>
-                                        <li><i class="rating fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </div><div class="owl-item" style="width: 228px;">
-                            <li class="item">
-                                <a href="#"><img class="img-responsive" src="assets/img/thumb/06.jpg" alt=""></a>
-                                <div class="product-description-v2">
-                                    <div class="margin-bottom-5">
-                                        <h4 class="title-price"><a href="#">Double-breasted</a></h4>
-                                        <span class="title-price">$95.00</span>
-                                    </div>
-                                    <ul class="list-inline product-ratings">
-                                        <li><i class="rating-selected fa fa-star"></i></li>
-                                        <li><i class="rating-selected fa fa-star"></i></li>
-                                        <li><i class="rating-selected fa fa-star"></i></li>
-                                        <li><i class="rating fa fa-star"></i></li>
-                                        <li><i class="rating fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </div><div class="owl-item" style="width: 228px;">
-                            <li class="item">
-                                <a href="#"><img class="img-responsive" src="assets/img/thumb/04.jpg" alt=""></a>
-                                <div class="product-description-v2">
-                                    <div class="margin-bottom-5">
-                                        <h4 class="title-price"><a href="#">Double-breasted</a></h4>
-                                        <span class="title-price">$95.00</span>
-                                    </div>
-                                    <ul class="list-inline product-ratings">
-                                        <li><i class="rating-selected fa fa-star"></i></li>
-                                        <li><i class="rating-selected fa fa-star"></i></li>
-                                        <li><i class="rating-selected fa fa-star"></i></li>
-                                        <li><i class="rating fa fa-star"></i></li>
-                                        <li><i class="rating fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </div><div class="owl-item" style="width: 228px;">
-                            <li class="item">
-                                <a href="#"><img class="img-responsive" src="assets/img/thumb/03.jpg" alt=""></a>
-                                <div class="product-description-v2">
-                                    <div class="margin-bottom-5">
-                                        <h4 class="title-price"><a href="#">Double-breasted</a></h4>
-                                        <span class="title-price">$95.00</span>
-                                    </div>
-                                    <ul class="list-inline product-ratings">
-                                        <li><i class="rating-selected fa fa-star"></i></li>
-                                        <li><i class="rating-selected fa fa-star"></i></li>
-                                        <li><i class="rating-selected fa fa-star"></i></li>
-                                        <li><i class="rating fa fa-star"></i></li>
-                                        <li><i class="rating fa fa-star"></i></li>
-                                    </ul>
-                                </div>
-                            </li>
-                        </div>
-                    </div>
-                </div>
-
-                <div class="owl-controls clickable">
-                    <div class="owl-pagination">
-                        <div class="owl-page active">
-                            <span class="">
-                            </span>
-                        </div><div class="owl-page">
-                            <span class="">
-                            </span>
-                        </div>
-                    </div>
-                </div>
-            </ul>
-        </div>
-    </div>
-    <!--=== End Illustration v2 ===-->
-    <!--=== Shop Suvbscribe ===-->
-    <div class="shop-subscribe">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-8 md-margin-bottom-20">
-                    <h2>subscribe to our weekly <strong>newsletter</strong></h2>
-                </div>
-                <div class="col-md-4">
-                    <div class="input-group">
-                        <input type="text" class="form-control" placeholder="Email your email...">
-                        <span class="input-group-btn">
-                            <button class="btn" type="button"><i class="fa fa-envelope-o"></i></button>
-                        </span>
-                    </div>
-                </div>
-            </div>
-        </div><!--/end container-->
-    </div>
-</div><!--/wrapper-->
-<!-- Wait Block -->
-<div class="g-popup-wrapper" style="display: none;">
-    <div class="g-popup g-popup--discount">
-        <p class="margin-bottom-5">Enter your email and get</p>
-        <h3>20% off </h3>
-        <p class="margin-bottom-40">your first purchase</p>
-        <form action="#" class="sky-form">
-            <label class="input margin-bottom-20">
-                <input type="email" placeholder="Your email address" class="form-control">
-            </label>
-            <label class="input">
-                <button class="btn btn-default" type="button">Subscribe</button>
-            </label>
-        </form>
-
-        <a href="javascript:void(0);" class="g-popup__close g-popup--discount__close"><span class="icon-close" aria-hidden="true"></span></a>
-    </div>
 </div>
 
-<!-- JS Page Level -->
-<script src="assets/js/shop.app.js"></script>
-<script src="assets/js/plugins/owl-carousel.js"></script>
-<script src="assets/js/plugins/master-slider.js"></script>
-<script src="assets/js/forms/product-quantity.js"></script>
-<script src="assets/js/plugins/style-switcher.js"></script>
-<script>
-    jQuery(document).ready(function() {
-        App.init();
-        App.initScrollBar();
-        OwlCarousel.initOwlCarousel();
-        StyleSwitcher.initStyleSwitcher();
-        MasterSliderShowcase2.initMasterSliderShowcase2();
-    });
-</script>*@
+@section scripts{
+    <script src="~/assets/js/plugins/master-slider/masterslider.min.js"></script>
+    <script src="~/assets/js/plugins/master-slider/jquery.easing.min.js"></script>
+
+
+    <script>
+
+
+        $("#btnAddToCart").on("click", function () {
+            notification('Success', 'this was a success!');
+            $.ajax({
+                url: WebApiResolveUrl('/api/WebApiControllers/ProductWebApi/AddItemToCard'),
+                type: 'GET',
+                //data: { productId:@Model.Id , userName: @User.Identity.Name },
+                data: { productId:2 , userName: "admin@admin.com" },
+
+                success: function (result) {
+                    console.log(result);
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            })
+        });
+
+        function notification(type, message) {
+            if (type == 'Success') {
+                toastr.success(message, 'Success', { positionClass: "toast-bottom-right", });
+            } else if (type == 'Error') {
+                toastr.error(message, 'Error', 'Error', { positionClass: "toast-bottom-right", });
+            } else if (type == 'Email') {
+                toastr.warning(message, 'Email', 'Success', { positionClass: "toast-bottom-right", });
+            }
+        }
+
+        function WebApiResolveUrl(url) {
+            var host = window.location.origin;
+
+            return host + url;
+        }
+
+        function ResolveUrl(url) {
+            var baseUrl = window.location.origin;
+            var pathName = window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/'))
+
+            url = baseUrl + pathName + url;
+
+            return url;
+        }
+    </script>
+}

@@ -11,7 +11,7 @@ namespace EuroPallets.Data.Repositories
     public class GenericRepository<T> : IRepository<T> where T : class
     {
         private DbContext context;
-        private IDbSet<T> set;
+        private DbSet<T> set;
 
         public GenericRepository(DbContext context)
         {
@@ -19,7 +19,7 @@ namespace EuroPallets.Data.Repositories
             this.set = context.Set<T>();
         }
 
-        public IDbSet<T> Set
+        public DbSet<T> Set
         {
             get { return this.set; }
         }
@@ -32,6 +32,11 @@ namespace EuroPallets.Data.Repositories
         public T Find(object id)
         {
             return this.set.Find(id);
+        }
+
+        public void AddAll(IEnumerable<T> entity)
+        {
+            set.AddRange(entity);
         }
 
         public void Add(T entity)

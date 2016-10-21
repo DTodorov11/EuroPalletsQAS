@@ -2,6 +2,7 @@
 using EuroPallets.Data;
 using EuroPallets.Models;
 using EuroPallets.Models.Helper;
+using EuroPallets.ViewModels.CashOnDelivery;
 using EuroPallets.ViewModels.ProductsViewModel;
 using Microsoft.AspNet.Identity;
 using System;

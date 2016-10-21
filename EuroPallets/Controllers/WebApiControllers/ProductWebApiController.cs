@@ -22,7 +22,7 @@ namespace EuroPallets.Controllers.WebApiControllers
 
 
         [HttpGet]
-        public Dictionary<string,string> AddItemToCard(int productId, string userName)
+        public string AddItemToCard(int productId, string userName)
         {
             var productToAdd = this.Data.EuroPalletFurnitures.Find(productId);
             User UserProfile = this.Data.Users.All().FirstOrDefault(x => x.UserName == userName);
@@ -81,14 +81,9 @@ namespace EuroPallets.Controllers.WebApiControllers
                 //ADD TO ANONYMOUSE SHOPING CART
             }
 
-            while (true)
-            {
-                string asd = "";
 
-                asd = asd + "?";
-            }
-
-            return statusAndMessage;
+            //return statusAndMessage;
+            return "test";
         }
     }
 }

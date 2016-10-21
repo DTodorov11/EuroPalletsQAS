@@ -57,6 +57,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="DropDownHelper\Dropdown-Binder.cs" />
     <Compile Include="Interface\IpayPalService.cs" />
     <Compile Include="Interface\IUserServices.cs" />
     <Compile Include="PayPalService.cs" />

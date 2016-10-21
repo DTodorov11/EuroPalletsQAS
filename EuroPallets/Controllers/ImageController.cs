@@ -22,13 +22,14 @@ namespace EuroPallets.Controllers
         }
         public ActionResult Details(int imgId, int id)
         {
-            EuroPalletsDbContext context = new EuroPalletsDbContext();
+            using (EuroPalletsDbContext context = new EuroPalletsDbContext())
+            {
+                var euroPallet = context.EuroPalletFurnituries.FirstOrDefault(x => x.Id == id);
 
-            var euroPallet = context.EuroPalletFurnituries.FirstOrDefault(x => x.Id == id);
+                var euroPalletsImg = euroPallet.EuroPalletImages.FirstOrDefault(x => x.Id == imgId).Image;
 
-            var euroPalletsImg = euroPallet.EuroPalletImages.FirstOrDefault(x => x.Id == imgId).Image;
-
-            return File(euroPalletsImg, "image/jpg");
+                return File(euroPalletsImg, "image/jpg");
+            }
         }
     }
 }

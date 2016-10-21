@@ -15,6 +15,8 @@ namespace EuroPallets.Data.Repositories
 
         void Add(T entity);
 
+        void AddAll(IEnumerable<T> entity);
+
         void Update(T entity);
 
         void Delete(T entity);

@@ -265,6 +265,9 @@
     <Content Include="assets\css\plugins\dropzone\basic.css" />
     <Content Include="assets\css\plugins\dropzone\dropzone.css" />
     <Content Include="assets\css\plugins\images\spritemap.png" />
+    <Content Include="assets\css\plugins\master-slider\style\masterslider.css" />
+    <Content Include="assets\css\plugins\skyforms\custom-sky-forms.css" />
+    <Content Include="assets\css\plugins\skyforms\sky-forms.css" />
     <Content Include="assets\css\plugins\slick\ajax-loader.gif" />
     <Content Include="assets\css\plugins\slick\fonts\slick.svg" />
     <Content Include="assets\css\plugins\slick\slick-theme.css" />
@@ -292,12 +295,16 @@
     <Content Include="assets\img\twitter-bg.jpg" />
     <Content Include="assets\js\inspinia.js" />
     <Content Include="assets\js\plugins\dropzone\dropzone.js" />
+    <Content Include="assets\js\plugins\master-slider\jquery.easing.min.js" />
+    <Content Include="assets\js\plugins\master-slider\masterslider.min.js" />
     <Content Include="assets\js\plugins\metisMenu\jquery.metisMenu.js" />
     <Content Include="assets\js\plugins\pace\pace.min.js" />
     <Content Include="assets\js\plugins\slick\slick.min.js" />
     <Content Include="assets\js\plugins\slimscroll\jquery.slimscroll.js" />
     <Content Include="assets\js\plugins\slimscroll\jquery.slimscroll.min.js" />
     <Content Include="assets\js\plugins\summernote\summernote.min.js" />
+    <Content Include="assets\css\plugins\master-slider\style\grab.png" />
+    <Content Include="assets\plugins\master-slider\skin\default\light-skin-1.png" />
     <Content Include="assets\plugins\revolution-slider\rs-plugin\assets\loader.gif" />
     <Content Include="assets\plugins\revolution-slider\rs-plugin\assets\timer.png" />
     <Content Include="assets\plugins\revolution-slider\rs-plugin\js\jquery.themepunch.revolution.min.js" />
@@ -1050,6 +1057,7 @@
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
+    <Folder Include="assets\plugins\master-slider\masterslider\style\" />
     <Folder Include="Models\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\PayPal\" />

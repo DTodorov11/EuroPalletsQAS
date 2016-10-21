@@ -27,6 +27,30 @@ namespace EuroPallets.Data
             }
         }
 
+        public IRepository<Category> Category
+        {
+            get
+            {
+                return this.GetRepository<Category>();
+            }
+        }
+
+        public IRepository<EuroPalletImage> EuroPalletImages
+        {
+            get
+            {
+                return this.GetRepository<EuroPalletImage>();
+            }
+        }
+
+        public IRepository<Specification> Specification
+        {
+            get
+            {
+                return this.GetRepository<Specification>();
+            }
+        }
+
         public IRepository<ShopingCartEuroPalllets> ShopingCartEuroPalllets
         {
             get

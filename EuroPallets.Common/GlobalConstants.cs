@@ -19,6 +19,8 @@ namespace EuroPallets.Common
 
         public const string RegistrationIsNeeded = "You need to create account to procceed this action !";
 
+        public const string FaliedToAddNewEuroPaletFurniture = "Error when try to add new product";
+        public const string SuccessNewEuroPaletFurniture = "Product was added successfully";
 
 #if DEBUG
         public const string EmailtemplateFolder = "../../Users/Daniel/Documents/GitHub/EuroPallets/EuroPallets/Content/EmailEditor/";

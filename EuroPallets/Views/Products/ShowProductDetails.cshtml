@@ -37,12 +37,9 @@
                                             {
                                                 if (isFirst)
                                                 {
-
-                                                    <div class="ms-slide ms-sl-selected" style="width: 550px; height: 550px; opacity: 0; visibility: hidden;">
+                                                    <div class="ms-slide ms-sl-selected" style="width: 550px; height: 550px; opacity: 1;">
                                                         <div class="ms-slide-bgcont" style="height: 100%; opacity: 1;">
                                                             <img class="ms-brd" src=@Url.Action("Details", "Image", new { imgId = Images.Id, id = Model.Id }) alt="lorem ipsum dolor sit" style="width: 550px; height: 560px; margin-top: -5px; margin-left: 0px;" />
-
-
                                                         </div>
                                                     </div>
                                                     isFirst = false;
@@ -56,7 +53,6 @@
                                                     <div class="ms-slide" style="width: 550px; height: 550px; opacity: 0; visibility: hidden;">
                                                         <div class="ms-slide-bgcont" style="height: 100%; opacity: 1;">
                                                             <img class="ms-brd" src=@Url.Action("Details", "Image", new { imgId = Images.Id, id = Model.Id }) alt="lorem ipsum dolor sit" style="width: 550px; height: 560px; margin-top: -5px; margin-left: 0px;" />
-
                                                         </div>
                                                     </div>
                                                 }

@@ -184,7 +184,7 @@
                 url: "/CashOnDelivery/PaymentModalUpdate",
                 cache: false,
                 success: function (html) {
-                    $(".modal-body").append('');
+                    $(".modal-body").html('');
                     $(".modal-body").append(html);
                 }
             });

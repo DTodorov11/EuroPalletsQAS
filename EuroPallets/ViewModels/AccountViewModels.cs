@@ -127,8 +127,8 @@ namespace EuroPallets.ViewModels
 
     public enum Gender
     {
+        Избери,
         Мъж,
         Жена,
-        Друго
     }
 }

@@ -37,17 +37,12 @@
     <link rel="stylesheet" href="~/assets/plugins/revolution-slider/rs-plugin/css/settings.css">
     <link href="~/assets/css/plugins/toastr/toastr.min.css" rel="stylesheet">
 
-    <style>
-        .navbar navbar-static-top {
-            z-index: 0 !important;
-        }
-    </style>
     @if (IsSectionDefined("Styles"))
     {
         @RenderSection("Styles", required: false)
     }
 </head>
-<body class="top-navigation">
+<body class="top-navigation header-fixed">
 
  
     <!-- Skin configuration box -->

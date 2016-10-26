@@ -59,7 +59,7 @@
 	font-weight: 200;
 	text-align: center;
 	margin-bottom: 30px;
-	text-transform: capitalize;
+	text-transform: none;
 }
 
 .log-reg-v3 .log-reg-block a {

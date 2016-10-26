@@ -1,5 +1,4 @@
 ﻿
-
 namespace EuroPallets.Models
 {
     using Microsoft.AspNet.Identity;
@@ -26,6 +25,11 @@ namespace EuroPallets.Models
             var userIdentity = await manager.CreateIdentityAsync(this, DefaultAuthenticationTypes.ApplicationCookie);
             // Add custom user claims here
             return userIdentity;
+        }
+
+        public static string GetRole()
+        {
+            return User.GetRole();
         }
     }
 }

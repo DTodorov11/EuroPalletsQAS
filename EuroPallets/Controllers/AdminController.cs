@@ -11,6 +11,7 @@ using System.Web.Mvc;
 
 namespace EuroPallets.Controllers
 {
+    [Authorize(Order = 1, Roles = "Administrator", Users = "")]
     public class AdminController : Controller
     {
         private readonly IEvroPalletsData data;
@@ -107,7 +108,7 @@ namespace EuroPallets.Controllers
 
                 this.data.Specification.Add(model.Specification);
                 this.data.EuroPalletFurnitures.Add(model);
-               
+
                 this.data.SaveChanges();
 
                 TempData["Success"] = GlobalConstants.SuccessNewEuroPaletFurniture;

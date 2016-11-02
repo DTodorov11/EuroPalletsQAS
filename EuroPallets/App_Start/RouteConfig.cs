@@ -13,6 +13,14 @@ namespace EuroPallets
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+            //Route for comming soon page !
+            //---------------------------------------
+            //routes.MapRoute(
+            //   "CatchAll",
+            //   "{*url}",
+            //   new { controller = "Home", action = "Mebellete_Сайт_за_мебели_очаквайте_скоро" }
+            // );
+
             routes.MapRoute(
                 name: "Default",
                 url: "{controller}/{action}/{id}",

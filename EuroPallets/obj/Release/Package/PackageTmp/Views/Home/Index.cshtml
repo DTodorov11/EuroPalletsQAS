@@ -1,5 +1,19 @@
 ﻿@model IQueryable<EuroPallets.Models.EuroPalletFurniture>
 
+<style>
+    .corsuel-pic {
+        width: 100%;
+        max-height: 550px;
+    }
+
+    .carousel-caption h1 {
+        color: white;
+    }
+
+    .carousel-caption .lead {
+        color: white;
+    }
+</style>
 <html lang="en">
 <!--<![endif]-->
 <head>
@@ -7,7 +21,13 @@
     <!-- Meta -->
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="">
+
+    @*До 155 символа*@
+    <meta name="description" content="Някакъв дискрипшън...">
+    @*До 62 символа*@
+    <meta name="title" content="Холна маса от евро палети дрън дрън...">
+    @*До 5-6 макс*@
+    <meta name="keywords" content="Холна маса от евро палети дрън дрън...">
     <meta name="author" content="">
 </head>
 
@@ -15,148 +35,67 @@
     <div class="wrapper">
 
         <!--=== Slider ===-->
-        <div class="tp-banner-container" style="overflow: visible;">
-            <div class="tp-banner revslider-initialised tp-simpleresponsive" id="revslider-732" style="height: 500px;">
-                <ul class="tp-revslider-mainul" style="display: block; overflow: hidden; width: 100%; height: 100%; max-height: none;">
-                    <!-- SLIDE -->
-                    <li class="revolution-mch-1 tp-revslider-slidesli active-revslide current-sr-slide-visible" data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Slide 1" style="width: 100%; height: 100%; overflow: hidden; z-index: 20; visibility: inherit; opacity: 1;">
-                        <!-- MAIN IMAGE -->
-                        <div class="slotholder" style="width:100%;height:100%;"  data-duration="undefined" data-zoomstart="undefined" data-zoomend="undefined" data-rotationstart="undefined" data-rotationend="undefined" data-ease="undefined" data-bgpositionend="undefined" data-bgposition="left top" data-kenburns="undefined" data-easeme="undefined" data-bgfit="cover" data-bgfitend="undefined" data-owidth="undefined" data-oheight="undefined">
-                            <div class="tp-bgimg defaultimg" data-lazyload="undefined" data-bgfit="cover"
-                                 data-bgposition="left top" data-bgrepeat="no-repeat" data-lazydone="undefined"
-                                 src="~/Image/HomePageImg/TopSlider/Top-Slider-1.jpg"
-                                 data-src="~/Image/HomePageImg/TopSlider/Top-Slider-1.jpg" style="width: 100%; height: 100%;
-                                 opacity: 1; visibility: inherit; background-position-y: -350px; background-image: url(../Image/HomePageImg/TopSlider/Top-Slider-1.jpg); background-color: rgba(0, 0, 0, 0);
-                                 background-size: cover; background-position: left top; background-repeat: no-repeat;"></div>
-                        </div>
+        <div id="myCarousel" class="carousel slide">
 
-                        <div class="tp-caption revolution-ch1 sft start" data-x="center" data-hoffset="0" data-y="100"
-                             data-speed="1500" data-start="500" data-easing="Back.easeInOut" data-endeasing="Power1.easeIn"
-                             data-endspeed="300" style="transition: all 0s ease 0s; min-height: 0px; min-width: 0px;
-                             line-height: 60px; border-width: 1px; margin: 0px; padding: 30px 50px; letter-spacing: 0px; font-size: 50px; left: 741px;
-                             top: 100px; visibility: visible; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.0025, 0, 0, 0, 1);">
-                            Новата <br>
-                            <strong>Колекция</strong><br>
-                            е тук
-                        </div>
+            <ol class="carousel-indicators" style="z-index:1 !important">
+                <li data-target="#myCarousel" data-slide-to="0" class="active"></li>
+                <li data-target="#myCarousel" data-slide-to="1" class=""></li>
+                <li data-target="#myCarousel" data-slide-to="2" class=""></li>
+                <li data-target="#myCarousel" data-slide-to="3" class=""></li>
+            </ol>
 
-                        <!-- LAYER -->
-                        <div class="tp-caption sft start" data-x="center" data-hoffset="0" data-y="380" data-speed="1600" data-start="1800" data-easing="Power4.easeOut" data-endspeed="300" data-endeasing="Power1.easeIn" data-captionhidden="off" style="z-index: 6; transition: all 0s ease 0s; min-height: 0px; min-width: 0px; line-height: 20px; border-width: 0px; margin: 0px; padding: 0px; letter-spacing: 0px; font-size: 14px; left: 904px; top: 380px; visibility: visible; opacity: 1; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.0025, 0, 0, 0, 1);">
-                            <a href="#" class="btn-u btn-brd btn-brd-hover btn-u-light">Пазарувай сега</a>
+            <div class="carousel-inner">
+                <div class="item">
+                    <img src="~/assets/img/cursoel/1.jpg" alt="" class="corsuel-pic">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            @if (User.Identity.IsAuthenticated)
+                            {
+                                <h1>Бъди в крак с времето !</h1>
+                                <p class="lead">Вашите мебели ще бъдат едновременно стилни но и такива които да придават уют на вашия дом.</p>
+                            }
+                            else
+                            {
+                                <h1>Регистрирай се вземи отстъпка !</h1>
+                                <p class="lead">Държим на доброто обслужване.Регистрирай се и получи всички функционалности на сайта както и отстъпка за пътвата поръчка !</p>
+                                <a class="btn btn-large btn-primary" href="#">Регистрирай се</a>
+                            }
                         </div>
-                    </li>
-                    <!-- END SLIDE -->
-                    <!-- SLIDE -->
-                    <li class="revolution-mch-1 tp-revslider-slidesli active-revslide" data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Slide 2" style="width: 100%; height: 100%; overflow: hidden; z-index: 18; visibility: hidden; opacity: 0;">
-                        <!-- MAIN IMAGE -->
-                        <div class="slotholder" style="width:100%;height:100%;" data-duration="undefined" data-zoomstart="undefined" data-zoomend="undefined" data-rotationstart="undefined" data-rotationend="undefined" data-ease="undefined" data-bgpositionend="undefined" data-bgposition="left top" data-kenburns="undefined" data-easeme="undefined" data-bgfit="cover" data-bgfitend="undefined" data-owidth="undefined" data-oheight="undefined">
-                            <div class="tp-bgimg defaultimg" data-lazyload="undefined" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" data-lazydone="undefined" src="assets/img/5.jpg" data-src="assets/img/5.jpg" style="width: 100%; height: 100%; opacity: 1; visibility: inherit; background-image: url(&quot;assets/img/5.jpg&quot;); background-color: rgba(0, 0, 0, 0); background-size: cover; background-position: left top; background-repeat: no-repeat;">
-                            </div>
-                        </div>
-
-                        <div class="tp-caption revolution-ch3 sft start" data-x="center" data-hoffset="0" data-y="140" data-speed="1500" data-start="500" data-easing="Back.easeInOut" data-endeasing="Power1.easeIn" data-endspeed="300" style="transition: all 0s ease 0s; min-height: 0px; min-width: 0px; line-height: 60px; border-width: 0px; margin: 0px; padding: 0px; letter-spacing: 0px; font-size: 50px; left: 651.5px; top: 140px; visibility: visible; opacity: 0; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.00166, 0, -50, 0, 1);">
-                            Latest <strong>Fashion</strong> Trends
-                        </div>
-
-                        <!-- LAYER -->
-                        <div class="tp-caption revolution-ch4 sft start" data-x="center" data-hoffset="-14" data-y="210" data-speed="1400" data-start="2000" data-easing="Power4.easeOut" data-endspeed="300" data-endeasing="Power1.easeIn" data-captionhidden="off" style="z-index: 6; transition: all 0s ease 0s; min-height: 0px; min-width: 0px; line-height: 30px; border-width: 0px; margin: 0px; padding: 0px; letter-spacing: 0px; font-size: 18px; max-width: 300px; left: 787.5px; top: 210px; visibility: visible; opacity: 0; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.00166, 0, -50, 0, 1);">
-                            Cras non dui et quam auctor pretium.<br>
-                            Aenean enim tortr, tempus et iteus m
-                        </div>
-
-                        <!-- LAYER -->
-                        <div class="tp-caption sft start" data-x="center" data-hoffset="0" data-y="300" data-speed="1600" data-start="1800" data-easing="Power4.easeOut" data-endspeed="300" data-endeasing="Power1.easeIn" data-captionhidden="off" style="z-index: 6; transition: all 0s ease 0s; min-height: 0px; min-width: 0px; line-height: 20px; border-width: 0px; margin: 0px; padding: 0px; letter-spacing: 0px; font-size: 14px; left: 904px; top: 300px; visibility: visible; opacity: 0; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.00166, 0, -50, 0, 1);">
-                            <a href="#" class="btn-u btn-brd btn-brd-hover btn-u-light">Shop Now</a>
-                        </div>
-                    </li>
-                    <!-- END SLIDE -->
-                    <!-- SLIDE -->
-                    <li class="revolution-mch-1 tp-revslider-slidesli active-revslide" data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Slide 3" style="width: 100%; height: 100%; overflow: hidden; z-index: 18; visibility: hidden; opacity: 0;">
-                        <!-- MAIN IMAGE -->
-                        <div class="slotholder" style="width:100%;height:100%;" data-duration="undefined" data-zoomstart="undefined" data-zoomend="undefined" data-rotationstart="undefined" data-rotationend="undefined" data-ease="undefined" data-bgpositionend="undefined" data-bgposition="right top" data-kenburns="undefined" data-easeme="undefined" data-bgfit="cover" data-bgfitend="undefined" data-owidth="undefined" data-oheight="undefined"><div class="tp-bgimg defaultimg" data-lazyload="undefined" data-bgfit="cover" data-bgposition="right top" data-bgrepeat="no-repeat" data-lazydone="undefined" src="~/assets/img/3.jpg" data-src="~/assets/img/3.jpg" style="width: 100%; height: 100%; opacity: 1; visibility: inherit; background-image: url(&quot;assets/img/3.jpg&quot;); background-color: rgba(0, 0, 0, 0); background-size: cover; background-position: right top; background-repeat: no-repeat;"></div></div>
-
-                        <div class="tp-caption revolution-ch3 sft start" data-x="right" data-hoffset="5" data-y="130" data-speed="1500" data-start="500" data-easing="Back.easeInOut" data-endeasing="Power1.easeIn" data-endspeed="300" style="transition: all 0s ease 0s; min-height: 0px; min-width: 0px; line-height: 60px; border-width: 0px; margin: 0px; padding: 0px; letter-spacing: 0px; font-size: 50px; left: 1097.5px; top: 130px; visibility: visible; opacity: 0; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.00166, 0, -50, 0, 1);">
-                            <strong>Luxury</strong> Watches
-                        </div>
-
-                        <!-- LAYER -->
-                        <div class="tp-caption revolution-ch4 sft start" data-x="right" data-hoffset="0" data-y="210" data-speed="1400" data-start="2000" data-easing="Power4.easeOut" data-endspeed="300" data-endeasing="Power1.easeIn" data-captionhidden="off" style="z-index: 6; transition: all 0s ease 0s; min-height: 0px; min-width: 0px; line-height: 30px; border-width: 0px; margin: 0px; padding: 0px; letter-spacing: 0px; font-size: 18px; max-width: 300px; left: 1236.5px; top: 210px; visibility: visible; opacity: 0; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.00166, 0, -50, 0, 1);">
-                            lectus. Cras non dui et quam auctor.<br>
-                            Aenean enim tortor, tempus et im
-                        </div>
-
-                        <!-- LAYER -->
-                        <div class="tp-caption sft start" data-x="right" data-hoffset="0" data-y="300" data-speed="1600" data-start="2800" data-easing="Power4.easeOut" data-endspeed="300" data-endeasing="Power1.easeIn" data-captionhidden="off" style="z-index: 6; transition: all 0s ease 0s; min-height: 0px; min-width: 0px; line-height: 20px; border-width: 0px; margin: 0px; padding: 0px; letter-spacing: 0px; font-size: 14px; left: 1441.5px; top: 300px; visibility: visible; opacity: 0; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.00166, 0, -50, 0, 1);">
-                            <a href="#" class="btn-u btn-brd btn-brd-hover btn-u-light">Shop Now</a>
-                        </div>
-                    </li>
-                    <!-- END SLIDE -->
-                    <!-- SLIDE -->
-                    <li class="revolution-mch-1 tp-revslider-slidesli active-revslide" data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Slide 4" style="width: 100%; height: 100%; overflow: hidden; z-index: 18; visibility: hidden; opacity: 0;">
-                        <!-- MAIN IMAGE -->
-                        <div class="slotholder" style="width:100%;height:100%;" data-duration="undefined" data-zoomstart="undefined" data-zoomend="undefined" data-rotationstart="undefined" data-rotationend="undefined" data-ease="undefined" data-bgpositionend="undefined" data-bgposition="left top" data-kenburns="undefined" data-easeme="undefined" data-bgfit="cover" data-bgfitend="undefined" data-owidth="undefined" data-oheight="undefined">
-                            <div class="tp-bgimg defaultimg" data-lazyload="undefined" data-bgfit="cover" data-bgposition="left top" data-bgrepeat="no-repeat" data-lazydone="undefined" src="~/assets/img/2.jpg" data-src="~/assets/img/2.jpg" style="width: 100%; height: 100%; opacity: 1; visibility: inherit; background-image: url(&quot;assets/img/2.jpg&quot;); background-color: rgba(0, 0, 0, 0); background-size: cover; background-position: left top; background-repeat: no-repeat;"></div>
-                        </div>
-
-                        <div class="tp-caption revolution-ch1 sft start" data-x="center" data-hoffset="0" data-y="100" data-speed="1500" data-start="500" data-easing="Back.easeInOut" data-endeasing="Power1.easeIn" data-endspeed="300" style="transition: all 0s ease 0s; min-height: 0px; min-width: 0px; line-height: 60px; border-width: 1px; margin: 0px; padding: 30px 50px; letter-spacing: 0px; font-size: 50px; left: 682.5px; top: 100px; visibility: visible; opacity: 0; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.00166, 0, -50, 0, 1);">
-                            Girl's Accesories
-                        </div>
-
-                        <!-- LAYER -->
-                        <div class="tp-caption revolution-ch2 sft start" data-x="center" data-hoffset="0" data-y="280" data-speed="1400" data-start="2000" data-easing="Power4.easeOut" data-endspeed="300" data-endeasing="Power1.easeIn" data-captionhidden="off" style="z-index: 6; transition: all 0s ease 0s; min-height: 0px; min-width: 0px; line-height: 32px; border-width: 0px; margin: 0px; padding: 0px; letter-spacing: 0px; font-size: 30px; max-width: 470px; left: 846.5px; top: 280px; visibility: visible; opacity: 0; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.00166, 0, -50, 0, 1);">
-                            Super Promo
-                        </div>
-
-                        <!-- LAYER -->
-                        <div class="tp-caption sft start" data-x="center" data-hoffset="0" data-y="370" data-speed="1600" data-start="2800" data-easing="Power4.easeOut" data-endspeed="300" data-endeasing="Power1.easeIn" data-captionhidden="off" style="z-index: 6; transition: all 0s ease 0s; min-height: 0px; min-width: 0px; line-height: 20px; border-width: 0px; margin: 0px; padding: 0px; letter-spacing: 0px; font-size: 14px; left: 854px; top: 370px; visibility: visible; opacity: 0; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.00166, 0, -50, 0, 1);">
-                            <a href="#" class="btn-u btn-brd btn-brd-hover btn-u-light">View More</a>
-                            <a href="#" class="btn-u btn-brd btn-brd-hover btn-u-light">Shop Now</a>
-                        </div>
-                    </li>
-                    <!-- END SLIDE -->
-                    <!-- SLIDE -->
-                    <li class="revolution-mch-1 tp-revslider-slidesli active-revslide" data-transition="fade" data-slotamount="5" data-masterspeed="1000" data-title="Slide 5" style="width: 100%; height: 100%; overflow: hidden; visibility: hidden; opacity: 0; z-index: 18;">
-                        <!-- MAIN IMAGE -->
-                        <div class="slotholder" style="width:100%;height:100%;" data-duration="undefined" data-zoomstart="undefined" data-zoomend="undefined" data-rotationstart="undefined" data-rotationend="undefined" data-ease="undefined" data-bgpositionend="undefined" data-bgposition="right top" data-kenburns="undefined" data-easeme="undefined" data-bgfit="cover" data-bgfitend="undefined" data-owidth="undefined" data-oheight="undefined">
-                            <div class="tp-bgimg defaultimg" data-lazyload="undefined" data-bgfit="cover" data-bgposition="right top" data-bgrepeat="no-repeat" data-lazydone="undefined" src="~/assets/img/4.jpg" data-src="assets/img/4.jpg" style="width: 100%; height: 100%; opacity: 1; visibility: inherit; background-image: url(&quot;assets/img/4.jpg&quot;); background-color: rgba(0, 0, 0, 0); background-size: cover; background-position: right top; background-repeat: no-repeat;"></div>
-                        </div>
-
-                        <div class="tp-caption revolution-ch5 sft start" data-x="right" data-hoffset="5" data-y="130" data-speed="1500" data-start="500" data-easing="Back.easeInOut" data-endeasing="Power1.easeIn" data-endspeed="300" style="transition: all 0s ease 0s; min-height: 0px; min-width: 0px; line-height: 60px; border-width: 0px; margin: 0px; padding: 0px; letter-spacing: 0px; font-size: 50px; left: 1084.5px; top: 130px; visibility: visible; opacity: 0; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.00166, 0, -50, 0, 1);">
-                            <strong>Jeans</strong> Collection
-                        </div>
-
-                        <!-- LAYER -->
-                        <div class="tp-caption revolution-ch4 sft start" data-x="right" data-hoffset="-14" data-y="210" data-speed="1400" data-start="2000" data-easing="Power4.easeOut" data-endspeed="300" data-endeasing="Power1.easeIn" data-captionhidden="off" style="z-index: 6; transition: all 0s ease 0s; min-height: 0px; min-width: 0px; line-height: 30px; border-width: 0px; margin: 0px; padding: 0px; letter-spacing: 0px; font-size: 18px; max-width: 300px; left: 1222.5px; top: 210px; visibility: visible; opacity: 0; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.00166, 0, -50, 0, 1);">
-                            Cras non dui et quam auctor pretium.<br>
-                            Aenean enim tortr, tempus et iteus m
-                        </div>
-
-                        <!-- LAYER -->
-                        <div class="tp-caption sft start" data-x="right" data-hoffset="0" data-y="300" data-speed="1600" data-start="2800" data-easing="Power4.easeOut" data-endspeed="300" data-endeasing="Power1.easeIn" data-captionhidden="off" style="z-index: 6; transition: all 0s ease 0s; min-height: 0px; min-width: 0px; line-height: 20px; border-width: 0px; margin: 0px; padding: 0px; letter-spacing: 0px; font-size: 14px; left: 1441.5px; top: 300px; visibility: visible; opacity: 0; transform: matrix3d(1, 0, 0, 0, 0, 1, 0, 0, 0, 0, 1, -0.00166, 0, -50, 0, 1);">
-                            <a href="#" class="btn-u btn-brd btn-brd-hover btn-u-light">Shop Now</a>
-                        </div>
-                    </li>
-                    <!-- END SLIDE -->
-                </ul>
-                <div class="tp-bannertimer tp-bottom" style="width: 99.4111%; visibility: visible; transform: translate3d(0px, 0px, 0px);"></div>
-                <div class="tp-loader spinner0" style="display: none;">
-                    <div class="dot1"></div>
-                    <div class="dot2"></div>
-                    <div class="bounce1"></div>
-                    <div class="bounce2"></div>
-                    <div class="bounce3"></div>
+                    </div>
                 </div>
-            </div>
-            <div class="tp-bullets simplebullets preview4 hidebullets" style="bottom: 20px; left: 50%; margin-left: -45px;"><div class="bullet first selected"></div><div class="bullet"></div><div class="bullet"></div><div class="bullet"></div><div class="bullet last"></div><div class="tpclear"></div></div><div style="position: absolute; top: 250px; margin-top: -55px; left: 0px;" class="tp-leftarrow tparrows default preview4 hidearrows"><div class="tp-arr-allwrapper"><div class="tp-arr-iwrapper"><div class="tp-arr-imgholder" style="transform: matrix(1, 0, 0, 1, 0, 0); background-image: url(&quot;assets/img/4.jpg&quot;);"></div><div class="tp-arr-imgholder2" style="transform: matrix(1, 0, 0, 1, 0, 0); background-image: url(&quot;assets/img/4.jpg&quot;);"></div><div class="tp-arr-titleholder">Slide 5</div><div class="tp-arr-subtitleholder"></div></div></div></div><div style="position: absolute; top: 250px; margin-top: -55px; right: 0px;" class="tp-rightarrow tparrows default preview4 hashoveralready hidearrows">
-                <div class="tp-arr-allwrapper">
-                    <div class="tp-arr-iwrapper">
-                        <div class="tp-arr-imgholder" style="transform: matrix(1, 0, 0, 1, 0, 0); background-image: url(&quot;assets/img/5.jpg&quot;);"></div>
-                        <div class="tp-arr-imgholder2" style="transform: matrix(1, 0, 0, 1, 0, 0); background-image: url(&quot;assets/img/5.jpg&quot;);"></div>
-                        <div class="tp-arr-titleholder">Slide 2</div>
-                        <div class="tp-arr-subtitleholder"></div>
+                <div class="item">
+                    <img src="~/assets/img/cursoel/2.jpg" alt="" class="corsuel-pic">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>Направи правилния избор</h1>
+                            <p class="lead">Мебели изработени единствено от естествени дървени материали.</p>
+                            <a class="btn btn-large btn-primary" href="#">Виж всички продукти</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="item">
+                    <img src="~/assets/img/cursoel/3.jpeg" alt="" class="corsuel-pic">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>Избери точно това което желаеш</h1>
+                            <p class="lead">С нашата НОВА опция може да превърнем вашите желания за интериора на вашия дом в реалност !</p>
+                            <a class="btn btn-large btn-primary" href="#">Поръчкови мебели</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="item active">
+                    <img src="~/assets/img/cursoel/4.jpg" alt="" class="corsuel-pic">
+                    <div class="container">
+                        <div class="carousel-caption">
+                            <h1>Направи дома си уникален</h1>
+                            <p class="lead">Мебеи и обзавеждане за вашия дом изцяло от дървен материал.Бъди уникален и направи дома си едно различно място</p>
+                            <a class="btn btn-large btn-primary" href="#">Научи повече</a>
+                        </div>
                     </div>
                 </div>
             </div>
+            <a class="left carousel-controls" href="#myCarousel" data-slide="prev" style="visibility:hidden;">‹</a>
+            <a class="right carousel-controls" href="#myCarousel" data-slide="next" style="visibility:hidden;">›</a>
         </div>
         <!--=== End Slider ===-->
         <!--=== Product Content ===-->
@@ -189,7 +128,6 @@
                 </div>
             </div><!--/end row-->
             <!--=== End Illustration v1 ===-->
-
             <!--=== Illustration v2 ===-->
             <div class="heading heading-v1 margin-bottom-40">
                 <h2>Най - разглеждани</h2>
@@ -200,7 +138,7 @@
                 {
                     <div class="col-md-3 col-sm-6 md-margin-bottom-30">
                         <div class="product-img">
-                            <a href="shop-ui-inner.html"><img class="full-width img-responsive" style="height: 400px" src=@Url.Action("Show", "Image", new { id = currentItem.Id }) alt=""></a>
+                            <a href="shop-ui-inner.html"><img class="full-width img-responsive" style="height: 300px" src=@Url.Action("Show", "Image", new { id = currentItem.Id }) alt=""></a>
                             <a class="product-review" href="shop-ui-inner.html">Бърз преглед</a>
                             <a class="add-to-cart" href="#"><i class="fa fa-shopping-cart"></i>Добави в количката</a>
                         </div>
@@ -227,89 +165,89 @@
                     </div>
                 }
                 @*<div class="col-md-3 col-sm-6 md-margin-bottom-30">
-                    <div class="product-img">
-                        <a href="shop-ui-inner.html"><img class="full-width img-responsive" src="assets/img/blog/09.jpg" alt=""></a>
-                        <a class="product-review" href="shop-ui-inner.html">Quick review</a>
-                        <a class="add-to-cart" href="#"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                    </div>
-                    <div class="product-description product-description-brd">
-                        <div class="overflow-h margin-bottom-5">
-                            <div class="pull-left">
-                                <h4 class="title-price"><a href="shop-ui-inner.html">Double-breasted</a></h4>
-                                <span class="gender text-uppercase">Men</span>
-                                <span class="gender">Suits - Blazers</span>
-                            </div>
-                            <div class="product-price">
-                                <span class="title-price">$60.00</span>
-                                <span class="title-price line-through">$95.00</span>
-                            </div>
+                        <div class="product-img">
+                            <a href="shop-ui-inner.html"><img class="full-width img-responsive" src="assets/img/blog/09.jpg" alt=""></a>
+                            <a class="product-review" href="shop-ui-inner.html">Quick review</a>
+                            <a class="add-to-cart" href="#"><i class="fa fa-shopping-cart"></i>Add to cart</a>
                         </div>
-                        <ul class="list-inline product-ratings">
-                            <li><i class="rating-selected fa fa-star"></i></li>
-                            <li><i class="rating-selected fa fa-star"></i></li>
-                            <li><i class="rating-selected fa fa-star"></i></li>
-                            <li><i class="rating fa fa-star"></i></li>
-                            <li><i class="rating fa fa-star"></i></li>
-                            <li class="like-icon"><a data-original-title="Add to wishlist" data-toggle="tooltip" data-placement="left" class="tooltips" href="#"><i class="fa fa-heart"></i></a></li>
-                        </ul>
-                    </div>
-                </div>
-                <div class="col-md-3 col-sm-6 md-margin-bottom-30">
-                    <div class="product-img">
-                        <a href="shop-ui-inner.html"><img class="full-width img-responsive" src="assets/img/blog/10.jpg" alt=""></a>
-                        <a class="product-review" href="shop-ui-inner.html">Quick review</a>
-                        <a class="add-to-cart" href="#"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                        <div class="shop-rgba-red rgba-banner">Out of stock</div>
-                    </div>
-                    <div class="product-description product-description-brd">
-                        <div class="overflow-h margin-bottom-5">
-                            <div class="pull-left">
-                                <h4 class="title-price"><a href="shop-ui-inner.html">Double-breasted</a></h4>
-                                <span class="gender text-uppercase">Women</span>
-                                <span class="gender">Suits - Blazers</span>
+                        <div class="product-description product-description-brd">
+                            <div class="overflow-h margin-bottom-5">
+                                <div class="pull-left">
+                                    <h4 class="title-price"><a href="shop-ui-inner.html">Double-breasted</a></h4>
+                                    <span class="gender text-uppercase">Men</span>
+                                    <span class="gender">Suits - Blazers</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="title-price">$60.00</span>
+                                    <span class="title-price line-through">$95.00</span>
+                                </div>
                             </div>
-                            <div class="product-price">
-                                <span class="title-price">$95.00</span>
-                            </div>
+                            <ul class="list-inline product-ratings">
+                                <li><i class="rating-selected fa fa-star"></i></li>
+                                <li><i class="rating-selected fa fa-star"></i></li>
+                                <li><i class="rating-selected fa fa-star"></i></li>
+                                <li><i class="rating fa fa-star"></i></li>
+                                <li><i class="rating fa fa-star"></i></li>
+                                <li class="like-icon"><a data-original-title="Add to wishlist" data-toggle="tooltip" data-placement="left" class="tooltips" href="#"><i class="fa fa-heart"></i></a></li>
+                            </ul>
                         </div>
-                        <ul class="list-inline product-ratings">
-                            <li><i class="rating-selected fa fa-star"></i></li>
-                            <li><i class="rating-selected fa fa-star"></i></li>
-                            <li><i class="rating-selected fa fa-star"></i></li>
-                            <li><i class="rating fa fa-star"></i></li>
-                            <li><i class="rating fa fa-star"></i></li>
-                            <li class="like-icon"><a data-original-title="Add to wishlist" data-toggle="tooltip" data-placement="left" class="tooltips" href="#"><i class="fa fa-heart"></i></a></li>
-                        </ul>
                     </div>
-                </div>
-                <div class="col-md-3 col-sm-6 md-margin-bottom-30">
-                    <div class="product-img">
-                        <a href="shop-ui-inner.html"><img class="full-width img-responsive" src="assets/img/blog/11.jpg" alt=""></a>
-                        <a class="product-review" href="shop-ui-inner.html">Quick review</a>
-                        <a class="add-to-cart" href="#"><i class="fa fa-shopping-cart"></i>Add to cart</a>
-                        <div class="shop-rgba-dark-green rgba-banner">New</div>
-                    </div>
-                    <div class="product-description product-description-brd">
-                        <div class="overflow-h margin-bottom-5">
-                            <div class="pull-left">
-                                <h4 class="title-price"><a href="shop-ui-inner.html">Double-breasted</a></h4>
-                                <span class="gender text-uppercase">Men</span>
-                                <span class="gender">Suits - Blazers</span>
-                            </div>
-                            <div class="product-price">
-                                <span class="title-price">$95.00</span>
-                            </div>
+                    <div class="col-md-3 col-sm-6 md-margin-bottom-30">
+                        <div class="product-img">
+                            <a href="shop-ui-inner.html"><img class="full-width img-responsive" src="assets/img/blog/10.jpg" alt=""></a>
+                            <a class="product-review" href="shop-ui-inner.html">Quick review</a>
+                            <a class="add-to-cart" href="#"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                            <div class="shop-rgba-red rgba-banner">Out of stock</div>
                         </div>
-                        <ul class="list-inline product-ratings">
-                            <li><i class="rating-selected fa fa-star"></i></li>
-                            <li><i class="rating-selected fa fa-star"></i></li>
-                            <li><i class="rating-selected fa fa-star"></i></li>
-                            <li><i class="rating fa fa-star"></i></li>
-                            <li><i class="rating fa fa-star"></i></li>
-                            <li class="like-icon"><a data-original-title="Add to wishlist" data-toggle="tooltip" data-placement="left" class="tooltips" href="#"><i class="fa fa-heart"></i></a></li>
-                        </ul>
+                        <div class="product-description product-description-brd">
+                            <div class="overflow-h margin-bottom-5">
+                                <div class="pull-left">
+                                    <h4 class="title-price"><a href="shop-ui-inner.html">Double-breasted</a></h4>
+                                    <span class="gender text-uppercase">Women</span>
+                                    <span class="gender">Suits - Blazers</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="title-price">$95.00</span>
+                                </div>
+                            </div>
+                            <ul class="list-inline product-ratings">
+                                <li><i class="rating-selected fa fa-star"></i></li>
+                                <li><i class="rating-selected fa fa-star"></i></li>
+                                <li><i class="rating-selected fa fa-star"></i></li>
+                                <li><i class="rating fa fa-star"></i></li>
+                                <li><i class="rating fa fa-star"></i></li>
+                                <li class="like-icon"><a data-original-title="Add to wishlist" data-toggle="tooltip" data-placement="left" class="tooltips" href="#"><i class="fa fa-heart"></i></a></li>
+                            </ul>
+                        </div>
                     </div>
-                </div>*@
+                    <div class="col-md-3 col-sm-6 md-margin-bottom-30">
+                        <div class="product-img">
+                            <a href="shop-ui-inner.html"><img class="full-width img-responsive" src="assets/img/blog/11.jpg" alt=""></a>
+                            <a class="product-review" href="shop-ui-inner.html">Quick review</a>
+                            <a class="add-to-cart" href="#"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                            <div class="shop-rgba-dark-green rgba-banner">New</div>
+                        </div>
+                        <div class="product-description product-description-brd">
+                            <div class="overflow-h margin-bottom-5">
+                                <div class="pull-left">
+                                    <h4 class="title-price"><a href="shop-ui-inner.html">Double-breasted</a></h4>
+                                    <span class="gender text-uppercase">Men</span>
+                                    <span class="gender">Suits - Blazers</span>
+                                </div>
+                                <div class="product-price">
+                                    <span class="title-price">$95.00</span>
+                                </div>
+                            </div>
+                            <ul class="list-inline product-ratings">
+                                <li><i class="rating-selected fa fa-star"></i></li>
+                                <li><i class="rating-selected fa fa-star"></i></li>
+                                <li><i class="rating-selected fa fa-star"></i></li>
+                                <li><i class="rating fa fa-star"></i></li>
+                                <li><i class="rating fa fa-star"></i></li>
+                                <li class="like-icon"><a data-original-title="Add to wishlist" data-toggle="tooltip" data-placement="left" class="tooltips" href="#"><i class="fa fa-heart"></i></a></li>
+                            </ul>
+                        </div>
+                    </div>*@
             </div>
 
             <!--=== End Illustration v2 ===-->
@@ -370,7 +308,7 @@
             {
                     <div class="col-md-3 col-sm-6 md-margin-bottom-30">
                         <div class="product-img">
-                            <a href="shop-ui-inner.html"><img class="full-width img-responsive" style="height: 400px" src=@Url.Action("Show", "Image", new { id = latestProducts.Id }) alt=""></a>
+                            <a href="shop-ui-inner.html"><img class="full-width img-responsive" style="height: 300px" src=@Url.Action("Show", "Image", new { id = latestProducts.Id }) alt=""></a>
                             <a class="product-review" href="shop-ui-inner.html">Бърз преглед</a>
                             <a class="add-to-cart" href="#"><i class="fa fa-shopping-cart"></i>Добавяне в количката</a>
                             <div class="shop-rgba-red rgba-banner">Извън наличност</div>
@@ -555,30 +493,30 @@
                             </ul>
                         </div>
                     }
-                   
+
                     @*<div class="thumb-product">
-                        <img class="thumb-product-img" src="~/assets/img/thumb/10.jpg" alt="">
-                        <div class="thumb-product-in">
-                            <h4><a href="shop-ui-inner.html">Yuketen</a> – <a href="shop-ui-inner.html">Derby Shoe</a></h4>
-                            <span class="thumb-product-type">Footwear - Oxfords</span>
+                            <img class="thumb-product-img" src="~/assets/img/thumb/10.jpg" alt="">
+                            <div class="thumb-product-in">
+                                <h4><a href="shop-ui-inner.html">Yuketen</a> – <a href="shop-ui-inner.html">Derby Shoe</a></h4>
+                                <span class="thumb-product-type">Footwear - Oxfords</span>
+                            </div>
+                            <ul class="list-inline overflow-h">
+                                <li class="thumb-product-price">$75.00</li>
+                                <li class="thumb-product-purchase"><a href="#"><i class="fa fa-shopping-cart"></i></a> | <a href="#"><i class="fa fa-heart"></i></a></li>
+                            </ul>
                         </div>
-                        <ul class="list-inline overflow-h">
-                            <li class="thumb-product-price">$75.00</li>
-                            <li class="thumb-product-purchase"><a href="#"><i class="fa fa-shopping-cart"></i></a> | <a href="#"><i class="fa fa-heart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="thumb-product">
-                        <img class="thumb-product-img" src="~/assets/img/thumb/06.jpg" alt="">
-                        <div class="thumb-product-in">
-                            <h4><a href="shop-ui-inner.html">Yuketen</a> – <a href="shop-ui-inner.html">Derby Shoe</a></h4>
-                            <span class="thumb-product-type">Footwear - Oxfords</span>
-                        </div>
-                        <ul class="list-inline overflow-h">
-                            <li class="thumb-product-price line-through">$75.00</li>
-                            <li class="thumb-product-price">$65.00</li>
-                            <li class="thumb-product-purchase"><a href="#"><i class="fa fa-shopping-cart"></i></a> | <a href="#"><i class="fa fa-heart"></i></a></li>
-                        </ul>
-                    </div>*@
+                        <div class="thumb-product">
+                            <img class="thumb-product-img" src="~/assets/img/thumb/06.jpg" alt="">
+                            <div class="thumb-product-in">
+                                <h4><a href="shop-ui-inner.html">Yuketen</a> – <a href="shop-ui-inner.html">Derby Shoe</a></h4>
+                                <span class="thumb-product-type">Footwear - Oxfords</span>
+                            </div>
+                            <ul class="list-inline overflow-h">
+                                <li class="thumb-product-price line-through">$75.00</li>
+                                <li class="thumb-product-price">$65.00</li>
+                                <li class="thumb-product-purchase"><a href="#"><i class="fa fa-shopping-cart"></i></a> | <a href="#"><i class="fa fa-heart"></i></a></li>
+                            </ul>
+                        </div>*@
                 </div>
                 <div class="col-md-4 padding">
                     <div class="heading heading-v1 margin-bottom-20">
@@ -600,29 +538,29 @@
                         </div>
                     }
 
-                  
+
                     @*<div class="thumb-product">
-                        <img class="thumb-product-img" src="~/assets/img/thumb/04.jpg" alt="">
-                        <div class="thumb-product-in">
-                            <h4><a href="shop-ui-inner.html">Yuketen</a> – <a href="shop-ui-inner.html">Derby Shoe</a></h4>
-                            <span class="thumb-product-type">Footwear - Oxfords</span>
+                            <img class="thumb-product-img" src="~/assets/img/thumb/04.jpg" alt="">
+                            <div class="thumb-product-in">
+                                <h4><a href="shop-ui-inner.html">Yuketen</a> – <a href="shop-ui-inner.html">Derby Shoe</a></h4>
+                                <span class="thumb-product-type">Footwear - Oxfords</span>
+                            </div>
+                            <ul class="list-inline overflow-h">
+                                <li class="thumb-product-price">$75.00</li>
+                                <li class="thumb-product-purchase"><a href="#"><i class="fa fa-shopping-cart"></i></a> | <a href="#"><i class="fa fa-heart"></i></a></li>
+                            </ul>
                         </div>
-                        <ul class="list-inline overflow-h">
-                            <li class="thumb-product-price">$75.00</li>
-                            <li class="thumb-product-purchase"><a href="#"><i class="fa fa-shopping-cart"></i></a> | <a href="#"><i class="fa fa-heart"></i></a></li>
-                        </ul>
-                    </div>
-                    <div class="thumb-product">
-                        <img class="thumb-product-img" src="~/assets/img/thumb/05.jpg" alt="">
-                        <div class="thumb-product-in">
-                            <h4><a href="shop-ui-inner.html">Yuketen</a> – <a href="shop-ui-inner.html">Derby Shoe</a></h4>
-                            <span class="thumb-product-type">Footwear - Oxfords</span>
-                        </div>
-                        <ul class="list-inline overflow-h">
-                            <li class="thumb-product-price">$75.00</li>
-                            <li class="thumb-product-purchase"><a href="#"><i class="fa fa-shopping-cart"></i></a> | <a href="#"><i class="fa fa-heart"></i></a></li>
-                        </ul>
-                    </div>*@
+                        <div class="thumb-product">
+                            <img class="thumb-product-img" src="~/assets/img/thumb/05.jpg" alt="">
+                            <div class="thumb-product-in">
+                                <h4><a href="shop-ui-inner.html">Yuketen</a> – <a href="shop-ui-inner.html">Derby Shoe</a></h4>
+                                <span class="thumb-product-type">Footwear - Oxfords</span>
+                            </div>
+                            <ul class="list-inline overflow-h">
+                                <li class="thumb-product-price">$75.00</li>
+                                <li class="thumb-product-purchase"><a href="#"><i class="fa fa-shopping-cart"></i></a> | <a href="#"><i class="fa fa-heart"></i></a></li>
+                            </ul>
+                        </div>*@
                 </div>
             </div><!--/end row-->
             <!--=== End Illustration v4 ===-->
@@ -725,7 +663,7 @@
 
                 <div class="owl-controls clickable"><div class="owl-pagination"><div class="owl-page active"><span class=""></span></div><div class="owl-page"><span class=""></span></div><div class="owl-page"><span class=""></span></div></div></div>
             </ul>*@
-            <!--/end owl-carousel-->
+        <!--/end owl-carousel-->
         @*</div>*@
         <!--=== End Sponsors ===-->
         <!--=== Shop Suvbscribe ===-->
@@ -750,42 +688,29 @@
 
     </div><!--/wrapper-->
     <!-- Wait Block -->
-    <div class="g-popup-wrapper">
-        <div class="g-popup g-popup--discount2">
-            <div class="g-popup--discount2-message">
-                <h3>Искаш 10% намеление?</h3>
-                <h4>Ти си страхотен !</h4>
-                <p>Вземи 10% намеление на следващата ти поръчка! Само въведи имейла си!</p>
+    @*<div class="g-popup-wrapper">
+            <div class="g-popup g-popup--discount2">
+                <div class="g-popup--discount2-message">
+                    <h3>Искаш 10% намеление?</h3>
+                    <h4>Ти си страхотен !</h4>
+                    <p>Вземи 10% намеление на следващата ти поръчка! Само въведи имейла си!</p>
 
-                <form action="#" class="sky-form">
-                    <label class="input">
-                        <input type="email" placeholder="Email" class="form-control">
-                    </label>
-                    <label class="input">
-                        <button class="btn btn-default" type="button">ОК</button>
-                    </label>
-                </form>
+                    <form action="#" class="sky-form">
+                        <label class="input">
+                            <input type="email" placeholder="Email" class="form-control">
+                        </label>
+                        <label class="input">
+                            <button class="btn btn-default" type="button">ОК</button>
+                        </label>
+                    </form>
+                </div>
+                <img src="~/assets/img/blog/26.jpg" alt="ALT" width="270">
+                <a href="javascript:void(0);" class="g-popup__close g-popup--discount2__close">
+                    <span class="icon-close" aria-hidden="true"></span>
+                </a>
             </div>
-            <img src="~/assets/img/blog/26.jpg" alt="ALT" width="270">
-            <a href="javascript:void(0);" class="g-popup__close g-popup--discount2__close">
-                <span class="icon-close" aria-hidden="true"></span>
-            </a>
-        </div>
-    </div>
+        </div>*@
     <!-- End Wait Block -->
-    <!--=== Style Switcher ===-->
-    @*<i class="style-switcher-btn fa fa-cogs hidden-xs"></i>
-        <div class="style-switcher animated fadeInRight">
-            <div class="style-swticher-header">*@
 
-    <!-- JS Customization -->
-    @*<script src="~/assets/js/custom.js"></script>*@
-    <!-- JS Page Level -->
-    <!--[if lt IE 9]>
-        <script src="assets/plugins/respond.js"></script>
-        <script src="assets/plugins/html5shiv.js"></script>
-        <script src="assets/js/plugins/placeholder-IE-fixes.js"></script>
-        <![endif]-->
-    @*<div id="topcontrol" title="" style="position: fixed; bottom: 5px; right: 5px; opacity: 0; cursor: pointer;"></div>*@
 </body>
 </html>

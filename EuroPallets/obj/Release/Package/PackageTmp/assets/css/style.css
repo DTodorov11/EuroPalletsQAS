@@ -3439,13 +3439,12 @@ video {
   overflow-x: hidden;
 }
 .wrapper {
-  padding: 0 20px;
+    
 }
 .wrapper-content {
   padding: 20px 10px 40px;
 }
 #page-wrapper {
-  padding: 0 15px;
   min-height: 568px;
   position: relative !important;
 }
@@ -5294,14 +5293,14 @@ table.shoping-cart-table tr td:last-child {
   color: #1ab394;
 }
 .product-price {
-  font-size: 14px;
+  /*font-size: 14px;
   font-weight: 600;
   color: #ffffff;
   background-color: #1ab394;
   padding: 6px 12px;
   position: absolute;
   top: -32px;
-  right: 0;
+  right: 0;*/
 }
 .product-detail .ibox-content {
   padding: 30px 30px 50px 30px;
@@ -8225,4 +8224,7 @@ body.md-skin {
   #page-wrapper {
     margin: 0;
   }
+}
+.carousel-control{
+    
 }

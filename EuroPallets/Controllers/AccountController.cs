@@ -165,7 +165,7 @@ namespace EuroPallets.Controllers
             {
                 var user = new User
                 {
-                    UserName = Regex.Split(model.Email,"@")[0],
+                    UserName = model.Email,
                     Email = model.Email,
                     PhoneNumber=model.PhoneNumber
 

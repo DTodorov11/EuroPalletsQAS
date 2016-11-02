@@ -260,7 +260,10 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="assets\css\animate.css" />
+    <Content Include="assets\css\coming soon\app.css" />
+    <Content Include="assets\css\coming soon\style.css" />
     <Content Include="assets\css\pages\log-reg.css" />
+    <Content Include="assets\css\pages\page_coming_soon.css" />
     <Content Include="assets\css\plugins\dropzone\basic.css" />
     <Content Include="assets\css\plugins\dropzone\dropzone.css" />
     <Content Include="assets\css\plugins\images\spritemap.png" />
@@ -300,7 +303,9 @@
     <Content Include="assets\img\register\bulgaria-location-map.jpg" />
     <Content Include="assets\img\rsz_03_1-1-resize.png" />
     <Content Include="assets\img\twitter-bg.jpg" />
+    <Content Include="assets\js\app.js" />
     <Content Include="assets\js\inspinia.js" />
+    <Content Include="assets\js\pages\page_coming_soon.js" />
     <Content Include="assets\js\plugins\dropzone\dropzone.js" />
     <Content Include="assets\js\plugins\master-slider\jquery.easing.min.js" />
     <Content Include="assets\js\plugins\master-slider\masterslider.min.js" />
@@ -311,6 +316,9 @@
     <Content Include="assets\js\plugins\slimscroll\jquery.slimscroll.min.js" />
     <Content Include="assets\js\plugins\summernote\summernote.min.js" />
     <Content Include="assets\css\plugins\master-slider\style\grab.png" />
+    <Content Include="assets\plugins\backstretch\jquery.backstretch.min.js" />
+    <Content Include="assets\plugins\countdown\jquery.countdown.js" />
+    <Content Include="assets\plugins\countdown\jquery.plugin.js" />
     <Content Include="assets\plugins\master-slider\skin\default\light-skin-1.png" />
     <Content Include="assets\plugins\revolution-slider\rs-plugin\assets\loader.gif" />
     <Content Include="assets\plugins\revolution-slider\rs-plugin\assets\timer.png" />
@@ -327,13 +335,12 @@
     <Content Include="Content\jquery-mobile-custom.min.css" />
     <Content Include="Content\jquery.mobile.icons.min.css" />
     <Content Include="Content\bootstrap-slider.min.css" />
+    <Content Include="Home\assets\img\cursoel\1.jpg" />
+    <Content Include="Home\assets\img\cursoel\2.jpg" />
+    <Content Include="Home\assets\img\cursoel\3.jpeg" />
+    <Content Include="Home\assets\img\cursoel\4.jpg" />
     <Content Include="Robots.txt" />
     <Content Include="Scripts\my-custom-js.js" />
-    <Content Include="Home\assets\img\1.jpg" />
-    <Content Include="Home\assets\img\2.jpg" />
-    <Content Include="Home\assets\img\3.jpg" />
-    <Content Include="Home\assets\img\4.jpg" />
-    <Content Include="Home\assets\img\5.jpg" />
     <Content Include="assets\img\blog\01.jpg" />
     <Content Include="assets\img\blog\02.jpg" />
     <Content Include="assets\img\blog\03.jpg" />
@@ -574,6 +581,7 @@
     <Content Include="assets\css\plugins\slick\fonts\slick.ttf" />
     <Content Include="assets\css\plugins\slick\fonts\slick.woff" />
     <None Include="Properties\PublishProfiles\Local.pubxml" />
+    <None Include="Properties\PublishProfiles\Server-Production.pubxml" />
     <None Include="Scripts\jquery-3.1.0.intellisense.js" />
     <Content Include="Scripts\jquery-3.1.0.js" />
     <Content Include="Scripts\jquery-3.1.0.min.js" />
@@ -1043,7 +1051,7 @@
     <Content Include="Views\Shared\_SkinConfig.cshtml" />
     <Content Include="Views\Test\Index.cshtml" />
     <Content Include="Views\Shared\_NotificationsPartial.cshtml" />
-    <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Products\Index_OLD.cshtml" />
     <Content Include="Views\Products\ShowProductDetails.cshtml" />
     <Content Include="Views\Admin\AdminPanel.cshtml" />
     <Content Include="Views\Products\ShowUserCart.cshtml" />
@@ -1062,11 +1070,12 @@
     <Content Include="Views\Shared\EditorTemplates\Bool.cshtml" />
     <Content Include="Views\Shared\_PaymentModalPartial.cshtml" />
     <Content Include="Views\CashOnDelivery\Index.cshtml" />
+    <Content Include="Views\Home\Mebellete_Сайт_за_мебели_очаквайте_скоро.cshtml" />
+    <Content Include="Views\Products\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="assets\plugins\master-slider\masterslider\style\" />
-    <Folder Include="Models\" />
     <Folder Include="Views\Base\" />
     <Folder Include="Views\PayPal\" />
   </ItemGroup>

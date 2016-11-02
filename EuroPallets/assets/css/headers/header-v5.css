@@ -449,6 +449,7 @@
 
     .header-v5 .navbar-toggle {
         display: block;
+        background-color:inherit;
     }
 
     .header-v5 .navbar-collapse.collapse {

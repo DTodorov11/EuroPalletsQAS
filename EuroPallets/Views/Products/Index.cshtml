@@ -1,110 +1,662 @@
 ﻿@model EuroPallets.ViewModels.ProductsViewModel.ProductsViewModel
 
-<link href="~/assets/css/animate.css" rel="stylesheet">
-<link href="~/assets/css/style.css" rel="stylesheet">
+@{
+    string sortedby = string.Empty;
+}
 
-
-
-<div id="wrapper">
-    @*== LEFT SIDE BAR ==*@
-    <div class="col-md-2">
-        @Html.Partial("_LeftSideBar")
-    </div>
-
-    @*== END LEFT SIDE BAR ==*@
-
-    @*== SEARCH ==*@
-    <div class="col-md-10 col-xs-12">
-        <div id="page-wrapper" class="gray-bg">
-            <div class="row border-bottom">
-                <nav class="navbar navbar-static-top" role="navigation" style="margin-bottom: 0; z-index: 0">
-                    <div class="navbar-header">
-                        <a class="navbar-minimalize minimalize-styl-2 btn btn-primary " href="#"><i class="fa fa-bars"></i> </a>
-                        <form role="search" class="navbar-form-custom" action="search_results.html">
-                            <div class="form-group">
-                                <input type="text" placeholder="Search for something..." class="form-control" name="top-search" id="top-search">
-                            </div>
-                        </form>
+<!--=== Content Part ===-->
+<div class="content container">
+    <div class="row">
+        @*==LEFT FILTER==*@
+        <div class="col-md-3 filter-by-block md-margin-bottom-60">
+            <h1>Filter By</h1>
+            <div class="panel-group" id="accordion">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                Brands
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                        </h2>
                     </div>
+                    <div id="collapseOne" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <ul class="list-unstyled checkbox-list">
+                                <li>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="checkbox" checked />
+                                        <i></i>
+                                        Calvin Klein
+                                        <small><a href="#">(23)</a></small>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="checkbox" checked />
+                                        <i></i>
+                                        Gucci
+                                        <small><a href="#">(4)</a></small>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="checkbox" />
+                                        <i></i>
+                                        Adidas
+                                        <small><a href="#">(11)</a></small>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="checkbox" />
+                                        <i></i>
+                                        Puma
+                                        <small><a href="#">(3)</a></small>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="checkbox" />
+                                        <i></i>
+                                        Zara
+                                        <small><a href="#">(87)</a></small>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div><!--/end panel group-->
 
-                </nav>
-            </div>
-            @*== END SEARCH ==*@
+            <div class="panel-group" id="accordion-v2">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion-v2" href="#collapseTwo">
+                                Categories
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                        </h2>
+                    </div>
+                    <div id="collapseTwo" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <ul class="list-unstyled checkbox-list">
+                                <li>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="checkbox" checked />
+                                        <i></i>
+                                        Clothes
+                                        <small><a href="#">(23)</a></small>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="checkbox" checked />
+                                        <i></i>
+                                        Glasses
+                                        <small><a href="#">(4)</a></small>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="checkbox" />
+                                        <i></i>
+                                        Shoes
+                                        <small><a href="#">(11)</a></small>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div><!--/end panel group-->
 
-            <div class="wrapper wrapper-content animated fadeInRight">
-                <div class="row">
+            <div class="panel-group" id="accordion-v3">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion-v3" href="#collapseThree">
+                                Size
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                        </h2>
+                    </div>
+                    <div id="collapseThree" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <ul class="list-unstyled checkbox-list">
+                                <li>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="checkbox" />
+                                        <i></i>
+                                        S
+                                        <small><a href="#">(23)</a></small>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="checkbox" checked />
+                                        <i></i>
+                                        M
+                                        <small><a href="#">(4)</a></small>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="checkbox" />
+                                        <i></i>
+                                        L
+                                        <small><a href="#">(11)</a></small>
+                                    </label>
+                                </li>
+                                <li>
+                                    <label class="checkbox">
+                                        <input type="checkbox" name="checkbox" />
+                                        <i></i>
+                                        XL
+                                        <small><a href="#">(3)</a></small>
+                                    </label>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div><!--/end panel group-->
 
-                    @foreach (var item in Model.EuroPalletFurniture)
-                    {
-                        <div class="col-md-4">
-                            <div class="ibox">
-                                <div class="ibox-content product-box">
-                                    <div class="product-imitation">
-                                        <img id="logo-header" style="width:100%" src=@Url.Action("Show", "Image", new { id = item.Id }) alt="Logo">
-                                    </div>
-                                    <div class="product-desc">
-                                        <span class="product-price">
-                                            $10
-                                        </span>
-                                        <small class="text-muted">Category</small>
-                                        <a href="#" class="product-name"> Product</a>
-                                        <div class="small m-t-xs">
-                                            Many desktop publishing packages and web page editors now.
-                                        </div>
-                                        <div class="m-t text-righ">
-                                            <a href=@Url.Action("ShowProductDetails", "Products",new {id=item.Id }) class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
-                                        </div>
-                                    </div>
-                                </div>
+            <div class="panel-group" id="accordion-v4">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion-v4" href="#collapseFour">
+                                Price
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                        </h2>
+                    </div>
+                    <div id="collapseFour" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <div class="slider-snap"></div>
+                            <p class="slider-snap-text">
+                                <span class="slider-snap-value-lower"></span>
+                                <span class="slider-snap-value-upper"></span>
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div><!--/end panel group-->
+
+            <div class="panel-group" id="accordion-v5">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion-v5" href="#collapseFive">
+                                Color
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                        </h2>
+                    </div>
+                    <div id="collapseFive" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <ul class="list-inline product-color-list">
+                                <li><a href="#"><img src="assets/img/colors/01.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="assets/img/colors/02.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="assets/img/colors/03.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="assets/img/colors/04.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="assets/img/colors/05.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="assets/img/colors/06.jpg" alt=""></a></li>
+                                <li><a href="#"><img src="assets/img/colors/07.jpg" alt=""></a></li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div><!--/end panel group-->
+
+            <div class="panel-group margin-bottom-30" id="accordion-v6">
+                <div class="panel panel-default">
+                    <div class="panel-heading">
+                        <h2 class="panel-title">
+                            <a data-toggle="collapse" data-parent="#accordion-v6" href="#collapseSix">
+                                Rating
+                                <i class="fa fa-angle-down"></i>
+                            </a>
+                        </h2>
+                    </div>
+                    <div id="collapseSix" class="panel-collapse collapse in">
+                        <div class="panel-body">
+                            <div class="stars-ratings stars-ratings-label">
+                                <input type="radio" name="stars-rating" id="stars-rating-5">
+                                <label for="stars-rating-5"><i class="fa fa-star"></i></label>
+                                <input type="radio" name="stars-rating" id="stars-rating-4">
+                                <label for="stars-rating-4"><i class="fa fa-star"></i></label>
+                                <input type="radio" name="stars-rating" id="stars-rating-3">
+                                <label for="stars-rating-3"><i class="fa fa-star"></i></label>
+                                <input type="radio" name="stars-rating" id="stars-rating-2">
+                                <label for="stars-rating-2"><i class="fa fa-star"></i></label>
+                                <input type="radio" name="stars-rating" id="stars-rating-1">
+                                <label for="stars-rating-1"><i class="fa fa-star"></i></label>
                             </div>
                         </div>
-                    }
+                    </div>
+                </div>
+            </div><!--/end panel group-->
+            <button type="button" class="btn-u btn-brd btn-brd-hover btn-u-lg btn-u-sea-shop btn-block">Reset</button>
+        </div>
+        @*==END LEFT FILTER==*@
 
+        <div class="col-md-9">
+            @*==TOP FILTERS==*@
+            <div class="row margin-bottom-5">
+                <div class="col-sm-3 result-category">
+                    <h2>Men</h2>
+                    <small class="shop-bg-red badge-results">@Model.EuroPalletFurniture.Count()</small>
+                </div>
+                <div class="col-sm-9">
+                    <ul class="list-inline clear-both">
+                        <li class="grid-list-icons">
+                            <a href="shop-ui-filter-list.html"><i class="fa fa-th-list"></i></a>
+                            <a href="shop-ui-filter-grid.html"><i class="fa fa-th"></i></a>
+                        </li>
+                        <li class="sort-list-btn">
+                            <h3>Сортирай :</h3>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                    Най нови <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a href="#" class="sortedBy">Най-продавани</a></li>
+                                    <li><a href="#" class="sortedBy">Цена възх.</a></li>
+                                    <li><a href="#" class="sortedBy">Цена низх.</a></li>
+                                    <li><a href="#" class="sortedBy">Отстъпка %</a></li>
+                                    <li><a href="#" class="sortedBy">Рейтинг</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                        <li class="sort-list-btn">
+                            <h3>Покажи :</h3>
+                            <div class="btn-group">
+                                <button type="button" class="btn btn-default dropdown-toggle" id="itemCountBtn" data-toggle="dropdown">
+                                    10 <span class="caret"></span>
+                                </button>
+                                <ul class="dropdown-menu" role="menu">
+                                    <li><a class="pageValue" href="#">10</a></li>
+                                    <li><a class="pageValue" href="#">20</a></li>
+                                    <li><a class="pageValue" href="#">30</a></li>
+                                    <li><a class="pageValue" href="#">50</a></li>
+                                </ul>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div><!--/end result category-->
+            @*==END TOP FILTERS==*@
+
+            @*==PRODUCTS DETAILS==*@
+            <div class="filter-results">
+                <div class="row illustration-v2 margin-bottom-30">
+                    @foreach (var currentFurniture in Model.EuroPalletFurniture)
+            {
+                        <div class="col-md-4">
+                            <div class="product-img product-img-brd">
+                                <a href="#"><img class="full-width img-responsive" src=@Url.Action("Show", "Image", new { id = currentFurniture.Id }) alt=""></a>
+                                <a class="product-review" href=@Url.Action("ShowProductDetails", "Products",new {id= currentFurniture.Id })>Бърз преглед</a>
+                                <a class="add-to-cart btnAddToCart" href="#"><i class="fa fa-shopping-cart"></i>Добавяне в количката</a>
+                                <div class="shop-rgba-dark-green rgba-banner">Ново</div>
+                            </div>
+                            <div class="product-description product-description-brd margin-bottom-30">
+                                <div class="overflow-h margin-bottom-5">
+                                    <div class="pull-left">
+                                        <h4 class="title-price"><a href="shop-ui-inner.html">@currentFurniture.Name</a></h4>
+                                        <span class="gender text-uppercase">@currentFurniture.Category</span>
+                                        <span class="gender">@currentFurniture.Name_Description</span>
+                                    </div>
+                                    <div class="product-price">
+                                        <span class="title-price">@currentFurniture.Price</span>
+                                        @*<span class="title-price line-through">@currentFurniture.Price</span>*@
+                                    </div>
+                                </div>
+                                <ul class="list-inline product-ratings">
+                                    <li><i class="rating-selected fa fa-star"></i></li>
+                                    <li><i class="rating-selected fa fa-star"></i></li>
+                                    <li><i class="rating-selected fa fa-star"></i></li>
+                                    <li><i class="rating fa fa-star"></i></li>
+                                    <li><i class="rating fa fa-star"></i></li>
+                                    <li class="like-icon"><a data-original-title="Добави в любими" data-toggle="tooltip" data-placement="left" class="tooltips" href="#"><i class="fa fa-heart"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        @*<div class="col-md-4">
+                                <div class="product-img product-img-brd">
+                                    <a href="#"><img class="full-width img-responsive" src="assets/img/blog/17.jpg" alt=""></a>
+                                    <a class="product-review" href="shop-ui-inner.html">Quick review</a>
+                                    <a class="add-to-cart" href="#"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                </div>
+                                <div class="product-description product-description-brd margin-bottom-30">
+                                    <div class="overflow-h margin-bottom-5">
+                                        <div class="pull-left">
+                                            <h4 class="title-price"><a href="shop-ui-inner.html">Double-breasted</a></h4>
+                                            <span class="gender text-uppercase">Men</span>
+                                            <span class="gender">Suits - Blazers</span>
+                                        </div>
+                                        <div class="product-price">
+                                            <span class="title-price">$60.00</span>
+                                            <span class="title-price line-through">$95.00</span>
+                                        </div>
+                                    </div>
+                                    <ul class="list-inline product-ratings">
+                                        <li><i class="rating-selected fa fa-star"></i></li>
+                                        <li><i class="rating-selected fa fa-star"></i></li>
+                                        <li><i class="rating-selected fa fa-star"></i></li>
+                                        <li><i class="rating fa fa-star"></i></li>
+                                        <li><i class="rating fa fa-star"></i></li>
+                                        <li class="like-icon"><a data-original-title="Add to wishlist" data-toggle="tooltip" data-placement="left" class="tooltips" href="#"><i class="fa fa-heart"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                            <div class="col-md-4">
+                                <div class="product-img product-img-brd">
+                                    <a href="#"><img class="full-width img-responsive" src="assets/img/blog/18.jpg" alt=""></a>
+                                    <a class="product-review" href="shop-ui-inner.html">Quick review</a>
+                                    <a class="add-to-cart" href="#"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                </div>
+                                <div class="product-description product-description-brd margin-bottom-30">
+                                    <div class="overflow-h margin-bottom-5">
+                                        <div class="pull-left">
+                                            <h4 class="title-price"><a href="shop-ui-inner.html">Double-breasted</a></h4>
+                                            <span class="gender text-uppercase">Men</span>
+                                            <span class="gender">Suits - Blazers</span>
+                                        </div>
+                                        <div class="product-price">
+                                            <span class="title-price">$95.00</span>
+                                        </div>
+                                    </div>
+                                    <ul class="list-inline product-ratings">
+                                        <li><i class="rating-selected fa fa-star"></i></li>
+                                        <li><i class="rating-selected fa fa-star"></i></li>
+                                        <li><i class="rating-selected fa fa-star"></i></li>
+                                        <li><i class="rating fa fa-star"></i></li>
+                                        <li><i class="rating fa fa-star"></i></li>
+                                        <li class="like-icon"><a data-original-title="Add to wishlist" data-toggle="tooltip" data-placement="left" class="tooltips" href="#"><i class="fa fa-heart"></i></a></li>
+                                    </ul>
+                                </div>
+                            </div>*@
+                    }
                 </div>
 
-                @*== PAGER ==*@
-                @if (Model.Pager.EndPage > 1)
-                {
-                    <ul class="pagination">
-                        @if (Model.Pager.CurrentPage > 1)
-                        {
+                @*<div class="row illustration-v2 margin-bottom-30">
+                        <div class="col-md-4">
+                            <div class="product-img product-img-brd">
+                                <a href="#"><img class="full-width img-responsive" src="assets/img/blog/21.jpg" alt=""></a>
+                                <a class="product-review" href="shop-ui-inner.html">Quick review</a>
+                                <a class="add-to-cart" href="#"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                            </div>
+                            <div class="product-description product-description-brd margin-bottom-30">
+                                <div class="overflow-h margin-bottom-5">
+                                    <div class="pull-left">
+                                        <h4 class="title-price"><a href="shop-ui-inner.html">Double-breasted</a></h4>
+                                        <span class="gender text-uppercase">Men</span>
+                                        <span class="gender">Suits - Blazers</span>
+                                    </div>
+                                    <div class="product-price">
+                                        <span class="title-price">$95.00</span>
+                                    </div>
+                                </div>
+                                <ul class="list-inline product-ratings">
+                                    <li><i class="rating-selected fa fa-star"></i></li>
+                                    <li><i class="rating-selected fa fa-star"></i></li>
+                                    <li><i class="rating-selected fa fa-star"></i></li>
+                                    <li><i class="rating fa fa-star"></i></li>
+                                    <li><i class="rating fa fa-star"></i></li>
+                                    <li class="like-icon"><a data-original-title="Add to wishlist" data-toggle="tooltip" data-placement="left" class="tooltips" href="#"><i class="fa fa-heart"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="product-img product-img-brd">
+                                <a href="#"><img class="full-width img-responsive" src="assets/img/blog/22.jpg" alt=""></a>
+                                <a class="product-review" href="shop-ui-inner.html">Quick review</a>
+                                <a class="add-to-cart" href="#"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                            </div>
+                            <div class="product-description product-description-brd margin-bottom-30">
+                                <div class="overflow-h margin-bottom-5">
+                                    <div class="pull-left">
+                                        <h4 class="title-price"><a href="shop-ui-inner.html">Double-breasted</a></h4>
+                                        <span class="gender text-uppercase">Men</span>
+                                        <span class="gender">Suits - Blazers</span>
+                                    </div>
+                                    <div class="product-price">
+                                        <span class="title-price">$60.00</span>
+                                        <span class="title-price line-through">$95.00</span>
+                                    </div>
+                                </div>
+                                <ul class="list-inline product-ratings">
+                                    <li><i class="rating-selected fa fa-star"></i></li>
+                                    <li><i class="rating-selected fa fa-star"></i></li>
+                                    <li><i class="rating-selected fa fa-star"></i></li>
+                                    <li><i class="rating fa fa-star"></i></li>
+                                    <li><i class="rating fa fa-star"></i></li>
+                                    <li class="like-icon"><a data-original-title="Add to wishlist" data-toggle="tooltip" data-placement="left" class="tooltips" href="#"><i class="fa fa-heart"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="product-img product-img-brd">
+                                <a href="#"><img class="full-width img-responsive" src="assets/img/blog/23.jpg" alt=""></a>
+                                <a class="product-review" href="shop-ui-inner.html">Quick review</a>
+                                <a class="add-to-cart" href="#"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                <div class="shop-rgba-red rgba-banner">Out of stock</div>
+                            </div>
+                            <div class="product-description product-description-brd">
+                                <div class="overflow-h margin-bottom-5">
+                                    <div class="pull-left">
+                                        <h4 class="title-price"><a href="shop-ui-inner.html">Double-breasted</a></h4>
+                                        <span class="gender text-uppercase">Men</span>
+                                        <span class="gender">Suits - Blazers</span>
+                                    </div>
+                                    <div class="product-price">
+                                        <span class="title-price">$95.00</span>
+                                    </div>
+                                </div>
+                                <ul class="list-inline product-ratings">
+                                    <li><i class="rating-selected fa fa-star"></i></li>
+                                    <li><i class="rating-selected fa fa-star"></i></li>
+                                    <li><i class="rating-selected fa fa-star"></i></li>
+                                    <li><i class="rating fa fa-star"></i></li>
+                                    <li><i class="rating fa fa-star"></i></li>
+                                    <li class="like-icon"><a data-original-title="Add to wishlist" data-toggle="tooltip" data-placement="left" class="tooltips" href="#"><i class="fa fa-heart"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="row illustration-v2">
+                        <div class="col-md-4">
+                            <div class="product-img product-img-brd">
+                                <a href="#"><img class="full-width img-responsive" src="assets/img/blog/16.jpg" alt=""></a>
+                                <a class="product-review" href="shop-ui-inner.html">Quick review</a>
+                                <a class="add-to-cart" href="#"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                                <div class="shop-rgba-dark-green rgba-banner">New</div>
+                            </div>
+                            <div class="product-description product-description-brd margin-bottom-30">
+                                <div class="overflow-h margin-bottom-5">
+                                    <div class="pull-left">
+                                        <h4 class="title-price"><a href="shop-ui-inner.html">Double-breasted</a></h4>
+                                        <span class="gender text-uppercase">Men</span>
+                                        <span class="gender">Suits - Blazers</span>
+                                    </div>
+                                    <div class="product-price">
+                                        <span class="title-price">$60.00</span>
+                                        <span class="title-price line-through">$95.00</span>
+                                    </div>
+                                </div>
+                                <ul class="list-inline product-ratings">
+                                    <li><i class="rating-selected fa fa-star"></i></li>
+                                    <li><i class="rating-selected fa fa-star"></i></li>
+                                    <li><i class="rating-selected fa fa-star"></i></li>
+                                    <li><i class="rating fa fa-star"></i></li>
+                                    <li><i class="rating fa fa-star"></i></li>
+                                    <li class="like-icon"><a data-original-title="Add to wishlist" data-toggle="tooltip" data-placement="left" class="tooltips" href="#"><i class="fa fa-heart"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="product-img product-img-brd">
+                                <a href="#"><img class="full-width img-responsive" src="assets/img/blog/17.jpg" alt=""></a>
+                                <a class="product-review" href="shop-ui-inner.html">Quick review</a>
+                                <a class="add-to-cart" href="#"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                            </div>
+                            <div class="product-description product-description-brd margin-bottom-30">
+                                <div class="overflow-h margin-bottom-5">
+                                    <div class="pull-left">
+                                        <h4 class="title-price"><a href="shop-ui-inner.html">Double-breasted</a></h4>
+                                        <span class="gender text-uppercase">Men</span>
+                                        <span class="gender">Suits - Blazers</span>
+                                    </div>
+                                    <div class="product-price">
+                                        <span class="title-price">$60.00</span>
+                                        <span class="title-price line-through">$95.00</span>
+                                    </div>
+                                </div>
+                                <ul class="list-inline product-ratings">
+                                    <li><i class="rating-selected fa fa-star"></i></li>
+                                    <li><i class="rating-selected fa fa-star"></i></li>
+                                    <li><i class="rating-selected fa fa-star"></i></li>
+                                    <li><i class="rating fa fa-star"></i></li>
+                                    <li><i class="rating fa fa-star"></i></li>
+                                    <li class="like-icon"><a data-original-title="Add to wishlist" data-toggle="tooltip" data-placement="left" class="tooltips" href="#"><i class="fa fa-heart"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="col-md-4">
+                            <div class="product-img product-img-brd">
+                                <a href="#"><img class="full-width img-responsive" src="assets/img/blog/18.jpg" alt=""></a>
+                                <a class="product-review" href="shop-ui-inner.html">Quick review</a>
+                                <a class="add-to-cart" href="#"><i class="fa fa-shopping-cart"></i>Add to cart</a>
+                            </div>
+                            <div class="product-description product-description-brd margin-bottom-30">
+                                <div class="overflow-h margin-bottom-5">
+                                    <div class="pull-left">
+                                        <h4 class="title-price"><a href="shop-ui-inner.html">Double-breasted</a></h4>
+                                        <span class="gender text-uppercase">Men</span>
+                                        <span class="gender">Suits - Blazers</span>
+                                    </div>
+                                    <div class="product-price">
+                                        <span class="title-price">$95.00</span>
+                                    </div>
+                                </div>
+                                <ul class="list-inline product-ratings">
+                                    <li><i class="rating-selected fa fa-star"></i></li>
+                                    <li><i class="rating-selected fa fa-star"></i></li>
+                                    <li><i class="rating-selected fa fa-star"></i></li>
+                                    <li><i class="rating fa fa-star"></i></li>
+                                    <li><i class="rating fa fa-star"></i></li>
+                                    <li class="like-icon"><a data-original-title="Add to wishlist" data-toggle="tooltip" data-placement="left" class="tooltips" href="#"><i class="fa fa-heart"></i></a></li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>*@
+            </div><!--/end filter resilts-->
+            @*==END PRODUCT DETAILS==*@
+
+            @*==PAGINATION==*@
+            @if (Model.Pager.EndPage > 1)
+            {
+                <ul class="pagination">
+                    @if (Model.Pager.CurrentPage > 1)
+                    {
                         <li>
                             <a href="~/Products/Index">First</a>
                         </li>
                         <li>
                             <a href="~/Products/Index?page=@(Model.Pager.CurrentPage - 1)">Previous</a>
                         </li>
-                        }
+                    }
 
-                        @for (var page = Model.Pager.StartPage; page <= Model.Pager.EndPage; page++)
-                        {
+                    @for (var page = Model.Pager.StartPage; page <= Model.Pager.EndPage; page++)
+                    {
                         <li class="@(page == Model.Pager.CurrentPage ? "active" : "")">
                             <a href="~/Products/Index?page=@page">@page</a>
                         </li>
-                        }
+                    }
 
-                        @if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
-                        {
+                    @if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
+                    {
                         <li>
                             <a href="~/Products/Index?page=@(Model.Pager.CurrentPage + 1)">Next</a>
                         </li>
                         <li>
                             <a href="~/Products/Index?page=@(Model.Pager.TotalPages)">Last</a>
                         </li>
-                        }
+                    }
+                </ul>
+            }
+            @*<div class="text-center">
+                    <ul class="pagination pagination-v2">
+                        <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
+                        <li><a href="#">1</a></li>
+                        <li class="active"><a href="#">2</a></li>
+                        <li><a href="#">3</a></li>
+                        <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
                     </ul>
-                }
-                @*==END PAGER==*@
-            </div>
+                </div>*@
+            @*==END PAGINATION==*@
+
         </div>
-    </div>
-</div>
+    </div><!--/end row-->
+</div><!--/end container-->
+<!--=== End Content Part ===-->
 
+@section scripts{
+    <script>
+        $(".btnAddToCart").on("click", function (e) {
+            notification('Success', 'this was a success!');
+            var userName = "@User.Identity.Name";
 
-<script src="~/assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
-<script src="~/assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+            var asd = $(this).parent();
+            var elementhref = $(asd[0]).find(".product-review").attr("href");
+            var productId = elementhref.charAt(elementhref.length - 1);
+            $.ajax({
+                url: WebApiResolveUrl('/api/WebApiControllers/ProductWebApi/AddItemToCard'),
+                type: 'GET',
+                data: { productId: productId, userName: userName },
 
-<!-- Custom and plugin javascript -->
-<script src="~/assets/js/inspinia.js"></script>
-<script src="~/assets/js/plugins/pace/pace.min.js"></script>
+                success: function (result) {
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            })
+        });
 
+        $(".pageValue").click(function (e) {
+            var selecedValue = $(this).text();
+
+            var orderByValue = $(".sortedBy").text();
+
+            redirectUrl(selecedValue, orderByValue);
+
+            //$("#itemCountBtn").text(selecedValue);
+
+            e.preventDefault();
+        });
+
+        $(".sortedBy").click(function () {
+            var selecedValue = $(this).text();
+            var pageValue = $(".pageValue").text();
+
+            redirectUrl(pageValue, selecedValue);
+        });
+
+        function redirectUrl(pageValue, selectedValue) {
+            if (window.location.href.includes("Index")) {
+                window.location.href = ResolveUrl("/Index?page=" + pageValue + "&orderBy=" + selectedValue);
+            }
+            else {
+                window.location.href = ResolveUrl("/Index?page=" + pageValue + "&orderBy=" + selectedValue);
+            }
+        };
+        $(".dropdown-menu li a").click(function () {
+            $("#itemCountBtn").val($(this).text());
+        });
+
+    </script>
+}

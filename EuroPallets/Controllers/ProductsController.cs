@@ -23,11 +23,18 @@ namespace EuroPallets.Controllers
 
         }
 
-        public ActionResult Index(int? page)
+        public ActionResult Index(int? page,string orderBy)
         {
             var allEuroPalletsFurniture = this.Data.EuroPalletFurnitures.All().ToList();
 
-            var pager = new Pager(allEuroPalletsFurniture.Count(), page, 5);
+            Pager pager = new Pager(allEuroPalletsFurniture.Count(), 1);
+
+            if (page.HasValue)
+            {
+                pager = new Pager(allEuroPalletsFurniture.Count(), 1, page.Value);
+
+            }
+
             var items = allEuroPalletsFurniture.Skip((pager.CurrentPage - 1) * pager.PageSize).Take(pager.PageSize);
 
             var viewModel = new ProductsViewModel()
@@ -35,6 +42,16 @@ namespace EuroPallets.Controllers
                 EuroPalletFurniture = items,
                 Pager = pager
             };
+
+            if (!string.IsNullOrWhiteSpace(orderBy))
+            {
+                if (orderBy.Equals("Най-продавани"))
+                {
+                    viewModel.EuroPalletFurniture.OrderBy(x => x.Price);
+                }
+            }
+
+           
 
             return View(viewModel);
         }
@@ -49,6 +66,8 @@ namespace EuroPallets.Controllers
         public ActionResult ShowUserCart(string userId)
         {
             var currentUser = this.Data.Users.All().FirstOrDefault(x => x.Email == userId || x.Id == userId);
+
+            var counter = currentUser.ShopingCart.ShopingCartEuroPalllets.Select(x => x.EuroPalletFurniture);
 
             return View(currentUser.ShopingCart);
         }

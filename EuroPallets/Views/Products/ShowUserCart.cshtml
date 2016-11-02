@@ -26,7 +26,7 @@
                             </span>
                             <h5>Продукти в картата</h5>
                         </div>
-                        @foreach (var currentItem in Model.ShopingCartEuroPalllets)
+                        @foreach (var currentItem in Model.ShopingCartEuroPalllets.Select(x => x.EuroPalletFurniture))
                         {
                             <div class="ibox-content">
                                 <div class="table-responsive">
@@ -35,20 +35,21 @@
                                             <tr>
                                                 <td width="90">
                                                     <div class="cart-product-imitation">
+                                                        <img class="full-width img-responsive" src=@Url.Action("Show", "Image", new { id = currentItem.Id }) alt="">
                                                     </div>
                                                 </td>
                                                 <td class="desc">
                                                     <h3>
                                                         <a href="#" class="text-navy">
-                                                            @currentItem.EuroPalletFurniture.Name
+                                                            @currentItem.Name
                                                         </a>
                                                     </h3>
                                                     <p class="small">
-                                                        @currentItem.EuroPalletFurniture.Name_Description
+                                                        @currentItem.Name_Description
                                                     </p>
                                                     <dl class="small m-b-none">
                                                         <dt>Детайли</dt>
-                                                        <dd>@currentItem.EuroPalletFurniture.Description</dd>
+                                                        <dd>@currentItem.Description</dd>
                                                     </dl>
 
                                                     <div class="m-t-sm">
@@ -59,15 +60,15 @@
                                                 </td>
 
                                                 <td>
-                                                    @currentItem.EuroPalletFurniture.Price
-                                                    <s class="small text-muted">@currentItem.EuroPalletFurniture.Price</s>
+                                                    @currentItem.Price
+                                                    <s class="small text-muted">@currentItem.Price</s>
                                                 </td>
                                                 <td width="65">
                                                     <input type="text" class="form-control" placeholder="1">
                                                 </td>
                                                 <td>
                                                     <h4>
-                                                        @currentItem.EuroPalletFurniture.Price
+                                                        @currentItem.Price
                                                     </h4>
                                                 </td>
                                             </tr>

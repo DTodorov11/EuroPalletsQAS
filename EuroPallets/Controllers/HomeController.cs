@@ -19,6 +19,11 @@ namespace EuroPallets.Controllers
 
         }
 
+        public ActionResult Mebellete_Сайт_за_мебели_очаквайте_скоро()
+        {
+            return View();
+        }
+
         public ActionResult Index()
         {
             return View(this.Data.EuroPalletFurnitures.All());

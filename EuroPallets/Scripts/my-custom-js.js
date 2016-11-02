@@ -16,3 +16,18 @@ function notification(type, message) {
         toastr.warning(message, 'Email', 'Success', { positionClass: "toast-bottom-right", });
     }
 }
+
+function WebApiResolveUrl(url) {
+    var host = window.location.origin;
+
+    return host + url;
+}
+
+function ResolveUrl(url) {
+    var baseUrl = window.location.origin;
+    var pathName = window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/'))
+
+    url = baseUrl + pathName + url;
+
+    return url;
+}

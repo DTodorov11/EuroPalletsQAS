@@ -29,20 +29,20 @@
     <link href="~/fonts/font-awesome/css/font-awesome.min.css" rel="stylesheet" />
     <link rel="stylesheet" href="~/assets/plugins/scrollbar/css/jquery.mCustomScrollbar.css">
     <link rel="stylesheet" href="~/assets/plugins/owl-carousel/owl-carousel/owl.carousel.css">
+
+    <link href="~/assets/css/plugins/skyforms/sky-forms.css" rel="stylesheet" />
+    <link href="~/assets/css/plugins/skyforms/custom-sky-forms.css" rel="stylesheet" />
+    <link href="~/assets/css/plugins/master-slider/style/masterslider.css" rel="stylesheet" />
+
     <link rel="stylesheet" href="~/assets/plugins/revolution-slider/rs-plugin/css/settings.css">
     <link href="~/assets/css/plugins/toastr/toastr.min.css" rel="stylesheet">
 
-    <style>
-        .navbar navbar-static-top {
-            z-index: 0 !important;
-        }
-    </style>
     @if (IsSectionDefined("Styles"))
     {
         @RenderSection("Styles", required: false)
     }
 </head>
-<body class="top-navigation">
+<body class="top-navigation header-fixed">
 
  
     <!-- Skin configuration box -->
@@ -80,13 +80,16 @@
     <script src="~/assets/plugins/jquery.parallax.js"></script>
     <script src="~/assets/plugins/owl-carousel/owl-carousel/owl.carousel.js"></script>
     <script src="~/assets/plugins/scrollbar/js/jquery.mCustomScrollbar.concat.min.js"></script>
+
     <script src="~/assets/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.tools.min.js"></script>
     <script src="~/assets/plugins/revolution-slider/rs-plugin/js/jquery.themepunch.revolution.min.js"></script>
+
     <script src="~/Scripts/my-custom-js.js"></script>
+
     <script src="~/assets/js/shop.app.js"></script>
     <script src="~/assets/js/plugins/owl-carousel.js"></script>
     <script src="~/assets/js/plugins/revolution-slider.js"></script>
-    @*<script src="~/assets/css/plugins/toastr/toastr.min.js"></script>*@
+    <script src="~/assets/css/plugins/toastr/toastr.min.js"></script>
     <script>
         jQuery(document).ready(function () {
             App.init();
@@ -96,7 +99,19 @@
             RevolutionSlider.initRSfullWidth();
         });
     </script>
-
+    <script>
+        $('#btnModel').on('click', function () {
+            debugger;
+            $.ajax({
+                url: "/CashOnDelivery/PaymentModalUpdate",
+                cache: false,
+                success: function (html) {
+                    $(".modal-body").html('');
+                    $(".modal-body").append(html);
+                }
+            });
+        })
+    </script>
     <!-- Handler for local scripts -->
     @RenderSection("scripts", required: false)
 

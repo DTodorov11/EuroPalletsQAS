@@ -55,15 +55,15 @@ namespace EuroPallets
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            //app.UseFacebookAuthentication(
-            //   appId: "",
-            //   appSecret: "");
+            app.UseFacebookAuthentication(
+               appId: "1209396515787348",
+               appSecret: "9243c8705da13af4b6ba5b276812ac47");
 
-            //app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-            //{
-            //    ClientId = "",
-            //    ClientSecret = ""
-            //});
+           app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+           {
+               ClientId = "104373635494-d8i9vdlui7ltkkp7u95493m6eias2uon.apps.googleusercontent.com",
+               ClientSecret = "w-1WOBEcaNqczjxEXZYVwl-t"
+           });
         }
     }
 }

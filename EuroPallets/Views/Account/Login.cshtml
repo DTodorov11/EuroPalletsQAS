@@ -67,21 +67,24 @@
                             @Html.ActionLink("Забравена парола?", "ForgotPassword")
                         </div>
                     </div>
-                        <button class="btn-u btn-u-sea-shop btn-block margin-bottom-20" type="submit">ОК</button>
+                    <button class="btn-u btn-u-sea-shop btn-block margin-bottom-20" type="submit">ОК</button>
 
-                        <div class="border-wings">
-                            <span>или</span>
-                        </div>
 
-                        <div class="row columns-space-removes">
-                            <div class="col-lg-6 margin-bottom-10">
-                                <button type="button" class="btn-u btn-u-md btn-u-fb btn-block"><i class="fa fa-facebook"></i> Facebook акаунт</button>
-                            </div>
-                            <div class="col-lg-6">
-                                <button type="button" class="btn-u btn-u-md btn-u-tw btn-block"><i class="fa fa-twitter"></i> Twitter акаунт</button>
-                            </div>
-                        </div>
                 }
+
+                <div class="border-wings">
+                    <span>или</span>
+                </div>
+                <div class="log-reg-block sky-form">
+                    <div class="row columns-space-removes">
+                        <div class="col-lg-6 margin-bottom-10">
+                            @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+                        </div>
+                        @*<div class="col-lg-6">
+                                <button type="button" class="btn-u btn-u-md btn-u-tw btn-block"><i class="fa fa-twitter"></i> Twitter акаунт</button>
+                            </div>*@
+                    </div>
+                </div>
                 <div class="margin-bottom-20"></div>
                 <p class="text-center">
                     Все още нямаш акаунт? Научи повече на
@@ -92,7 +95,11 @@
         </div><!--/end row-->
     </div><!--/end container-->
 </div>
-
+@*<div class="col-md-4">
+    <section id="socialLoginForm">
+        @Html.Partial("_ExternalLoginsListPartial", new ExternalLoginListViewModel { ReturnUrl = ViewBag.ReturnUrl })
+    </section>
+</div>*@
 @*@section Scripts {
-    @Scripts.Render("~/bundles/jqueryval")
-}*@
+        @Scripts.Render("~/bundles/jqueryval")
+    }*@

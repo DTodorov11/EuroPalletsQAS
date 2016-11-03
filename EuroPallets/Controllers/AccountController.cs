@@ -251,6 +251,8 @@ namespace EuroPallets.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ForgotPassword(ForgotPasswordViewModel model)
         {
+            TempData["Success"] = GlobalConstants.ForgotPasswordSuccessEmailSend;
+
             if (ModelState.IsValid)
             {
                 var user = await UserManager.FindByNameAsync(model.Email);

@@ -15,6 +15,7 @@ using EuroPallets.Common;
 using EuroPallets.ViewModels.EmailViewModel;
 using System.IO;
 using System.Text.RegularExpressions;
+using System.Text;
 
 namespace EuroPallets.Controllers
 {
@@ -251,25 +252,52 @@ namespace EuroPallets.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> ForgotPassword(ForgotPasswordViewModel model)
         {
-            TempData["Success"] = GlobalConstants.ForgotPasswordSuccessEmailSend;
-
             if (ModelState.IsValid)
             {
                 var user = await UserManager.FindByNameAsync(model.Email);
                 if (user == null || !(await UserManager.IsEmailConfirmedAsync(user.Id)))
                 {
                     // Don't reveal that the user does not exist or is not confirmed
-                    return View("ForgotPasswordConfirmation");
+                    TempData["EmailSend"] = false;
+                    return View("ForgotPassword");
                 }
 
                 // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
                 // Send an email with this link
                 string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
                 var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
+
+                #region EmailCreator
+
+                StringBuilder emailBody = new StringBuilder();
+                emailBody.Append(@"<table width=""100%"" cellpadding=""0"" cellspacing=""0"" border =""0"" style=""border-collapse:collapse"" bgcolor=""#01aff6""> ");
+                emailBody.Append("<tbody><tr>");
+                emailBody.Append(@"<td style=""width:100%""> ");
+                emailBody.Append(@"<table align=""center"" width=""700"" class""m_-162721255909942618container"" cellspacing=""0"" cellpadding""0"" border""0"" style=""max-width:700px;border-collapse:collapse;margin:0 auto"">");
+                emailBody.Append("<tbody><tr>");
+                emailBody.Append(@"<td width=""500"" align=""center"" valign=""top"" style=""text-align:center;font-family:Segoe UI,sans-serif;font-size:26px;padding:30px 0;line-height:30px;color:#fff"">");
+                emailBody.Append("Само с един клик и готово!");
+                emailBody.Append("</td>");
+                emailBody.Append("</tr>");
+                emailBody.Append("</tbody></table>");
+                emailBody.Append("</td>");
+                emailBody.Append("</tr>");
+                emailBody.Append("</tbody></table>");
+                //emailBody.AppendLine("");
+                //emailBody.AppendLine("");
+                //emailBody.AppendLine("");
+                //emailBody.AppendLine("");
+                //emailBody.AppendLine("");
+                //emailBody.AppendLine("");
+                //emailBody.AppendLine("");
+
+                #endregion
+
                 using (MailMessage mailMessage = new MailMessage())
                 {
                     mailMessage.Subject = "Confirm your account";
-                    mailMessage.Body =  "Please reset your password by clicking <a href =\"" + callbackUrl + "\">here</a>";
+                    //mailMessage.Body =  "Please reset your password by clicking <a href =\"" + callbackUrl + "\">here</a>";
+                    mailMessage.Body = emailBody.ToString();
                     mailMessage.IsBodyHtml = true;
                     mailMessage.To.Add(model.Email);
 
@@ -278,7 +306,9 @@ namespace EuroPallets.Controllers
                         await smtp.SendMailAsync(mailMessage);
                     }
                 }
-                return RedirectToAction("ForgotPasswordConfirmation", "Account");
+                TempData["EmailSend"] = true;
+
+                return View("ForgotPassword");
             }
 
             // If we got this far, something failed, redisplay form

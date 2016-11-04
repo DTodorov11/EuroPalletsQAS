@@ -8,5 +8,6 @@ namespace EuroPallets.ViewModels.EmailViewModel
     public enum EmailType
     {
         ConfirmationEmail = 1,
+        ForgotPassword = 2,
     }
 }

@@ -7,6 +7,7 @@ using Microsoft.Owin.Security.Google;
 using Owin;
 using EuroPallets.Models;
 using EuroPallets.Data;
+using System.Net.Http;
 
 namespace EuroPallets
 {
@@ -35,7 +36,7 @@ namespace EuroPallets
                         validateInterval: TimeSpan.FromMinutes(30),
                         regenerateIdentity: (manager, user) => user.GenerateUserIdentityAsync(manager))
                 }
-            });            
+            });
             app.UseExternalSignInCookie(DefaultAuthenticationTypes.ExternalCookie);
 
             // Enables the application to temporarily store user information when they are verifying the second factor in the two-factor authentication process.
@@ -55,15 +56,33 @@ namespace EuroPallets
             //   consumerKey: "",
             //   consumerSecret: "");
 
-            app.UseFacebookAuthentication(
-               appId: "1209396515787348",
-               appSecret: "9243c8705da13af4b6ba5b276812ac47");
+            app.UseFacebookAuthentication(new Microsoft.Owin.Security.Facebook.FacebookAuthenticationOptions
+            {
+                AppId = "1714053965588565",
+                AppSecret = "f3328cad82cb891afbf76e71858c0a8d",
+                Scope = { "email" },
+                BackchannelHttpHandler = new FacebookBackChannelHandler(),
+                UserInformationEndpoint = "https://graph.facebook.com/v2.4/me?fields=id,name,email,first_name,last_name,location"
+            });
 
-           app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
-           {
-               ClientId = "104373635494-d8i9vdlui7ltkkp7u95493m6eias2uon.apps.googleusercontent.com",
-               ClientSecret = "w-1WOBEcaNqczjxEXZYVwl-t"
-           });
+            app.UseGoogleAuthentication(new GoogleOAuth2AuthenticationOptions()
+            {
+                ClientId = "104373635494-d8i9vdlui7ltkkp7u95493m6eias2uon.apps.googleusercontent.com",
+                ClientSecret = "w-1WOBEcaNqczjxEXZYVwl-t"
+            });
+        }
+        private class FacebookBackChannelHandler : HttpClientHandler
+        {
+            protected override async System.Threading.Tasks.Task<HttpResponseMessage> SendAsync(HttpRequestMessage request, System.Threading.CancellationToken cancellationToken)
+            {
+                // Replace the RequestUri so it's not malformed
+                if (!request.RequestUri.AbsolutePath.Contains("/oauth"))
+                {
+                    request.RequestUri = new Uri(request.RequestUri.AbsoluteUri.Replace("?access_token", "&access_token"));
+                }
+
+                return await base.SendAsync(request, cancellationToken);
+            }
         }
     }
 }

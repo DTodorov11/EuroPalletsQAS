@@ -87,7 +87,7 @@ namespace EuroPallets.Controllers
 
             // This doesn't count login failures towards account lockout
             // To enable password failures to trigger account lockout, change to shouldLockout: true
-                var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
+            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
 
             switch (result)
             {
@@ -168,7 +168,7 @@ namespace EuroPallets.Controllers
                 {
                     UserName = model.Email,
                     Email = model.Email,
-                    PhoneNumber=model.PhoneNumber
+                    PhoneNumber = model.PhoneNumber
 
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
@@ -182,7 +182,7 @@ namespace EuroPallets.Controllers
                     var callbackUrl = Url.Action("ConfirmEmail", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
                     //var task =Task.Factory.StartNew(() => { SendConfirmEmailAsync(user.Email, callbackUrl); });
                     //task.Wait();
-                    await Task.Run(() => {  SendConfirmEmailAsync(user.Email, callbackUrl); });
+                    await Task.Run(() => { SendConfirmEmailAsync(user.Email, callbackUrl); });
                     this.TempData["Error"] = GlobalConstants.SuccessfullRegistration;
                     return RedirectToAction("Index", "Home");
                 }
@@ -191,7 +191,7 @@ namespace EuroPallets.Controllers
             return View(model);
         }
 
-         static async Task SendConfirmEmailAsync(string email, string callbackUrl)
+        static async Task SendConfirmEmailAsync(string email, string callbackUrl)
         {
             var body = string.Empty;
             if (System.IO.File.Exists(GlobalConstants.EmailtemplateFolder + EmailType.ConfirmationEmail + ".txt"))
@@ -262,27 +262,40 @@ namespace EuroPallets.Controllers
                     return View("ForgotPassword");
                 }
 
-                // For more information on how to enable account confirmation and password reset please visit http://go.microsoft.com/fwlink/?LinkID=320771
-                // Send an email with this link
                 string code = await UserManager.GeneratePasswordResetTokenAsync(user.Id);
                 var callbackUrl = Url.Action("ResetPassword", "Account", new { userId = user.Id, code = code }, protocol: Request.Url.Scheme);
 
                 #region EmailCreator
 
-                StringBuilder emailBody = new StringBuilder();
-                emailBody.Append(@"<table width=""100%"" cellpadding=""0"" cellspacing=""0"" border =""0"" style=""border-collapse:collapse"" bgcolor=""#01aff6""> ");
-                emailBody.Append("<tbody><tr>");
-                emailBody.Append(@"<td style=""width:100%""> ");
-                emailBody.Append(@"<table align=""center"" width=""700"" class""m_-162721255909942618container"" cellspacing=""0"" cellpadding""0"" border""0"" style=""max-width:700px;border-collapse:collapse;margin:0 auto"">");
-                emailBody.Append("<tbody><tr>");
-                emailBody.Append(@"<td width=""500"" align=""center"" valign=""top"" style=""text-align:center;font-family:Segoe UI,sans-serif;font-size:26px;padding:30px 0;line-height:30px;color:#fff"">");
-                emailBody.Append("Само с един клик и готово!");
-                emailBody.Append("</td>");
-                emailBody.Append("</tr>");
-                emailBody.Append("</tbody></table>");
-                emailBody.Append("</td>");
-                emailBody.Append("</tr>");
-                emailBody.Append("</tbody></table>");
+                var emailBody = string.Empty;
+                if (System.IO.File.Exists(GlobalConstants.EmailtemplateFolder + EmailType.ForgotPassword + ".txt"))
+                {
+                    using (StreamReader reader = new StreamReader(GlobalConstants.EmailtemplateFolder + EmailType.ForgotPassword + ".txt"))
+                    {
+                        emailBody = reader.ReadToEnd();
+                    }
+
+                    emailBody = emailBody.Replace("{ConfirmationLink}", "<a href =\"" + callbackUrl + "\">here</a>");
+                    emailBody = emailBody.Replace("{Email}", model.Email);
+                }
+                else
+                {
+                    emailBody = "To change your passowrd please click <a href=\"" + callbackUrl + "\">here</a>";
+                }
+                //StringBuilder emailBody = new StringBuilder();
+                //emailBody.Append(@"<table width=""100%"" cellpadding=""0"" cellspacing=""0"" border =""0"" style=""border-collapse:collapse"" bgcolor=""#01aff6""> ");
+                //emailBody.Append("<tbody><tr>");
+                //emailBody.Append(@"<td style=""width:100%""> ");
+                //emailBody.Append(@"<table align=""center"" width=""700"" class""m_-162721255909942618container"" cellspacing=""0"" cellpadding""0"" border""0"" style=""max-width:700px;border-collapse:collapse;margin:0 auto"">");
+                //emailBody.Append("<tbody><tr>");
+                //emailBody.Append(@"<td width=""500"" align=""center"" valign=""top"" style=""text-align:center;font-family:Segoe UI,sans-serif;font-size:26px;padding:30px 0;line-height:30px;color:#fff"">");
+                //emailBody.Append("Само с един клик и готово!");
+                //emailBody.Append("</td>");
+                //emailBody.Append("</tr>");
+                //emailBody.Append("</tbody></table>");
+                //emailBody.Append("</td>");
+                //emailBody.Append("</tr>");
+                //emailBody.Append("</tbody></table>");
                 //emailBody.AppendLine("");
                 //emailBody.AppendLine("");
                 //emailBody.AppendLine("");
@@ -296,8 +309,7 @@ namespace EuroPallets.Controllers
                 using (MailMessage mailMessage = new MailMessage())
                 {
                     mailMessage.Subject = "Confirm your account";
-                    //mailMessage.Body =  "Please reset your password by clicking <a href =\"" + callbackUrl + "\">here</a>";
-                    mailMessage.Body = emailBody.ToString();
+                    mailMessage.Body = emailBody;
                     mailMessage.IsBodyHtml = true;
                     mailMessage.To.Add(model.Email);
 
@@ -481,7 +493,7 @@ namespace EuroPallets.Controllers
 
         //
         // POST: /Account/LogOff
-     
+
         public ActionResult LogOff()
         {
             AuthenticationManager.SignOut(DefaultAuthenticationTypes.ApplicationCookie);

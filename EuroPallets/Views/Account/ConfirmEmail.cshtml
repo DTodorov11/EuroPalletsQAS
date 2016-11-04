@@ -1,10 +1,71 @@
 ﻿@{
     ViewBag.Title = "Confirm Email";
 }
+<link href="~/assets/css/pages/log-reg.css" rel="stylesheet" />
+<style>
+    .btm-margin-5 {
+        margin-bottom: 5%;
+    }
+</style>
 
-<h2>@ViewBag.Title.</h2>
-<div>
-    <p>
-        Thank you for confirming your email. Please @Html.ActionLink("Click here to Log in", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
-    </p>
+<div class="log-reg-v3 content-md margin-bottom-30">
+    <div class="container">
+        @if (TempData["EmailSend"] != null)
+        {
+            if (TempData["EmailSend"].Equals(true))
+            {
+                <div class="alert alert-success">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Успешно изпратен Email.</strong> Моля провертете  вашият Email за повече информация!
+                </div>
+            }
+            else
+            {
+                <div class="alert alert-danger">
+                    <a href="#" class="close" data-dismiss="alert" aria-label="close">&times;</a>
+                    <strong>Грешно потребителско име !</strong> Моля въведете правилно потребителско име.
+                </div>
+            }
+        }
+        <div class="row btm-margin-5">
+            <div class="col-md-7 md-margin-bottom-50">
+                <h2 class="welcome-title">Добре дошли в Mebellete</h2>
+                <div class="row margin-bottom-50">
+                    <div class="col-sm-4 md-margin-bottom-20">
+                        <div class="site-statistics">
+                            <span>1,109</span>
+                            <small>Продукта</small>
+                        </div>
+                    </div>
+                    <div class="col-sm-4 md-margin-bottom-20">
+                        <div class="site-statistics">
+                            <span>54,283</span>
+                            <small>Преглеждания</small>
+                        </div>
+                    </div>
+                    <div class="col-sm-4">
+                        <div class="site-statistics">
+                            <span>+10 000</span>
+                            <small>Продажби</small>
+                        </div>
+                    </div>
+                </div>
+                <div class="members-number">
+                    <h3>Присъедини се към <span class="shop-green">257</span> градове за доставка</h3>
+                    <img class="img-responsive" src="~/assets/img/forgot-password/fp-img.jpg" alt="доставка в цяла България">
+                </div>
+            </div>
+            <div class="col-md-5">
+                <div>
+                    <p>
+                        Благодаря ви за потвърждение на и-мейл адреса. Моля @Html.ActionLink("Натиснете тък за да влзете в профила си", "Login", "Account", routeValues: null, htmlAttributes: new { id = "loginLink" })
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
+
+@section Scripts {
+    @Scripts.Render("~/bundles/jqueryval")
+}

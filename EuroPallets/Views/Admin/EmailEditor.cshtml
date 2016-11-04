@@ -1,10 +1,8 @@
 ﻿@using EuroPallets.ViewModels.EmailViewModel
-
 <link href="~/assets/css/animate.css" rel="stylesheet">
 <link href="~/assets/css/plugins/summernote/summernote.css" rel="stylesheet">
 <link href="~/assets/css/plugins/summernote/summernote-bs3.css" rel="stylesheet">
 <link href="~/assets/css/style.css" rel="stylesheet">
-
 <div id="wrapper">
     <div id="page-wrapper" class="gray-bg">
         <div class="wrapper wrapper-content">
@@ -78,18 +76,15 @@
         </div>
     </div>
 </div>
-
-<script src="~/assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
-<script src="~/assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
-
-<!-- Custom and plugin javascript -->
-<script src="~/assets/js/inspinia.js"></script>
-<script src="~/assets/js/plugins/pace/pace.min.js"></script>
-
-<!-- SUMMERNOTE -->
-<script src="~/assets/js/plugins/summernote/summernote.min.js"></script>
-
-<script>
+@section Scripts{
+    <script src="~/assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+    <script src="~/assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    <!-- Custom and plugin javascript -->
+    <script src="~/assets/js/inspinia.js"></script>
+    <script src="~/assets/js/plugins/pace/pace.min.js"></script>
+    <!-- SUMMERNOTE -->
+    <script src="~/assets/js/plugins/summernote/summernote.min.js"></script>
+    <script>
     $(document).ready(function () {
 
         $('.summernote').summernote();
@@ -147,6 +142,7 @@
             url: '/Admin/ShowEmailTemplates',
             data: JSON.stringify({ text: $('.enum option:selected').text() }),
             success: function (data) {
+                debugger
                 $('.summernote').code('');
                 $('.summernote').code(data);
                 toastr.success("@TempData["Success"]", 'Success', { positionClass: "toast-bottom-right", });
@@ -160,4 +156,5 @@
     $('.Cancel').on('click', function () {
         $('.summernote').code('');
     });
-</script>
+    </script>
+}

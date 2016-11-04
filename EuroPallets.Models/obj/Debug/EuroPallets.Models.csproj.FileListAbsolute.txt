@@ -53,3 +53,17 @@ C:\Users\tododani\Documents\GitHub\EuroPalletsQAS\EuroPallets.Models\bin\Debug\M
 C:\Users\tododani\Documents\GitHub\EuroPalletsQAS\EuroPallets.Models\obj\Debug\EuroPallets.Models.dll
 C:\Users\tododani\Documents\GitHub\EuroPalletsQAS\EuroPallets.Models\obj\Debug\EuroPallets.Models.pdb
 C:\Users\tododani\Documents\GitHub\EuroPalletsQAS\EuroPallets.Models\obj\Debug\EuroPallets.Models.csprojResolveAssemblyReference.cache
+C:\Users\User1\Documents\GitHub\EuroPalletsQAS\EuroPallets.Models\bin\Debug\EuroPallets.Models.dll.config
+C:\Users\User1\Documents\GitHub\EuroPalletsQAS\EuroPallets.Models\bin\Debug\EuroPallets.Models.dll
+C:\Users\User1\Documents\GitHub\EuroPalletsQAS\EuroPallets.Models\bin\Debug\EuroPallets.Models.pdb
+C:\Users\User1\Documents\GitHub\EuroPalletsQAS\EuroPallets.Models\bin\Debug\EntityFramework.dll
+C:\Users\User1\Documents\GitHub\EuroPalletsQAS\EuroPallets.Models\bin\Debug\EntityFramework.SqlServer.dll
+C:\Users\User1\Documents\GitHub\EuroPalletsQAS\EuroPallets.Models\bin\Debug\Microsoft.AspNet.Identity.Core.dll
+C:\Users\User1\Documents\GitHub\EuroPalletsQAS\EuroPallets.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.dll
+C:\Users\User1\Documents\GitHub\EuroPalletsQAS\EuroPallets.Models\bin\Debug\EntityFramework.xml
+C:\Users\User1\Documents\GitHub\EuroPalletsQAS\EuroPallets.Models\bin\Debug\EntityFramework.SqlServer.xml
+C:\Users\User1\Documents\GitHub\EuroPalletsQAS\EuroPallets.Models\bin\Debug\Microsoft.AspNet.Identity.Core.xml
+C:\Users\User1\Documents\GitHub\EuroPalletsQAS\EuroPallets.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
+C:\Users\User1\Documents\GitHub\EuroPalletsQAS\EuroPallets.Models\obj\Debug\EuroPallets.Models.csprojResolveAssemblyReference.cache
+C:\Users\User1\Documents\GitHub\EuroPalletsQAS\EuroPallets.Models\obj\Debug\EuroPallets.Models.dll
+C:\Users\User1\Documents\GitHub\EuroPalletsQAS\EuroPallets.Models\obj\Debug\EuroPallets.Models.pdb

@@ -168,7 +168,11 @@ namespace EuroPallets.Controllers
                 {
                     UserName = model.Email,
                     Email = model.Email,
-                    PhoneNumber = model.PhoneNumber
+                    PhoneNumber = model.PhoneNumber,
+                    ShopingCart = new ShopingCart()
+                    {
+                        CreatedOn = DateTime.Now
+                    }
 
                 };
                 var result = await UserManager.CreateAsync(user, model.Password);
@@ -183,7 +187,7 @@ namespace EuroPallets.Controllers
                     //var task =Task.Factory.StartNew(() => { SendConfirmEmailAsync(user.Email, callbackUrl); });
                     //task.Wait();
                     await Task.Run(() => { SendConfirmEmailAsync(user.Email, callbackUrl); });
-                    this.TempData["Error"] = GlobalConstants.SuccessfullRegistration;
+                    this.TempData["Success"] = GlobalConstants.SuccessfullRegistration;
                     return RedirectToAction("Index", "Home");
                 }
                 AddErrors(result);
@@ -234,7 +238,8 @@ namespace EuroPallets.Controllers
                 return View("Error");
             }
             var result = await UserManager.ConfirmEmailAsync(userId, code);
-            return View(result.Succeeded ? "ConfirmEmail" : "Error");
+            this.TempData["Success"] = GlobalConstants.SuccessfullEmailConfirm;
+            return this.RedirectToAction(nameof(this.Login), "Account");
         }
 
         //
@@ -358,12 +363,14 @@ namespace EuroPallets.Controllers
             if (user == null)
             {
                 // Don't reveal that the user does not exist
-                return RedirectToAction("ResetPasswordConfirmation", "Account");
+                this.TempData["Success"] = GlobalConstants.ResetPasswordConfirmation;
+                return this.RedirectToAction(nameof(this.Login), "Account");
             }
             var result = await UserManager.ResetPasswordAsync(user.Id, model.Code, model.Password);
             if (result.Succeeded)
             {
-                return RedirectToAction("ResetPasswordConfirmation", "Account");
+                this.TempData["Success"] = GlobalConstants.ResetPasswordConfirmation;
+                return this.RedirectToAction(nameof(this.Login), "Account");
             }
             AddErrors(result);
             return View();
@@ -371,11 +378,11 @@ namespace EuroPallets.Controllers
 
         //
         // GET: /Account/ResetPasswordConfirmation
-        [AllowAnonymous]
-        public ActionResult ResetPasswordConfirmation()
-        {
-            return View();
-        }
+        //[AllowAnonymous]
+        //public ActionResult ResetPasswordConfirmation()
+        //{
+        //    return View();
+        //}
 
         //
         // POST: /Account/ExternalLogin
@@ -473,7 +480,15 @@ namespace EuroPallets.Controllers
                 {
                     return View("ExternalLoginFailure");
                 }
-                var user = new User { UserName = model.Email, Email = model.Email };
+                var user = new User
+                {
+                    UserName = model.Email,
+                    Email = model.Email,
+                    ShopingCart = new ShopingCart()
+                    {
+                        CreatedOn = DateTime.Now
+                    }
+                };
                 var result = await UserManager.CreateAsync(user);
                 if (result.Succeeded)
                 {

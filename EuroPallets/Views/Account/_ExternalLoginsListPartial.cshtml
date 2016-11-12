@@ -1,7 +1,5 @@
 ﻿@model EuroPallets.ViewModels.ExternalLoginListViewModel
 @using Microsoft.Owin.Security
-
-<hr />
 @{
     var loginProviders = Context.GetOwinContext().Authentication.GetExternalAuthenticationTypes();
     if (loginProviders.Count() == 0)
@@ -17,7 +15,7 @@
                     {
                         if (p.AuthenticationType == "Facebook")
                         {
-                        <button type="submit" class="btn-u btn-u-md btn-u-fb btn-block"
+                        <button type="submit" class="btn btn-block  btn-success btn-facebook btn-outline"
                                 id="@p.AuthenticationType" data-original-title="Facebook" style="padding-top: 5px"
                                 name="provider" value="@p.AuthenticationType" title="@p.Caption">
                             <i class="fa fa-facebook"></i> @p.AuthenticationType
@@ -25,7 +23,7 @@
                     }
                     else if (p.AuthenticationType == "Google")
                     {
-                        <button type="submit" class="btn-u btn-u-md btn-google-plus btn-block"
+                        <button type="submit" class="btn btn-block btn-danger btn-google-plus btn-outline"
                                 id="@p.AuthenticationType" data-original-title="Facebook" style="padding-top: 5px"
                                 name="provider" value="@p.AuthenticationType" title="@p.Caption">
                             <i class="fa fa-google-plus"></i> @p.AuthenticationType

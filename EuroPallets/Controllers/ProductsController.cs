@@ -23,7 +23,7 @@ namespace EuroPallets.Controllers
 
         }
 
-        public ActionResult Index(int? page,string orderBy)
+        public ActionResult Index(int? page, string orderBy)
         {
             var allEuroPalletsFurniture = this.Data.EuroPalletFurnitures.All().ToList();
 
@@ -51,7 +51,7 @@ namespace EuroPallets.Controllers
                 }
             }
 
-           
+
 
             return View(viewModel);
         }
@@ -66,9 +66,7 @@ namespace EuroPallets.Controllers
         public ActionResult ShowUserCart(string userId)
         {
             var currentUser = this.Data.Users.All().FirstOrDefault(x => x.Email == userId || x.Id == userId);
-
             var counter = currentUser.ShopingCart.ShopingCartEuroPalllets.Select(x => x.EuroPalletFurniture);
-
             return View(currentUser.ShopingCart);
         }
 

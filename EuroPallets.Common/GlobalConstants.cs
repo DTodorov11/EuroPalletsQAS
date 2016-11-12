@@ -20,6 +20,8 @@ namespace EuroPallets.Common
         public const string RegistrationIsNeeded = "You need to create account to procceed this action !";
 
         public const string ForgotPasswordSuccessEmailSend = "Успешно изпратен email !";
+        public const string ResetPasswordConfirmation = "Успешно сменена парола !";
+        public const string SuccessfullEmailConfirm = "Успешно потвърден имейл";
 
 
         public const string FaliedToAddNewEuroPaletFurniture = "Error when try to add new product";

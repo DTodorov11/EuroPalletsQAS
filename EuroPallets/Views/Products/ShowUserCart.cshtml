@@ -1,6 +1,8 @@
 ﻿@model EuroPallets.Models.ShopingCart
 
-
+@{ 
+    decimal sum = 0;
+}
 <link href="~/assets/css/animate.css" rel="stylesheet">
 <link href="~/assets/css/style.css" rel="stylesheet">
 
@@ -28,6 +30,9 @@
                         </div>
                         @foreach (var currentItem in Model.ShopingCartEuroPalllets.Select(x => x.EuroPalletFurniture))
                         {
+                            //Sum of all Items
+                            sum = sum + (currentItem.Price*currentItem.Quantity);
+
                             <div class="ibox-content">
                                 <div class="table-responsive">
                                     <table class="table shoping-cart-table">
@@ -64,7 +69,7 @@
                                                     <s class="small text-muted">@currentItem.Price</s>
                                                 </td>
                                                 <td width="65">
-                                                    <input type="text" class="form-control" placeholder="1">
+                                                    <input type="text" class="form-control" placeholder="@currentItem.Quantity">
                                                 </td>
                                                 <td>
                                                     <h4>
@@ -82,7 +87,7 @@
                             <button class="btn btn-primary pull-right" data-toggle="modal" id="btnBuy" data-target="#myModal">
                                 <i class="fa fa fa-shopping-cart"></i> Купи
                             </button>
-                            <button class="btn btn-white"><i class="fa fa-arrow-left"></i> Continue shopping</button>
+                            <a href="/Products/Index" class="btn btn-white"><i class="fa fa-arrow-left"></i> Назад към продуктите</a>
                         </div>
                     </div>
 
@@ -91,43 +96,26 @@
 
                     <div class="ibox">
                         <div class="ibox-title">
-                            <h5>Cart Summary</h5>
+                            <h5>Обща стойност на количката</h5>
                         </div>
                         <div class="ibox-content">
                             <span>
                                 Общо
                             </span>
                             <h2 class="font-bold">
-                                $390,00
+                                @sum
                             </h2>
-
-                            <hr />
-                            <span class="text-muted small">
-                                *For United States, France and Germany applicable sales tax will be applied
-                            </span>
-                            <div class="m-t-sm">
-                                <div class="btn-group">
-                                    <button type="button" class="btn btn-primary btn-sm" data-toggle="modal" data-target="#myModal" id="btnBuy"><i class="fa fa-shopping-cart"></i> Купи </button>
-                                    <a href="#" class="btn btn-white btn-sm"> Cancel</a>
-                                </div>
-                            </div>
                         </div>
                     </div>
-
                     <div class="ibox">
                         <div class="ibox-title">
                             <h5>Поддръжка</h5>
                         </div>
                         <div class="ibox-content text-center">
-
-
-
                             <h3><i class="fa fa-phone"></i> +43 100 783 001</h3>
                             <span class="small">
                                 Please contact with us if you have any questions. We are avalible 24h.
                             </span>
-
-
                         </div>
                     </div>
 

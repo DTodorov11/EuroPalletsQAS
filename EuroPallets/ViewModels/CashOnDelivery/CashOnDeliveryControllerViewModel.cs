@@ -15,5 +15,7 @@ namespace EuroPallets.ViewModels.CashOnDelivery
         public string Address { get; set; }
 
         public string PhoneNumber { get; set; }
+
+        public decimal AllSum { get; set; }
     }
 }

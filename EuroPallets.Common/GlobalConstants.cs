@@ -28,8 +28,8 @@ namespace EuroPallets.Common
         public const string SuccessNewEuroPaletFurniture = "Product was added successfully";
 
 #if DEBUG
-        public const string EmailtemplateFolder = "../../Users/Daniel/Documents/GitHub/EuroPallets/EuroPallets/Content/EmailEditor/";
-        //public const string EmailtemplateFolder = "../../Users/LapTop/Documents/GitHub/EuroPalletsQAS/EuroPallets/Content/EmailEditor/";
+        //public const string EmailtemplateFolder = "../../Users/Daniel/Documents/GitHub/EuroPallets/EuroPallets/Content/EmailEditor/";
+        public const string EmailtemplateFolder = "../../Users/LapTop/Documents/GitHub/EuroPalletsQAS/EuroPallets/Content/EmailEditor/";
         //public const string EmailtemplateFolder = @"../../Users/User1/Desktop/EuroPalletsQAS-master/EuroPallets/Content/EmailEditor/";
 
 #else

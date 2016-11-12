@@ -173,9 +173,10 @@ namespace EuroPallets.Controllers
                     {
                         CreatedOn = DateTime.Now
                     }
-
                 };
+                
                 var result = await UserManager.CreateAsync(user, model.Password);
+                user.ShopingCartId = user.ShopingCart.Id;
                 if (result.Succeeded)
                 {
                     this.UserManager.AddToRoles(user.Id, GlobalConstants.CustomerRoleName);
@@ -490,6 +491,7 @@ namespace EuroPallets.Controllers
                     }
                 };
                 var result = await UserManager.CreateAsync(user);
+                user.ShopingCartId = user.ShopingCart.Id;
                 if (result.Succeeded)
                 {
                     result = await UserManager.AddLoginAsync(user.Id, info.Login);

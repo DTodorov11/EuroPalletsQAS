@@ -1071,6 +1071,7 @@
     <Content Include="Views\CashOnDelivery\Index.cshtml" />
     <Content Include="Views\Home\Mebellete_Сайт_за_мебели_очаквайте_скоро.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
+    <Content Include="Views\Shared\_BasketPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

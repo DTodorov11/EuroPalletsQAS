@@ -12,15 +12,15 @@ using System.Threading.Tasks;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Expressions;
+using EuroPallets.Services.Interface;
 
 namespace EuroPallets.Controllers
 {
     public class ProductsController : BaseController
     {
-        public ProductsController(IEvroPalletsData data)
+        public ProductsController(IEvroPalletsData data )
             : base(data)
         {
-
         }
 
         public ActionResult Index(int? page, string orderBy)
@@ -68,6 +68,28 @@ namespace EuroPallets.Controllers
             var currentUser = this.Data.Users.All().FirstOrDefault(x => x.Email == userId || x.Id == userId);
             var counter = currentUser.ShopingCart.ShopingCartEuroPalllets.Select(x => x.EuroPalletFurniture);
             return View(currentUser.ShopingCart);
+        }
+
+        [HttpPost]
+        public ActionResult BasketHomePage()
+        {
+            var userId = this.User.Identity.GetUserId();
+            var currentUser = this.Data.Users.All().FirstOrDefault(x => x.Email == userId || x.Id == userId);
+            var allItemsPrice = currentUser.ShopingCart.ShopingCartEuroPalllets.Select(x => x.EuroPalletFurniture.Price);
+            decimal amount = 0;
+            foreach (var item in allItemsPrice)
+            {
+                amount += item;
+            }
+            return this.PartialView("_BasketPartial", currentUser.ShopingCart);
+        }
+
+        [HttpPost]
+        public void RemoveFromBasketHomePage(string itemId)
+        {
+            var itemToDelete = this.Data.ShopingCartEuroPalllets.All().FirstOrDefault(x => x.EuroPalletFurnitureID.ToString() == itemId && x.ShopingCartID == 1);
+            this.Data.ShopingCartEuroPalllets.Delete(itemToDelete);
+            this.Data.SaveChanges();
         }
 
         #region Helper

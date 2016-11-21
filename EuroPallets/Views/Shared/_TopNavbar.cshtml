@@ -1,8 +1,7 @@
 ﻿@*@model EuroPallets.ViewModels.MainViewModel.MainLayoutViewModel*@
-
+@{  var userName = this.User.Identity.Name;}
 <link href="~/assets/css/animate.css" rel="stylesheet">
 <link href="~/assets/css/style.css" rel="stylesheet">
-
 <div class="modal inmodal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content animated bounceInRight">
@@ -85,7 +84,6 @@
                         </ul>
                     </div>
                 }
-
             </div>
         </div><!--/container-->
     </div>
@@ -105,44 +103,30 @@
                     <img id="logo-header" src="~/assets/img/logo-resz.png" alt="Logo">
                 </a>
             </div>
-
             <!-- Shopping Cart -->
+
             @if (User.Identity.IsAuthenticated)
             {
-                <div class="shop-badge badge-icons pull-right">
+                <div class="shop-badge badge-icons pull-right" onmouseover="showBasket()">
                     <a href="#"><i class="fa fa-shopping-cart"></i></a>
-                    <span class="badge badge-sea rounded-x">3</span>
+                    <span class="badge badge-sea rounded-x" id="CountBasket">5</span>
                     <div class="badge-open">
                         <ul class="list-unstyled mCustomScrollbar _mCS_1 mCS-autoHide mCS_no_scrollbar" data-mcs-theme="minimal-dark" style="position: relative; overflow: visible;">
                             <div id="mCSB_1" class="mCustomScrollBox mCS-minimal-dark mCSB_vertical mCSB_outside" tabindex="0">
                                 <div id="mCSB_1_container" class="mCSB_container mCS_y_hidden mCS_no_scrollbar_y" style="position:relative; top:0; left:0;" dir="ltr">
-                                    <li>
-                                        <img src="~/assets/img/thumb/05.jpg" alt="" class="mCS_img_loaded">
-                                        <button type="button" class="close">×</button>
-                                        <div class="overflow-h">
-                                            <span>Black Glasses</span>
-                                            <small>1 x $400.00</small>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <img src="~/assets/img/thumb/02.jpg" alt="" class="mCS_img_loaded">
-                                        <button type="button" class="close">×</button>
-                                        <div class="overflow-h">
-                                            <span>Black Glasses</span>
-                                            <small>1 x $400.00</small>
-                                        </div>
-                                    </li>
-                                    <li>
-                                        <img src="~/assets/img/thumb/03.jpg" alt="" class="mCS_img_loaded">
-                                        <button type="button" class="close">×</button>
-                                        <div class="overflow-h">
-                                            <span>Black Glasses</span>
-                                            <small>1 x $400.00</small>
-                                        </div>
-                                    </li>
+
+                                    @* Append _BasktPartial with Ajax*@
+
                                 </div>
                             </div>
-                            <div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-minimal-dark mCSB_scrollTools_vertical" style="display: none;"><div class="mCSB_draggerContainer"><div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 50px; top: 0px;" oncontextmenu="return false;"><div class="mCSB_dragger_bar" style="line-height: 50px;"></div></div><div class="mCSB_draggerRail"></div></div></div>
+                            <div id="mCSB_1_scrollbar_vertical" class="mCSB_scrollTools mCSB_1_scrollbar mCS-minimal-dark mCSB_scrollTools_vertical" style="display: none;">
+                                <div class="mCSB_draggerContainer">
+                                    <div id="mCSB_1_dragger_vertical" class="mCSB_dragger" style="position: absolute; min-height: 50px; top: 0px;" oncontextmenu="return false;">
+                                        <div class="mCSB_dragger_bar" style="line-height: 50px;"></div>
+                                    </div>
+                                    <div class="mCSB_draggerRail"></div>
+                                </div>
+                            </div>
                         </ul>
                         <div class="subtotal">
                             <div class="overflow-h margin-bottom-10">
@@ -160,6 +144,7 @@
                         </div>
                     </div>
                 </div>
+
             }
 
             <!-- End Shopping Cart -->
@@ -196,7 +181,6 @@
                                                     <li><a href="#">Нови</a> <span class="label label-danger-shop">New</span></li>
                                                 </ul>
                                             </div>
-
                                             <div class="col-md-2 col-sm-6">
                                                 <h3 class="mega-menu-heading">Гардероби</h3>
                                                 <ul class="list-unstyled style-list">
@@ -217,7 +201,6 @@
                                                     <li><a href="#">Всички</a></li>
                                                 </ul>
                                             </div>
-
                                             <div class="col-md-2 col-sm-6">
                                                 <h3 class="mega-menu-heading">Спални</h3>
                                                 <ul class="list-unstyled style-list">
@@ -226,7 +209,6 @@
                                                     <li><a href="#">Дизайнерски спални</a> <span class="label label-danger-shop">New</span></li>
                                                 </ul>
                                             </div>
-
                                             <div class="col-md-2 col-sm-6">
                                                 <h3 class="mega-menu-heading">Заведения</h3>
                                                 <ul class="list-unstyled style-list">
@@ -243,7 +225,6 @@
                                                         <li><a href="#">Sports</a></li>
                                                     </ul>*@
                                             </div>
-
                                             @*<div class="col-md-2 col-sm-6">
                                                     <h3 class="mega-menu-heading">Accessories</h3>
                                                     <ul class="list-unstyled style-list">
@@ -382,7 +363,27 @@
                 <!-- End Nav Menu -->
             </div>
         </div>
+
     </div>
     <!-- End Navbar -->
 </div>
 <!--=== End Header v5 ===-->
+
+
+<script>
+    function showBasket() {
+        $.ajax({
+            url: "/Products/BasketHomePage",
+            method: "POST",
+            success: function (data) {
+                $("#mCSB_1_container").html('');
+                $("#mCSB_1_container").append(data);
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+
+</script>
+

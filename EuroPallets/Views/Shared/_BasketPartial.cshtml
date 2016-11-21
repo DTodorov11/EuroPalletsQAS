@@ -1,0 +1,30 @@
+﻿
+@model EuroPallets.Models.ShopingCart
+
+@foreach (var currentItem in Model.ShopingCartEuroPalllets.Select(x => x.EuroPalletFurniture))
+{
+    <li id="@currentItem.Id">
+        <img class="full-width img-responsive" src=@Url.Action("Show", "Image", new { @class="mCS_img_loaded", id = currentItem.Id }) alt="">
+        <button type="button" class="close" onclick="removeFromBasket(@currentItem.Id)">×</button>
+        <div class="@*overflow-h*@">
+            <span>@currentItem.Name</span>
+            <small>@currentItem.Price</small>
+        </div>
+    </li>
+}
+<script>
+    function removeFromBasket(id) {
+        $.ajax({
+            url: "/Products/RemoveFromBasketHomePage",
+            method: "POST",
+            data: { itemId: id },
+            success: function (data) {
+                var $row = $('li #' + id);
+                $row.remove();
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    }
+</script>

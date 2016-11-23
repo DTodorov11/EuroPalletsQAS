@@ -1,7 +1,13 @@
 ﻿@*@model EuroPallets.ViewModels.MainViewModel.MainLayoutViewModel*@
 @{  var userName = this.User.Identity.Name;}
+@{
+    var currentAction = this.ViewContext.RouteData.Values["action"].ToString();
+    var currentController = this.ViewContext.RouteData.Values["controller"].ToString();
+}
+
 <link href="~/assets/css/animate.css" rel="stylesheet">
 <link href="~/assets/css/style.css" rel="stylesheet">
+
 <div class="modal inmodal" id="myModal" tabindex="-1" role="dialog" aria-hidden="true">
     <div class="modal-dialog modal-lg">
         <div class="modal-content animated bounceInRight">
@@ -45,14 +51,10 @@
                             </ul>
                         </li>
                         <li>
-                            <a>Language (EN)</a>
+                            <a>Language (BG)</a>
                             <ul class="language">
-                                <li class="active">
-                                    <a href="#">English (EN)<i class="fa fa-check"></i></a>
-                                </li>
-                                <li><a href="#">Spanish (SPN)</a></li>
-                                <li><a href="#">Russian (RUS)</a></li>
-                                <li><a href="#">German (GRM)</a></li>
+                                <li class="active">@Html.ActionLink("Български", currentAction, currentController, routeValues: new { language = "bg" }, htmlAttributes: null)</li>
+                                <li>@Html.ActionLink("English", currentAction, currentController, routeValues: new { language = "en" }, htmlAttributes: null)</li>
                             </ul>
                         </li>
                     </ul><!--/end left-topbar-->

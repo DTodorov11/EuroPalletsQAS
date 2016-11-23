@@ -18,7 +18,7 @@ namespace EuroPallets.Controllers
 {
     public class ProductsController : BaseController
     {
-        public ProductsController(IEvroPalletsData data )
+        public ProductsController(IEvroPalletsData data)
             : base(data)
         {
         }
@@ -84,13 +84,16 @@ namespace EuroPallets.Controllers
             return this.PartialView("_BasketPartial", currentUser.ShopingCart);
         }
 
-        [HttpPost]
-        public void RemoveFromBasketHomePage(string itemId)
-        {
-            var itemToDelete = this.Data.ShopingCartEuroPalllets.All().FirstOrDefault(x => x.EuroPalletFurnitureID.ToString() == itemId && x.ShopingCartID == 1);
-            this.Data.ShopingCartEuroPalllets.Delete(itemToDelete);
-            this.Data.SaveChanges();
-        }
+        //[HttpPost]
+        //public void RemoveFromBasketHomePage(string itemId)
+        //{
+        //    var usesShopingCart = this.Data.Users.Find(this.User.Identity.GetUserId()).ShopingCartId;
+        //    var itemToDelete = this.Data.ShopingCartEuroPalllets
+        //        .All()
+        //        .FirstOrDefault(x => x.EuroPalletFurnitureID.ToString() == itemId && x.ShopingCartID == usesShopingCart);
+        //    this.Data.ShopingCartEuroPalllets.Delete(itemToDelete);
+        //    this.Data.SaveChanges();
+        //}
 
         #region Helper
 
@@ -163,11 +166,30 @@ namespace EuroPallets.Controllers
             return Redirect(HttpContext.Request.UrlReferrer.AbsoluteUri);
         }
 
+        [HttpGet]
         public ActionResult DeleteItemFromShopingCard(int itemId)
         {
-            var itemToDelete = this.Data.EuroPalletFurnitures.Find(itemId);
-            this.Data.EuroPalletFurnitures.Delete(itemToDelete);
-            this.Data.SaveChanges();
+            var usesShopingCart = this.Data.Users.Find(this.User.Identity.GetUserId()).ShopingCartId;
+            var itemToDelete = this.Data.ShopingCartEuroPalllets
+                .All()
+                .FirstOrDefault(x => x.EuroPalletFurnitureID == itemId && x.ShopingCartID == usesShopingCart);
+            if (usesShopingCart != null && itemToDelete != null)
+            {
+                try
+                {
+                    this.Data.ShopingCartEuroPalllets.Delete(itemToDelete);
+                    this.Data.SaveChanges();
+                    this.TempData["Success"] = "Make New Message";
+                }
+                catch (Exception)
+                {
+
+                    this.TempData["Error"] = "Make New Message Something Happend";
+                }
+            }
+            //var itemToDelete = this.Data.EuroPalletFurnitures.Find(Id);
+            //this.Data.EuroPalletFurnitures.Delete(itemToDelete);
+            //this.Data.SaveChanges();
 
             return RedirectToAction("Index");
         }

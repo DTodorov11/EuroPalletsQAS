@@ -5,26 +5,26 @@
 {
     <li id="@currentItem.Id">
         <img class="full-width img-responsive" src=@Url.Action("Show", "Image", new { @class="mCS_img_loaded", id = currentItem.Id }) alt="">
-        <button type="button" class="close" onclick="removeFromBasket(@currentItem.Id)">×</button>
-        <div class="@*overflow-h*@">
+        @*<button type="button" class="close" onclick="removeFromBasket(@currentItem.Id)">×</button>*@
+        <div class="@*overflow-h*@" style="padding-top:200px">
             <span>@currentItem.Name</span>
             <small>@currentItem.Price</small>
         </div>
     </li>
 }
-<script>
-    function removeFromBasket(id) {
-        $.ajax({
-            url: "/Products/RemoveFromBasketHomePage",
-            method: "POST",
-            data: { itemId: id },
-            success: function (data) {
-                var $row = $('li #' + id);
-                $row.remove();
-            },
-            error: function (error) {
-                console.log(error);
-            }
-        });
-    }
-</script>
+@*<script>
+        function removeFromBasket(id) {
+            $.ajax({
+                url: "/Products/DeleteItemFromShopingCard",
+                method: "GET",
+                data: { itemId: id },
+                success: function (data) {
+                    var $row = $('li #' + id);
+                    $row.remove();
+                },
+                error: function (error) {
+                    console.log(error);
+                }
+            });
+        }
+    </script>*@

@@ -7,6 +7,8 @@ using System.Linq;
 using System.Web;
 using System.Web.Mvc;
 using System.Web.Routing;
+using System.Threading;
+using System.Globalization;
 
 namespace EuroPallets.Controllers
 {
@@ -28,6 +30,16 @@ namespace EuroPallets.Controllers
 
         protected User UserProfile { get; private set; }
 
+        //Set Culture and translations
+        protected override void OnActionExecuting(ActionExecutingContext filterContext)
+        {
+            var language = this.Request.RequestContext.RouteData.Values["language"].ToString();
+
+            Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(language);
+            Thread.CurrentThread.CurrentUICulture = new CultureInfo(language);
+
+            base.OnActionExecuting(filterContext);
+        }
 
         protected override IAsyncResult BeginExecute(RequestContext requestContext, AsyncCallback callback, object state)
         {

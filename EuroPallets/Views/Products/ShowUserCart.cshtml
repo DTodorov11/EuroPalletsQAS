@@ -1,7 +1,8 @@
 ﻿@model EuroPallets.Models.ShopingCart
 
-@{ 
+@{
     decimal sum = 0;
+    int quantityProductsCart = 0;
 }
 <link href="~/assets/css/animate.css" rel="stylesheet">
 <link href="~/assets/css/style.css" rel="stylesheet">
@@ -26,12 +27,13 @@
                                         <span>Продукти</span>
                                     }*@
                             </span>
-                            <h5>Продукти в картата</h5>
+                            <h5>Продукти в количката</h5>
                         </div>
                         @foreach (var currentItem in Model.ShopingCartEuroPalllets.Select(x => x.EuroPalletFurniture))
                         {
                             //Sum of all Items
-                            sum = sum + (currentItem.Price*currentItem.Quantity);
+                            sum = sum + (currentItem.Price * currentItem.Quantity);
+                            quantityProductsCart += currentItem.Quantity;
 
                             <div class="ibox-content">
                                 <div class="table-responsive">
@@ -60,7 +62,9 @@
                                                     <div class="m-t-sm">
                                                         @*<a href="#" class="text-muted"><i class="fa fa-gift"></i> Add gift package</a>
                                                             |*@
-                                                        <a href=@Url.Action("DeleteItemFromShopingCard", "Products", new { id = Model.Id }) class="text-muted"><i class="fa fa-trash"></i> Remove item</a>
+                                                        <a href=@Url.Action("DeleteItemFromShopingCard", "Products", new { itemId = currentItem.Id }) class="text-muted">
+                                                            <i class="fa fa-trash"></i> Премахни продукт
+                                                        </a>
                                                     </div>
                                                 </td>
 
@@ -99,84 +103,93 @@
                             <h5>Обща стойност на количката</h5>
                         </div>
                         <div class="ibox-content">
-                            <span>
-                                Общо
-                            </span>
-                            <h2 class="font-bold">
-                                @sum
-                            </h2>
-                        </div>
-                    </div>
-                    <div class="ibox">
-                        <div class="ibox-title">
-                            <h5>Поддръжка</h5>
-                        </div>
-                        <div class="ibox-content text-center">
-                            <h3><i class="fa fa-phone"></i> +43 100 783 001</h3>
-                            <span class="small">
-                                Please contact with us if you have any questions. We are avalible 24h.
-                            </span>
-                        </div>
-                    </div>
-
-                    <div class="ibox">
-                        <div class="ibox-content">
-
-                            <p class="font-bold">
-                                Други продукти, които може да Ви харесат
-                            </p>
-
-                            <hr />
-                            <div>
-                                <a href="#" class="product-name"> Product 1</a>
-                                <div class="small m-t-xs">
-                                    Many desktop publishing packages and web page editors now.
-                                </div>
-                                <div class="m-t text-righ">
-
-                                    <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
-                                </div>
+                            <div class="col-sm-7">
+                                <span>
+                                    Продукти в количката
+                                </span>
+                                <h2 class="font-bold">
+                                    @quantityProductsCart
+                                </h2>
                             </div>
-                            <hr />
-                            <div>
-                                <a href="#" class="product-name"> Product 2</a>
-                                <div class="small m-t-xs">
-                                    Many desktop publishing packages and web page editors now.
-                                </div>
-                                <div class="m-t text-righ">
-
-                                    <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
-                                </div>
+                            <div class="col-sm-5">
+                                <span>
+                                    Обща сума
+                                </span>
+                                <h2 class="font-bold">
+                                    @sum
+                                </h2>
                             </div>
-
                         </div>
-                    </div>
+                        <div class="ibox">
+                            <div class="ibox-title">
+                                <h5>Поддръжка</h5>
+                            </div>
+                            <div class="ibox-content text-center">
+                                <h3><i class="fa fa-phone"></i> +43 100 783 001</h3>
+                                <span class="small">
+                                    Please contact with us if you have any questions. We are avalible 24h.
+                                </span>
+                            </div>
+                        </div>
 
+                        <div class="ibox">
+                            <div class="ibox-content">
+
+                                <p class="font-bold">
+                                    Други продукти, които може да Ви харесат
+                                </p>
+
+                                <hr />
+                                <div>
+                                    <a href="#" class="product-name"> Product 1</a>
+                                    <div class="small m-t-xs">
+                                        Many desktop publishing packages and web page editors now.
+                                    </div>
+                                    <div class="m-t text-righ">
+
+                                        <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
+                                    </div>
+                                </div>
+                                <hr />
+                                <div>
+                                    <a href="#" class="product-name"> Product 2</a>
+                                    <div class="small m-t-xs">
+                                        Many desktop publishing packages and web page editors now.
+                                    </div>
+                                    <div class="m-t text-righ">
+
+                                        <a href="#" class="btn btn-xs btn-outline btn-primary">Info <i class="fa fa-long-arrow-right"></i> </a>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+
+                    </div>
                 </div>
             </div>
         </div>
     </div>
-</div>
 
-@section scripts{
-    <script src="~/assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
-    <script src="~/assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
+    @section scripts{
+        <script src="~/assets/js/plugins/metisMenu/jquery.metisMenu.js"></script>
+        <script src="~/assets/js/plugins/slimscroll/jquery.slimscroll.min.js"></script>
 
-    <!-- Custom and plugin javascript -->
-    <script src="~/assets/js/inspinia.js"></script>
-    <script src="~/assets/js/plugins/pace/pace.min.js"></script>
+        <!-- Custom and plugin javascript -->
+        <script src="~/assets/js/inspinia.js"></script>
+        <script src="~/assets/js/plugins/pace/pace.min.js"></script>
 
-    <script>
-        $('#btnBuy').on('click', function () {
-            debugger;
-            $.ajax({
-                url: "/CashOnDelivery/PaymentModalUpdate",
-                cache: false,
-                success: function (html) {
-                    $(".modal-body").html('');
-                    $(".modal-body").append(html);
-                }
-            });
-        })
-    </script>
-}
+        <script>
+            $('#btnBuy').on('click', function () {
+                debugger;
+                $.ajax({
+                    url: "/CashOnDelivery/PaymentModalUpdate",
+                    cache: false,
+                    success: function (html) {
+                        $(".modal-body").html('');
+                        $(".modal-body").append(html);
+                    }
+                });
+            })
+        </script>
+    }

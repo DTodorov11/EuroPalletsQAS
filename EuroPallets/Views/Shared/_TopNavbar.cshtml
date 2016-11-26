@@ -3,6 +3,7 @@
 @{
     var currentAction = this.ViewContext.RouteData.Values["action"].ToString();
     var currentController = this.ViewContext.RouteData.Values["controller"].ToString();
+    var lang= this.Request.RequestContext.RouteData.Values["language"].ToString();
 }
 
 <link href="~/assets/css/animate.css" rel="stylesheet">
@@ -53,7 +54,7 @@
                         <li>
                             <a>Language (BG)</a>
                             <ul class="language">
-                                <li class="active">@Html.ActionLink("Български", currentAction, currentController, routeValues: new { language = "bg" }, htmlAttributes: null)</li>
+                                <li>@Html.ActionLink("Български", currentAction, currentController, routeValues: new { language = "bg" }, htmlAttributes: null)</li>
                                 <li>@Html.ActionLink("English", currentAction, currentController, routeValues: new { language = "en" }, htmlAttributes: null)</li>
                             </ul>
                         </li>
@@ -374,10 +375,12 @@
 
 <script>
     function showBasket() {
+        debugger
         $.ajax({
-            url: "/Products/BasketHomePage",
+            url: "/@lang/Products/BasketHomePage",
             method: "POST",
             success: function (data) {
+                debugger
                 $("#mCSB_1_container").html('');
                 $("#mCSB_1_container").append(data);
             },

@@ -523,3 +523,7 @@ C:\Users\User1\Documents\GitHub\EuroPalletsQAS\EuroPallets\bin\Microsoft.Owin.Se
 C:\Users\User1\Documents\GitHub\EuroPalletsQAS\EuroPallets\bin\Microsoft.Owin.Security.Google.xml
 C:\Users\User1\Documents\GitHub\EuroPalletsQAS\EuroPallets\bin\Microsoft.Owin.Security.Twitter.xml
 C:\Users\User1\Documents\GitHub\EuroPalletsQAS\EuroPallets\bin\Microsoft.Owin.Security.MicrosoftAccount.xml
+C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets\obj\Debug\EuroPallets.Resources.DefaultLang.resources
+C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets\obj\Debug\EuroPallets.Resources.DefaultLang_bg.resources
+C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets\obj\Debug\EuroPallets.Resources.DefaultLang_en.resources
+C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets\obj\Debug\EuroPallets.Web.csproj.GenerateResource.Cache

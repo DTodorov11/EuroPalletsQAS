@@ -1,4 +1,4 @@
-﻿namespace EuroPallets.Extensions
+﻿namespace EuroPallets.Web.Extensions
 {
     using System;
     using System.Collections.Generic;
@@ -17,6 +17,7 @@
         private const string RelativeFilePath = @"/Resources/";
         public static string Translate(this HtmlHelper helper, string word)
         {
+            var wordToTranslate = word.Replace(' ', '_');
             var language = HttpContext.Current.Request.RequestContext.RouteData.Values["language"].ToString();
             var resourceSet = DefaultLang.ResourceManager.GetResourceSet(new CultureInfo(language), true, true);
             foreach (DictionaryEntry entry in resourceSet)
@@ -27,9 +28,9 @@
                 }
             }
             var list = new List<string>();
+            list.Add(HostingEnvironment.MapPath(RelativeFilePath) + "DefaultLang.resx");
             list.Add(HostingEnvironment.MapPath(RelativeFilePath) + "DefaultLang.bg.resx");
             list.Add(HostingEnvironment.MapPath(RelativeFilePath) + "DefaultLang.en.resx");
-            list.Add(HostingEnvironment.MapPath(RelativeFilePath) + "DefaultLang.resx");
 
             foreach (var item in list)
             {

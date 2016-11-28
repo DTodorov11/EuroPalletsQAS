@@ -1,10 +1,11 @@
 ﻿@*@model EuroPallets.ViewModels.MainViewModel.MainLayoutViewModel*@
 @{  var userName = this.User.Identity.Name;}
-@{
+
+@*@{
     var currentAction = this.ViewContext.RouteData.Values["action"].ToString();
     var currentController = this.ViewContext.RouteData.Values["controller"].ToString();
     var lang= this.Request.RequestContext.RouteData.Values["language"].ToString();
-}
+}*@
 
 <link href="~/assets/css/animate.css" rel="stylesheet">
 <link href="~/assets/css/style.css" rel="stylesheet">
@@ -54,8 +55,8 @@
                         <li>
                             <a>Language (BG)</a>
                             <ul class="language">
-                                <li>@Html.ActionLink("Български", currentAction, currentController, routeValues: new { language = "bg" }, htmlAttributes: null)</li>
-                                <li>@Html.ActionLink("English", currentAction, currentController, routeValues: new { language = "en" }, htmlAttributes: null)</li>
+                                @*<li>@Html.ActionLink("Български", currentAction, currentController, routeValues: new { language = "bg" }, htmlAttributes: null)</li>*@
+                                @*<li>@Html.ActionLink("English", currentAction, currentController, routeValues: new { language = "en" }, htmlAttributes: null)</li>*@
                             </ul>
                         </li>
                     </ul><!--/end left-topbar-->
@@ -377,7 +378,7 @@
     function showBasket() {
         debugger
         $.ajax({
-            url: "/@lang/Products/BasketHomePage",
+            url: "/Products/BasketHomePage",
             method: "POST",
             success: function (data) {
                 debugger

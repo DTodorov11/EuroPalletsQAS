@@ -31,15 +31,15 @@ namespace EuroPallets.Controllers
         protected User UserProfile { get; private set; }
 
         //Set Culture and translations
-        protected override void OnActionExecuting(ActionExecutingContext filterContext)
-        {
-            var language = this.Request.RequestContext.RouteData.Values["language"].ToString();
+        //protected override void OnActionExecuting(ActionExecutingContext filterContext)
+        //{
+        //    var language = this.Request.RequestContext.RouteData.Values["language"].ToString() != null ? this.Request.RequestContext.RouteData.Values["language"].ToString() : "bg";
 
-            Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(language);
-            Thread.CurrentThread.CurrentUICulture = new CultureInfo(language);
+        //    Thread.CurrentThread.CurrentCulture = CultureInfo.CreateSpecificCulture(language);
+        //    Thread.CurrentThread.CurrentUICulture = new CultureInfo(language);
 
-            base.OnActionExecuting(filterContext);
-        }
+        //    base.OnActionExecuting(filterContext);
+        //}
 
         protected override IAsyncResult BeginExecute(RequestContext requestContext, AsyncCallback callback, object state)
         {

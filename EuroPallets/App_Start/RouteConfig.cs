@@ -20,11 +20,16 @@ namespace EuroPallets
             //   "{*url}",
             //   new { controller = "Home", action = "Mebellete_Сайт_за_мебели_очаквайте_скоро" }
             // );
-
             routes.MapRoute(
                 name: "Default",
+                url: "{controller}/{action}/{id}",
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional }
+            );
+
+            routes.MapRoute(
+                name: "LanguageRouth",
                 url: "{language}/{controller}/{action}/{id}",
-                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional, language = "en" }
+                defaults: new { controller = "Home", action = "Index", id = UrlParameter.Optional, language = "bg" }
             );
         }
     }

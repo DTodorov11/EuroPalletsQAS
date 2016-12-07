@@ -8,6 +8,8 @@ using System.Web.Routing;
 using EuroPallets.Data;
 using EuroPallets.Models;
 using EuroPallets.Common;
+using EuroPallets.ViewModels.ProductsViewModel;
+using EuroPallets.Models.Helper;
 
 namespace EuroPallets.Controllers.WebApiControllers
 {
@@ -84,6 +86,50 @@ namespace EuroPallets.Controllers.WebApiControllers
 
             //return statusAndMessage;
             return "test";
+        }
+
+        [HttpGet]
+        public ProductsViewModel Ajax(int? page)
+        {
+            var allEuroPalletsFurniture = this.Data.EuroPalletFurnitures.All().ToList();
+
+            Pager pager = new Pager(allEuroPalletsFurniture.Count(), 1);
+
+            if (page.HasValue)
+            {
+                pager = new Pager(allEuroPalletsFurniture.Count(), 1, page.Value);
+
+            }
+
+            var items = allEuroPalletsFurniture.Skip((pager.CurrentPage - 1) * pager.PageSize).Take(pager.PageSize);
+
+            var viewModel = new ProductsViewModel()
+            {
+                EuroPalletFurniture = items,
+                Pager = pager
+            };
+
+            return viewModel;
+
+        }
+
+        [HttpGet]
+        public ProductsViewModel Ajax()
+        {
+            var allEuroPalletsFurniture = this.Data.EuroPalletFurnitures.All().ToList();
+
+            Pager pager = new Pager(allEuroPalletsFurniture.Count(), 1);
+
+
+            var items = allEuroPalletsFurniture.Skip((pager.CurrentPage - 1) * pager.PageSize).Take(pager.PageSize);
+
+            var viewModel = new ProductsViewModel()
+            {
+                EuroPalletFurniture = items,
+                Pager = pager
+            };
+
+            return viewModel;
         }
     }
 }

@@ -2,10 +2,10 @@
 @{  var userName = this.User.Identity.Name;}
 
 @*@{
-    var currentAction = this.ViewContext.RouteData.Values["action"].ToString();
-    var currentController = this.ViewContext.RouteData.Values["controller"].ToString();
-    var lang= this.Request.RequestContext.RouteData.Values["language"].ToString();
-}*@
+        var currentAction = this.ViewContext.RouteData.Values["action"].ToString();
+        var currentController = this.ViewContext.RouteData.Values["controller"].ToString();
+        var lang= this.Request.RequestContext.RouteData.Values["language"].ToString();
+    }*@
 
 <link href="~/assets/css/animate.css" rel="stylesheet">
 <link href="~/assets/css/style.css" rel="stylesheet">
@@ -158,9 +158,11 @@
                 <ul class="nav navbar-nav">
                     <!-- Продукти -->
                     <li class="dropdown mega-menu-fullwidth">
-                        <a href='@Url.Action("Index","Products")' class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">
-                            Продукти
-                        </a>
+                        @*@Html.ActionLink("Продукти", "Index", "Products", new { page = 1, }, new { id = "allProducts", @class = "dropdown-toggle", data_hover = "dropdown", data_toggle = "dropdown" })*@
+
+                        <a href='@Url.Action("Index","Products")' id="allProducts" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">
+                                Продукти
+                            </a>
                         <ul class="dropdown-menu">
                             <li>
                                 <div class="mega-menu-content">
@@ -390,6 +392,8 @@
             }
         });
     }
+
+
 
 </script>
 

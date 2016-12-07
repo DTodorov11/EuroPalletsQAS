@@ -23,7 +23,7 @@ namespace EuroPallets.Controllers
         {
         }
 
-        public ActionResult Index(int? page, string orderBy)
+        public ActionResult Index(int? page)
         {
             var allEuroPalletsFurniture = this.Data.EuroPalletFurnitures.All().ToList();
 
@@ -43,17 +43,44 @@ namespace EuroPallets.Controllers
                 Pager = pager
             };
 
-            if (!string.IsNullOrWhiteSpace(orderBy))
+            //if (!string.IsNullOrWhiteSpace(orderBy))
+            //{
+            //    if (orderBy.Equals("Най-продавани"))
+            //    {
+            //        viewModel.EuroPalletFurniture.OrderBy(x => x.Price);
+            //    }
+            //}
+
+            return View(viewModel);
+        }
+
+        public ActionResult Ajax(int page)
+        {
+            //TODO
+            //REMOVE SELECT FROM DB !
+            var allEuroPalletsFurniture = this.Data.EuroPalletFurnitures.All().ToList();
+
+            Pager pager = new Pager(allEuroPalletsFurniture.Count(), 1);
+
+            IEnumerable<EuroPalletFurniture> items = new List<EuroPalletFurniture>();
+
+            if (page == 1)
             {
-                if (orderBy.Equals("Най-продавани"))
-                {
-                    viewModel.EuroPalletFurniture.OrderBy(x => x.Price);
-                }
+                items = allEuroPalletsFurniture.Take(pager.PageSize);
+            }
+            else
+            {
+                items = allEuroPalletsFurniture.Skip(pager.CurrentPage * pager.PageSize).Take(pager.PageSize);
             }
 
 
+            var viewModel = new ProductsViewModel()
+            {
+                EuroPalletFurniture = items,
+                Pager = pager
+            };
 
-            return View(viewModel);
+            return this.PartialView("_ProductsPartial", viewModel);
         }
 
         public ActionResult ShowProductDetails(int? id)

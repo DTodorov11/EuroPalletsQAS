@@ -358,6 +358,8 @@
     <Content Include="Home\assets\img\cursoel\3.jpeg" />
     <Content Include="Home\assets\img\cursoel\4.jpg" />
     <Content Include="Robots.txt" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.js" />
+    <Content Include="Scripts\jquery.unobtrusive-ajax.min.js" />
     <Content Include="Scripts\my-custom-js.js" />
     <Content Include="assets\img\blog\01.jpg" />
     <Content Include="assets\img\blog\02.jpg" />
@@ -1089,6 +1091,7 @@
     <Content Include="Views\Home\Mebellete_Сайт_за_мебели_очаквайте_скоро.cshtml" />
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Shared\_BasketPartial.cshtml" />
+    <Content Include="Views\Shared\_ProductsPartial.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

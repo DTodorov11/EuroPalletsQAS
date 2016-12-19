@@ -3,242 +3,233 @@
 @{
     string sortedby = string.Empty;
 }
-
+<style>
+    .custonBtn {
+        display: block;
+        width: 115px;
+        height: 25px;
+        background: #4E9CAF;
+        padding: 10px;
+        text-align: center;
+        border-radius: 5px;
+        color: white;
+        font-weight: bold;
+    }
+</style>
 <!--=== Content Part ===-->
 <div class="content container">
     <div class="row">
         @*==LEFT FILTER==*@
         <div class="col-md-3 filter-by-block md-margin-bottom-60">
-            <h1>Filter By</h1>
-            <div class="panel-group" id="accordion">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h2 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
-                                Brands
-                                <i class="fa fa-angle-down"></i>
-                            </a>
-                        </h2>
-                    </div>
-                    <div id="collapseOne" class="panel-collapse collapse in">
-                        <div class="panel-body">
-                            <ul class="list-unstyled checkbox-list">
-                                <li>
-                                    <label class="checkbox">
-                                        <input type="checkbox" name="checkbox" checked />
-                                        <i></i>
-                                        Calvin Klein
-                                        <small><a href="#">(23)</a></small>
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="checkbox">
-                                        <input type="checkbox" name="checkbox" checked />
-                                        <i></i>
-                                        Gucci
-                                        <small><a href="#">(4)</a></small>
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="checkbox">
-                                        <input type="checkbox" name="checkbox" />
-                                        <i></i>
-                                        Adidas
-                                        <small><a href="#">(11)</a></small>
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="checkbox">
-                                        <input type="checkbox" name="checkbox" />
-                                        <i></i>
-                                        Puma
-                                        <small><a href="#">(3)</a></small>
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="checkbox">
-                                        <input type="checkbox" name="checkbox" />
-                                        <i></i>
-                                        Zara
-                                        <small><a href="#">(87)</a></small>
-                                    </label>
-                                </li>
-                            </ul>
+            <h1>Филтри:</h1>
+            @foreach (var filter in Model.Filters)
+            {
+                <div class="panel-group" id="accordion">
+                    <div class="panel panel-default">
+                        <div class="panel-heading">
+                            <h2 class="panel-title">
+                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                    @filter.Name
+                                    <i class="fa fa-angle-down"></i>
+                                </a>
+                            </h2>
                         </div>
-                    </div>
-                </div>
-            </div><!--/end panel group-->
 
-            <div class="panel-group" id="accordion-v2">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h2 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion-v2" href="#collapseTwo">
-                                Categories
-                                <i class="fa fa-angle-down"></i>
-                            </a>
-                        </h2>
-                    </div>
-                    <div id="collapseTwo" class="panel-collapse collapse in">
-                        <div class="panel-body">
-                            <ul class="list-unstyled checkbox-list">
-                                <li>
-                                    <label class="checkbox">
-                                        <input type="checkbox" name="checkbox" checked />
-                                        <i></i>
-                                        Clothes
-                                        <small><a href="#">(23)</a></small>
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="checkbox">
-                                        <input type="checkbox" name="checkbox" checked />
-                                        <i></i>
-                                        Glasses
-                                        <small><a href="#">(4)</a></small>
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="checkbox">
-                                        <input type="checkbox" name="checkbox" />
-                                        <i></i>
-                                        Shoes
-                                        <small><a href="#">(11)</a></small>
-                                    </label>
-                                </li>
-                            </ul>
+
+                        <div id="collapseOne" class="panel-collapse collapse in">
+                            <div class="panel-body">
+                                <ul class="list-unstyled checkbox-list">
+                                    @foreach (var name in filter.Name_Choisen)
+                                    {
+                                        <li>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checkbox" checked />
+                                                <i></i>
+                                                @name
+                                                <small><a href="#">(23)</a></small>
+                                            </label>
+                                        </li>
+                                    }
+                                </ul>
+                            </div>
                         </div>
-                    </div>
-                </div>
-            </div><!--/end panel group-->
 
-            <div class="panel-group" id="accordion-v3">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h2 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion-v3" href="#collapseThree">
-                                Size
-                                <i class="fa fa-angle-down"></i>
-                            </a>
-                        </h2>
                     </div>
-                    <div id="collapseThree" class="panel-collapse collapse in">
-                        <div class="panel-body">
-                            <ul class="list-unstyled checkbox-list">
-                                <li>
-                                    <label class="checkbox">
-                                        <input type="checkbox" name="checkbox" />
-                                        <i></i>
-                                        S
-                                        <small><a href="#">(23)</a></small>
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="checkbox">
-                                        <input type="checkbox" name="checkbox" checked />
-                                        <i></i>
-                                        M
-                                        <small><a href="#">(4)</a></small>
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="checkbox">
-                                        <input type="checkbox" name="checkbox" />
-                                        <i></i>
-                                        L
-                                        <small><a href="#">(11)</a></small>
-                                    </label>
-                                </li>
-                                <li>
-                                    <label class="checkbox">
-                                        <input type="checkbox" name="checkbox" />
-                                        <i></i>
-                                        XL
-                                        <small><a href="#">(3)</a></small>
-                                    </label>
-                                </li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div><!--/end panel group-->
+                </div><!--/end panel group-->
 
-            <div class="panel-group" id="accordion-v4">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h2 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion-v4" href="#collapseFour">
-                                Price
-                                <i class="fa fa-angle-down"></i>
-                            </a>
-                        </h2>
-                    </div>
-                    <div id="collapseFour" class="panel-collapse collapse in">
-                        <div class="panel-body">
-                            <div class="slider-snap"></div>
-                            <p class="slider-snap-text">
-                                <span class="slider-snap-value-lower"></span>
-                                <span class="slider-snap-value-upper"></span>
-                            </p>
-                        </div>
-                    </div>
-                </div>
-            </div><!--/end panel group-->
-
-            <div class="panel-group" id="accordion-v5">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h2 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion-v5" href="#collapseFive">
-                                Color
-                                <i class="fa fa-angle-down"></i>
-                            </a>
-                        </h2>
-                    </div>
-                    <div id="collapseFive" class="panel-collapse collapse in">
-                        <div class="panel-body">
-                            <ul class="list-inline product-color-list">
-                                <li><a href="#"><img src="assets/img/colors/01.jpg" alt=""></a></li>
-                                <li><a href="#"><img src="assets/img/colors/02.jpg" alt=""></a></li>
-                                <li><a href="#"><img src="assets/img/colors/03.jpg" alt=""></a></li>
-                                <li><a href="#"><img src="assets/img/colors/04.jpg" alt=""></a></li>
-                                <li><a href="#"><img src="assets/img/colors/05.jpg" alt=""></a></li>
-                                <li><a href="#"><img src="assets/img/colors/06.jpg" alt=""></a></li>
-                                <li><a href="#"><img src="assets/img/colors/07.jpg" alt=""></a></li>
-                            </ul>
-                        </div>
-                    </div>
-                </div>
-            </div><!--/end panel group-->
-
-            <div class="panel-group margin-bottom-30" id="accordion-v6">
-                <div class="panel panel-default">
-                    <div class="panel-heading">
-                        <h2 class="panel-title">
-                            <a data-toggle="collapse" data-parent="#accordion-v6" href="#collapseSix">
-                                Rating
-                                <i class="fa fa-angle-down"></i>
-                            </a>
-                        </h2>
-                    </div>
-                    <div id="collapseSix" class="panel-collapse collapse in">
-                        <div class="panel-body">
-                            <div class="stars-ratings stars-ratings-label">
-                                <input type="radio" name="stars-rating" id="stars-rating-5">
-                                <label for="stars-rating-5"><i class="fa fa-star"></i></label>
-                                <input type="radio" name="stars-rating" id="stars-rating-4">
-                                <label for="stars-rating-4"><i class="fa fa-star"></i></label>
-                                <input type="radio" name="stars-rating" id="stars-rating-3">
-                                <label for="stars-rating-3"><i class="fa fa-star"></i></label>
-                                <input type="radio" name="stars-rating" id="stars-rating-2">
-                                <label for="stars-rating-2"><i class="fa fa-star"></i></label>
-                                <input type="radio" name="stars-rating" id="stars-rating-1">
-                                <label for="stars-rating-1"><i class="fa fa-star"></i></label>
+                @*<div class="panel-group" id="accordion-v2">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h2 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion-v2" href="#collapseTwo">
+                                        Categories
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                </h2>
+                            </div>
+                            <div id="collapseTwo" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <ul class="list-unstyled checkbox-list">
+                                        <li>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checkbox" checked />
+                                                <i></i>
+                                                Clothes
+                                                <small><a href="#">(23)</a></small>
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checkbox" checked />
+                                                <i></i>
+                                                Glasses
+                                                <small><a href="#">(4)</a></small>
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checkbox" />
+                                                <i></i>
+                                                Shoes
+                                                <small><a href="#">(11)</a></small>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
                             </div>
                         </div>
                     </div>
-                </div>
-            </div><!--/end panel group-->
+
+                    <div class="panel-group" id="accordion-v3">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h2 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion-v3" href="#collapseThree">
+                                        Size
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                </h2>
+                            </div>
+                            <div id="collapseThree" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <ul class="list-unstyled checkbox-list">
+                                        <li>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checkbox" />
+                                                <i></i>
+                                                S
+                                                <small><a href="#">(23)</a></small>
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checkbox" checked />
+                                                <i></i>
+                                                M
+                                                <small><a href="#">(4)</a></small>
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checkbox" />
+                                                <i></i>
+                                                L
+                                                <small><a href="#">(11)</a></small>
+                                            </label>
+                                        </li>
+                                        <li>
+                                            <label class="checkbox">
+                                                <input type="checkbox" name="checkbox" />
+                                                <i></i>
+                                                XL
+                                                <small><a href="#">(3)</a></small>
+                                            </label>
+                                        </li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-group" id="accordion-v4">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h2 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion-v4" href="#collapseFour">
+                                        Price
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                </h2>
+                            </div>
+                            <div id="collapseFour" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <div class="slider-snap"></div>
+                                    <p class="slider-snap-text">
+                                        <span class="slider-snap-value-lower"></span>
+                                        <span class="slider-snap-value-upper"></span>
+                                    </p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-group" id="accordion-v5">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h2 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion-v5" href="#collapseFive">
+                                        Color
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                </h2>
+                            </div>
+                            <div id="collapseFive" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <ul class="list-inline product-color-list">
+                                        <li><a href="#"><img src="assets/img/colors/01.jpg" alt=""></a></li>
+                                        <li><a href="#"><img src="assets/img/colors/02.jpg" alt=""></a></li>
+                                        <li><a href="#"><img src="assets/img/colors/03.jpg" alt=""></a></li>
+                                        <li><a href="#"><img src="assets/img/colors/04.jpg" alt=""></a></li>
+                                        <li><a href="#"><img src="assets/img/colors/05.jpg" alt=""></a></li>
+                                        <li><a href="#"><img src="assets/img/colors/06.jpg" alt=""></a></li>
+                                        <li><a href="#"><img src="assets/img/colors/07.jpg" alt=""></a></li>
+                                    </ul>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="panel-group margin-bottom-30" id="accordion-v6">
+                        <div class="panel panel-default">
+                            <div class="panel-heading">
+                                <h2 class="panel-title">
+                                    <a data-toggle="collapse" data-parent="#accordion-v6" href="#collapseSix">
+                                        Rating
+                                        <i class="fa fa-angle-down"></i>
+                                    </a>
+                                </h2>
+                            </div>
+                            <div id="collapseSix" class="panel-collapse collapse in">
+                                <div class="panel-body">
+                                    <div class="stars-ratings stars-ratings-label">
+                                        <input type="radio" name="stars-rating" id="stars-rating-5">
+                                        <label for="stars-rating-5"><i class="fa fa-star"></i></label>
+                                        <input type="radio" name="stars-rating" id="stars-rating-4">
+                                        <label for="stars-rating-4"><i class="fa fa-star"></i></label>
+                                        <input type="radio" name="stars-rating" id="stars-rating-3">
+                                        <label for="stars-rating-3"><i class="fa fa-star"></i></label>
+                                        <input type="radio" name="stars-rating" id="stars-rating-2">
+                                        <label for="stars-rating-2"><i class="fa fa-star"></i></label>
+                                        <input type="radio" name="stars-rating" id="stars-rating-1">
+                                        <label for="stars-rating-1"><i class="fa fa-star"></i></label>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>*@
+
+            }
+
             <button type="button" class="btn-u btn-brd btn-brd-hover btn-u-lg btn-u-sea-shop btn-block">Reset</button>
         </div>
         @*==END LEFT FILTER==*@
@@ -251,58 +242,62 @@
             UpdateTargetId = "results"
         }, null))
         {
+
             <div class="col-md-9">
+
+                @*==TOP FILTERS==*@
+                <div class="row margin-bottom-5">
+                    <div class="col-sm-3 result-category">
+                        <h2>Men</h2>
+                        @if (Session["Count"] != null)
+                            {
+                        <small class="shop-bg-red badge-results">@Session["Count"].ToString()</small>
+                            }
+
+                    </div>
+                    <div class="col-sm-9">
+                        <ul class="list-inline clear-both">
+                            <li class="grid-list-icons">
+                                <a href="shop-ui-filter-list.html"><i class="fa fa-th-list"></i></a>
+                                <a href="shop-ui-filter-grid.html"><i class="fa fa-th"></i></a>
+                            </li>
+                            <li class="sort-list-btn">
+                                <h3>Сортирай :</h3>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default dropdown-toggle" data-toggle="dropdown">
+                                        Най нови <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a href="#" class="filters">Най-продавани</a></li>
+                                        <li><a href="#" class="filters">Цена възх.</a></li>
+                                        <li><a href="#" class="filters">Цена низх.</a></li>
+                                        <li><a href="#" class="filters">Отстъпка %.</a></li>
+                                        <li><a href="#" class="filters">Рейтинг</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                            <li class="sort-list-btn">
+                                <h3>Покажи :</h3>
+                                <div class="btn-group">
+                                    <button type="button" class="btn btn-default dropdown-toggle" id="itemCountBtn" data-toggle="dropdown">
+                                        10 <span class="caret"></span>
+                                    </button>
+                                    <ul class="dropdown-menu" role="menu">
+                                        <li><a class="pageValue" href="#">10</a></li>
+                                        <li><a class="pageValue" href="#">20</a></li>
+                                        <li><a class="pageValue" href="#">30</a></li>
+                                        <li><a class="pageValue" href="#">50</a></li>
+                                    </ul>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div><!--/end result category-->
+                @*==END TOP FILTERS==*@
 
                 <div id="results">
                     @Html.Partial("_ProductsPartial", Model)
                 </div>
-
-                @*==PAGINATION==*@
-                @if (Model.Pager.EndPage > 1)
-                {
-                    <ul class="pagination">
-                        @if (Model.Pager.CurrentPage > 1)
-                        {
-                            <li>
-                                <a href="~/Products/Index">First</a>
-                            </li>
-                            <li>
-                                @*<a href="~/Products/Index?page=@(Model.Pager.CurrentPage - 1)">Previous</a>*@
-                                <a href="@Url.Action("Ajax","ProductWebApi",new {page= (Model.Pager.CurrentPage - 1) })">Предишна</a>
-                            </li>
-                        }
-
-                        @for (var page = Model.Pager.StartPage; page <= Model.Pager.EndPage; page++)
-                        {
-                            <li class="@(page == Model.Pager.CurrentPage ? " active" : "" )">
-                                @*<a href="~/Products/Index?page=@page">@page</a>*@
-                                @*<a href="@Url.Action("Ajax","ProductWebApi",new {@page=page })">@page</a>*@
-                                @*@Html.ActionLink(page.ToString(), "", new { @page = page })*@
-                                <input type="submit" value="@page" name="page" class="pageButton" />
-                            </li>
-                        }
-
-                        @if (Model.Pager.CurrentPage < Model.Pager.TotalPages)
-                        {
-                            <li>
-                                @*<a href="~/Products/Index?page=@(Model.Pager.CurrentPage + 1)">Next</a>*@
-                            </li>
-                            <li>
-                                @*<a href="~/Products/Index?page=@(Model.Pager.TotalPages)">Last</a>*@
-                            </li>
-                        }
-                    </ul>
-                }
-                @*<div class="text-center">
-                        <ul class="pagination pagination-v2">
-                            <li><a href="#"><i class="fa fa-angle-left"></i></a></li>
-                            <li><a href="#">1</a></li>
-                            <li class="active"><a href="#">2</a></li>
-                            <li><a href="#">3</a></li>
-                            <li><a href="#"><i class="fa fa-angle-right"></i></a></li>
-                        </ul>
-                    </div>*@
-                @*==END PAGINATION==*@
 
             </div>
         }
@@ -315,57 +310,102 @@
     <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
 
     <script>
+        $(function(){
+            //Add product to cart
+            $(".btnAddToCart").on("click", function (e) {
+                notification('Success', 'this was a success!');
+                var userName = "@User.Identity.Name";
 
-        $(".btnAddToCart").on("click", function (e) {
-            notification('Success', 'this was a success!');
-            var userName = "@User.Identity.Name";
+                var asd = $(this).parent();
+                var elementhref = $(asd[0]).find(".product-review").attr("href");
+                var productId = elementhref.charAt(elementhref.length - 1);
+                $.ajax({
+                    url: WebApiResolveUrl('/api/WebApiControllers/ProductWebApi/AddItemToCard'),
+                    type: 'GET',
+                    data: { productId: productId, userName: userName },
+                    success: function (result) {
+                    },
+                    error: function (data) {
+                        console.log(data);
+                    }
+                })
+            });
 
-            var asd = $(this).parent();
-            var elementhref = $(asd[0]).find(".product-review").attr("href");
-            var productId = elementhref.charAt(elementhref.length - 1);
-            $.ajax({
-                url: WebApiResolveUrl('/api/WebApiControllers/ProductWebApi/AddItemToCard'),
-                type: 'GET',
-                data: { productId: productId, userName: userName },
-                success: function (result) {
-                },
-                error: function (data) {
-                    console.log(data);
+            //Click on pagger footer !
+            $('.pageButton').on('click', function () {
+                var currentVal = $(this).text();
+                if (currentVal.replace(/\s/g, '') === '>') {
+                    var oldSelectedPage = $('.pagination li.active a').text();
+
+                    currentVal = parseInt(oldSelectedPage) + 1;
+                } else if (currentVal.replace(/\s/g, '') === '<') {
+                    var oldSelectedPage = $('.pagination li.active a').text();
+
+                    currentVal = parseInt(oldSelectedPage) - 1;
                 }
-            })
-        });
+
+                var orderBy = $($('.sort-list-btn .btn')[0]).text();
+                var pageValue = $($('.sort-list-btn .btn')[1]).text();
+
+                $.ajax({
+                    type: 'GET',
+                    url: '@Url.Action("Ajax","Products")',
+                    data: { page: currentVal, orderBy: orderBy, pageSize: pageValue },
+                    success: function (data) {
+                        $("#results").html(data);
+                    },
+                    error: function (data) {
+                        console.log(data);
+                    }
+                })
+            });
 
 
-        $(".pageValue").click(function (e) {
-            var selecedValue = $(this).text();
+            //Click ot filters dropdown
+            $('.filters').on('click', function () {
+                var currentVal = $(this).text();
 
-            var orderByValue = $(".sortedBy").text();
+                $($('.sort-list-btn button')[0]).text(currentVal);
+                $($('.sort-list-btn button')[0]).append('<span class="caret"></span>');
 
-            redirectUrl(selecedValue, orderByValue);
+                var pageValue = $($('.sort-list-btn .btn')[1]).text();
+                var currentPage = $('.pagination li.active a').text();
 
-            //$("#itemCountBtn").text(selecedValue);
+                $.ajax({
+                    type: 'GET',
+                    url: '@Url.Action("Ajax","Products")',
+                    data: { page: currentPage, orderBy: currentVal, pageSize: pageValue },
+                    success: function (data) {
+                        $("#results").html(data);
+                    },
+                    error: function (data) {
+                        console.log(data);
+                    }
+                });
+            });
 
-            e.preventDefault();
-        });
+            //How many product on deal Filter
+            $('.pageValue').on('click', function () {
+                var currentVal = $(this).text();
 
-        $(".sortedBy").click(function () {
-            var selecedValue = $(this).text();
-            var pageValue = $(".pageValue").text();
+                $($('.sort-list-btn button')[1]).text(currentVal);
+                $($('.sort-list-btn button')[1]).append('<span class="caret"></span>');
 
-            redirectUrl(pageValue, selecedValue);
-        });
+                var currentPage = $('.pagination li.active a').text();
+                var orderBy = $($('.sort-list-btn .btn')[0]).text();
 
-        function redirectUrl(pageValue, selectedValue) {
-            if (window.location.href.includes("Index")) {
-                window.location.href = ResolveUrl("/Index?page=" + pageValue + "&orderBy=" + selectedValue);
-            }
-            else {
-                window.location.href = ResolveUrl("/Index?page=" + pageValue + "&orderBy=" + selectedValue);
-            }
-        };
-        $(".dropdown-menu li a").click(function () {
-            $("#itemCountBtn").val($(this).text());
-        });
-
+                $.ajax({
+                    type: 'GET',
+                    url: '@Url.Action("Ajax","Products")',
+                    data: { page: currentPage, orderBy: orderBy, pageSize: currentVal },
+                    success: function (data) {
+                        $("#results").html(data);
+                    },
+                    error: function (data) {
+                        console.log(data);
+                    }
+                });
+            });
+        })
     </script>
 }

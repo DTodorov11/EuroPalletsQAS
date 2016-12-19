@@ -11,13 +11,10 @@
     {
         public GlobalCategory()
         {
-            this.EuroPalletFurnitures = new HashSet<EuroPalletFurniture>();
-            this.SubCategories = new HashSet<SubCategory>();
+            this.Category = new HashSet<Category>();
         }
         public string Name { get; set; }
 
-        public virtual ICollection<EuroPalletFurniture> EuroPalletFurnitures { get; set; }
-
-        public virtual ICollection<SubCategory> SubCategories { get; set; }
+        public virtual ICollection<Category> Category { get; set; }
     }
 }

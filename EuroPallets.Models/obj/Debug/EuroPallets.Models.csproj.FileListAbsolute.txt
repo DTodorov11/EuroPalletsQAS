@@ -78,6 +78,6 @@ C:\Users\tododani\Documents\GitHub\QASDemo\EuroPalletsQAS\EuroPallets.Models\bin
 C:\Users\tododani\Documents\GitHub\QASDemo\EuroPalletsQAS\EuroPallets.Models\bin\Debug\EntityFramework.SqlServer.xml
 C:\Users\tododani\Documents\GitHub\QASDemo\EuroPalletsQAS\EuroPallets.Models\bin\Debug\Microsoft.AspNet.Identity.Core.xml
 C:\Users\tododani\Documents\GitHub\QASDemo\EuroPalletsQAS\EuroPallets.Models\bin\Debug\Microsoft.AspNet.Identity.EntityFramework.xml
-C:\Users\tododani\Documents\GitHub\QASDemo\EuroPalletsQAS\EuroPallets.Models\obj\Debug\EuroPallets.Models.csprojResolveAssemblyReference.cache
 C:\Users\tododani\Documents\GitHub\QASDemo\EuroPalletsQAS\EuroPallets.Models\obj\Debug\EuroPallets.Models.dll
 C:\Users\tododani\Documents\GitHub\QASDemo\EuroPalletsQAS\EuroPallets.Models\obj\Debug\EuroPallets.Models.pdb
+C:\Users\tododani\Documents\GitHub\QASDemo\EuroPalletsQAS\EuroPallets.Models\obj\Debug\EuroPallets.Models.csprojResolveAssemblyReference.cache

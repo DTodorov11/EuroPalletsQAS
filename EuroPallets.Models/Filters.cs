@@ -7,14 +7,14 @@ using System.Threading.Tasks;
 
 namespace EuroPallets.Models
 {
-    public class SubCategory : BaseModel<int>
+    public class Filters : BaseModel<int>
     {
-        public SubCategory()
+        public Filters()
         {
-            this.EuroPalletFurniture = new HashSet<EuroPalletFurniture>();
+            this.FilterChaildName = new HashSet<FilterChaildName>();
         }
         public string Name { get; set; }
 
-        public ICollection<EuroPalletFurniture> EuroPalletFurniture { get; set; }
+        public virtual ICollection<FilterChaildName> FilterChaildName { get; set; }
     }
 }

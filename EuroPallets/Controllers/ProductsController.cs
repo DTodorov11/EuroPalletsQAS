@@ -13,6 +13,7 @@ using System.Web;
 using System.Web.Mvc;
 using System.Web.Mvc.Expressions;
 using EuroPallets.Services.Interface;
+using System.Data.Entity;
 
 namespace EuroPallets.Controllers
 {
@@ -23,42 +24,47 @@ namespace EuroPallets.Controllers
         {
         }
 
-        public ActionResult Index(int? page)
+        //IsAll filter is equals that take whole Category
+        public ActionResult Index(int? page, string Category,bool isAll = false)
         {
-            var allEuroPalletsFurniture = this.Data.EuroPalletFurnitures.All().ToList();
+            page = page == null ? 1 : page;
 
-            Pager pager = new Pager(allEuroPalletsFurniture.Count(), 1);
+            List<EuroPalletFurniture> allEuroPalletsFurniture = new List<EuroPalletFurniture>();
+            ICollection<Filters> filters = new List<Filters>();
 
-            if (page.HasValue)
+            //Take Category
+            if (isAll)
             {
-                pager = new Pager(allEuroPalletsFurniture.Count(), 1, page.Value);
+                var allSubCategory = this.Data.Category.All()
+                    .Include(x => x.SubCategory)
+                    .Include(x => x.SubCategory.Select(y => y.EuroPalletFurniture))
+                    .FirstOrDefault(x => x.Name == Category);
+
+                filters = allSubCategory.Filter;
+
+                foreach (var currentCtg in allSubCategory.SubCategory.ToList())
+                {
+                    allEuroPalletsFurniture.AddRange(currentCtg.EuroPalletFurniture);
+                }
+            }
+            //Take SubCategory
+            else
+            {
+                allEuroPalletsFurniture = this.Data.EuroPalletFurnitures.All().Where(x => x.SubCategory.Name == Category).ToList();
+
+                var allCategory = this.Data.Category.All()
+                                   .Include(x => x.SubCategory)
+                                   .Include(x => x.SubCategory.Select(y => y.EuroPalletFurniture));
+
+                foreach (var currentCtg in allCategory)
+                {
+                    if (currentCtg.SubCategory.Any(x => x.Name == Category))
+                    {
+                        var currentSubCat = currentCtg.SubCategory;
+                    }
+                }
 
             }
-
-            var items = allEuroPalletsFurniture.Skip((pager.CurrentPage - 1) * pager.PageSize).Take(pager.PageSize);
-
-            var viewModel = new ProductsViewModel()
-            {
-                EuroPalletFurniture = items,
-                Pager = pager
-            };
-
-            //if (!string.IsNullOrWhiteSpace(orderBy))
-            //{
-            //    if (orderBy.Equals("Най-продавани"))
-            //    {
-            //        viewModel.EuroPalletFurniture.OrderBy(x => x.Price);
-            //    }
-            //}
-
-            return View(viewModel);
-        }
-
-        public ActionResult Ajax(int page)
-        {
-            //TODO
-            //REMOVE SELECT FROM DB !
-            var allEuroPalletsFurniture = this.Data.EuroPalletFurnitures.All().ToList();
 
             Pager pager = new Pager(allEuroPalletsFurniture.Count(), 1);
 
@@ -70,14 +76,71 @@ namespace EuroPallets.Controllers
             }
             else
             {
-                items = allEuroPalletsFurniture.Skip(pager.CurrentPage * pager.PageSize).Take(pager.PageSize);
+                items = allEuroPalletsFurniture.OrderBy(x => x.CreatedOn).Skip(pager.CurrentPage * pager.PageSize).Take(pager.PageSize);
             }
 
+            Session["Count"] = items.Count();
 
             var viewModel = new ProductsViewModel()
             {
                 EuroPalletFurniture = items,
-                Pager = pager
+                Pager = pager,
+                Filters = Models.Filter.GetAll()
+            };
+
+
+            return View(viewModel);
+        }
+
+        public ActionResult Ajax(int? page, string orderBy = "Най нови", int pageSize = 10)
+        {
+            page = page == null ? 1 : page;
+
+            var allEuroPalletsFurniture = this.Data.EuroPalletFurnitures.All().ToList();
+
+            orderBy = orderBy.Replace("\"", string.Empty).Replace(" ", string.Empty);
+
+            Pager pager = new Pager(allEuroPalletsFurniture.Count(), page, pageSize);
+
+            IEnumerable<EuroPalletFurniture> items = new List<EuroPalletFurniture>();
+
+            if (page == 1)
+            {
+                items = allEuroPalletsFurniture.Take(pager.PageSize);
+            }
+            else
+            {
+                items = allEuroPalletsFurniture.OrderBy(x => x.CreatedOn).Skip((pager.CurrentPage - 1) * pager.PageSize).Take(pager.PageSize);
+            }
+
+            Session["Count"] = items.Count();
+
+            if (orderBy.Equals("Найнови"))
+            {
+                items = items.OrderBy(x => x.CreatedOn);
+            }
+            else if (orderBy.Equals("Ценавъзх."))
+            {
+                items = items.OrderBy(x => x.Price).ToList();
+            }
+            else if (orderBy.Equals("Ценанизх."))
+            {
+                items = items.OrderByDescending(x => x.Price).ToList();
+            }
+            else if (orderBy.Equals("Отстъпка%"))
+            {
+                //TODO Discount !
+            }
+            else // Рейтинг
+            {
+                items = items.OrderBy(x => x.Rating);
+            }
+
+            var viewModel = new ProductsViewModel()
+            {
+                EuroPalletFurniture = items,
+                Pager = pager,
+                Filters = Models.Filter.GetAll()
             };
 
             return this.PartialView("_ProductsPartial", viewModel);

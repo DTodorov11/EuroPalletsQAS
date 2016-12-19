@@ -98,7 +98,6 @@ namespace EuroPallets.Controllers.WebApiControllers
             if (page.HasValue)
             {
                 pager = new Pager(allEuroPalletsFurniture.Count(), 1, page.Value);
-
             }
 
             var items = allEuroPalletsFurniture.Skip((pager.CurrentPage - 1) * pager.PageSize).Take(pager.PageSize);
@@ -106,7 +105,8 @@ namespace EuroPallets.Controllers.WebApiControllers
             var viewModel = new ProductsViewModel()
             {
                 EuroPalletFurniture = items,
-                Pager = pager
+                Pager = pager,
+                Filters = Filter.GetAll()
             };
 
             return viewModel;
@@ -126,7 +126,8 @@ namespace EuroPallets.Controllers.WebApiControllers
             var viewModel = new ProductsViewModel()
             {
                 EuroPalletFurniture = items,
-                Pager = pager
+                Pager = pager,
+                Filters = Filter.GetAll()
             };
 
             return viewModel;

@@ -16,9 +16,15 @@ namespace EuroPallets.Controllers
 
             var euroPallet = context.EuroPalletFurnituries.FirstOrDefault(x => x.Id == id);
 
-            var euroPalletsImg = euroPallet.EuroPalletImages.FirstOrDefault().Image;
+            if (euroPallet.EuroPalletImages.FirstOrDefault() != null)
+            {
+                var euroPalletsImg = euroPallet.EuroPalletImages.FirstOrDefault().Image;
 
-            return File(euroPalletsImg, "image/jpg");
+                return File(euroPalletsImg, "image/jpg");
+
+            }
+
+            return null;
         }
         public ActionResult Details(int imgId, int id)
         {

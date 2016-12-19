@@ -14,7 +14,7 @@
         public EuroPalletFurniture()
         {
             this.EuroPalletImages = new HashSet<EuroPalletImage>();
-            this.GlobalCategorys = new HashSet<GlobalCategory>();
+            //this.GlobalCategorys = new HashSet<GlobalCategory>();
             this.ShopingCarts = new HashSet<ShopingCart>();
         }
 
@@ -30,12 +30,12 @@
         public int Rating { get; set; }
 
         public virtual ICollection<EuroPalletImage> EuroPalletImages { get; set; }
-        public virtual ICollection<GlobalCategory> GlobalCategorys { get; set; }
+        //public virtual ICollection<GlobalCategory> GlobalCategorys { get; set; }
         public virtual ICollection<ShopingCart> ShopingCarts { get; set; }
 
-        public int? CategoryId { get; set; }
+        public int? SubCategoryId { get; set; }
 
-        public virtual Category Category { get; set; }
+        public virtual SubCategory SubCategory { get; set; }
 
         public int? SpecificationId { get; set; }
 

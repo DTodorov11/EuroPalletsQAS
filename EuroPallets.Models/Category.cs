@@ -13,10 +13,13 @@ namespace EuroPallets.Models
     {
         public Category()
         {
-            this.EuroPalletFurnitures = new HashSet<EuroPalletFurniture>();
+            this.SubCategory = new HashSet<SubCategory>();
+            this.Filter = new HashSet<Filters>();
+
         }
         public string Name { get; set; }
 
-        public ICollection<EuroPalletFurniture> EuroPalletFurnitures { get; set; }
+        public ICollection<SubCategory> SubCategory { get; set; }
+        public ICollection<Filters> Filter { get; set; }
     }
 }

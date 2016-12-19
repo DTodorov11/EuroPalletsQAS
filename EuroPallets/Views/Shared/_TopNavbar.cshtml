@@ -159,10 +159,11 @@
                     <!-- Продукти -->
                     <li class="dropdown mega-menu-fullwidth">
                         @*@Html.ActionLink("Продукти", "Index", "Products", new { page = 1, }, new { id = "allProducts", @class = "dropdown-toggle", data_hover = "dropdown", data_toggle = "dropdown" })*@
+                        @Html.ActionLink("Продукти", "Index", "Products", routeValues: new { page = 1 }, htmlAttributes: null)
 
-                        <a href='@Url.Action("Index","Products")' id="allProducts" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">
+                        @*<a href='@Url.Action("Index","Products")' id="allProducts" class="dropdown-toggle" data-hover="dropdown" data-toggle="dropdown">
                                 Продукти
-                            </a>
+                            </a>*@
                         <ul class="dropdown-menu">
                             <li>
                                 <div class="mega-menu-content">
@@ -171,11 +172,11 @@
                                             <div class="col-md-2 col-sm-6">
                                                 <h3 class="mega-menu-heading">Маси</h3>
                                                 <ul class="list-unstyled style-list">
-                                                    <li><a href="#">Всикчи</a></li>
-                                                    <li><a href="#">Холни маси</a></li>
-                                                    <li><a href="#">Градински маси</a></li>
-                                                    <li><a href="#">Маси за кафе</a></li>
-                                                    <li><a href="#">Нови</a> <span class="label label-danger-shop">New</span></li>
+                                                    <li><a href="@Url.Action("Index","Products",new {Category = "Маси",isAll  = true })" class="topItem">Всички</a></li>
+                                                    <li><a href="@Url.Action("Index","Products",new {Category = "Холни маси" })" class="topItem">Холни маси</a></li>
+                                                    <li><a href="#" class="topItem">Градински маси</a></li>
+                                                    <li><a href="#" class="topItem">Маси за кафе</a></li>
+                                                    <li><a href="#" class="topItem">Нови</a> <span class="label label-danger-shop">New</span></li>
                                                     @*<li><a href="#">Skirts</a></li>
                                                         <li><a href="#">T-Shirts</a></li>*@
                                                 </ul>

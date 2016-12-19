@@ -4,6 +4,7 @@ using EuroPallets.Services;
 using EuroPallets.Services.Interface;
 using System;
 using System.Collections.Generic;
+using System.Data.Entity;
 using System.Linq;
 using System.Web;
 using System.Web.Mvc;
@@ -11,15 +12,15 @@ using System.Web.Mvc.Expressions;
 
 namespace EuroPallets.Controllers
 {
-    public class TestController : Controller
+    public class TestController : BaseController
     {
         
         private IUserServices userServices;
 
-        public TestController(IUserServices userServices)
+        public TestController(IEvroPalletsData data) : base(data)
         {
-            this.userServices = userServices;
         }
+
 
         //// GET: Test
         //[HttpGet]
@@ -39,6 +40,12 @@ namespace EuroPallets.Controllers
 
         public ActionResult Test()
         {
+            var allTable = this.Data.Category.All()
+                .Include(x => x.SubCategory)
+                .Include(x => x.SubCategory.Select(y => y.EuroPalletFurniture))
+                .FirstOrDefault(x => x.Name == "Маси").SubCategory.FirstOrDefault().EuroPalletFurniture.FirstOrDefault();
+
+
             return View();
         }
     }

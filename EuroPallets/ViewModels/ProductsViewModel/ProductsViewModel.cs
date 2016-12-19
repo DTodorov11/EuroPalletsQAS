@@ -12,5 +12,7 @@ namespace EuroPallets.ViewModels.ProductsViewModel
         public IEnumerable<EuroPalletFurniture> EuroPalletFurniture { get; set; }
 
         public Pager Pager { get; set; }
+
+        public IEnumerable<Filter> Filters { get; set; }
     }
 }

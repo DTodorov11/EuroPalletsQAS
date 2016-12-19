@@ -24,6 +24,7 @@ namespace EuroPallets.Controllers
             return View();
         }
 
+        //TODO: Chache home page for 1 day !
         public ActionResult Index()
         {
             return View(this.Data.EuroPalletFurnitures.All());

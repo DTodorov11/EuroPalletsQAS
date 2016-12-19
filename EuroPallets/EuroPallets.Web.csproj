@@ -317,6 +317,8 @@
     <Content Include="assets\img\cursoel\cursoel-img-2.jpg" />
     <Content Include="assets\img\cursoel\cursoel-pic-1.jpg" />
     <Content Include="assets\img\forgot-password\fp-img.jpg" />
+    <Content Include="assets\img\icon\favicon.ico" />
+    <Content Include="favicon.ico" />
     <Content Include="assets\img\logo-resz.png" />
     <Content Include="assets\img\map.png" />
     <Content Include="assets\img\register\bulgaria-location-map.jpg" />
@@ -532,7 +534,6 @@
     <Content Include="Content\plugins\toastr\toastr.min.css" />
     <Content Include="Content\plugins\touchspin\jquery.bootstrap-touchspin.min.css" />
     <Content Include="Content\style.css" />
-    <Content Include="favicon.ico" />
     <Content Include="fonts\font-awesome\css\font-awesome.css" />
     <Content Include="fonts\font-awesome\css\font-awesome.min.css" />
     <Content Include="fonts\font-awesome\fonts\fontawesome-webfont.eot" />

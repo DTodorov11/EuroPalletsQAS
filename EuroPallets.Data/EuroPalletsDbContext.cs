@@ -40,6 +40,8 @@ namespace EuroPallets.Data
         public virtual IDbSet<AnonymousShopingCart> AnonymousShopingCarts { get; set; }
         public virtual IDbSet<SubCategory> SubCategories { get; set; }
         public virtual IDbSet<PayPalPayment> PayPalPayments { get; set; }
+        public virtual IDbSet<Filters> Filter { get; set; }
+        public virtual IDbSet<FilterChaildName> FilterChaildName { get; set; }
 
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {

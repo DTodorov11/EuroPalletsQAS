@@ -19,6 +19,8 @@ namespace EuroPallets.Data
         IDbSet<ShopingCartEuroPalllets> ShopingCartEuroPalllets { get; set; }
         IDbSet<AnonymousShopingCart> AnonymousShopingCarts { get; set; }
         IDbSet<SubCategory> SubCategories { get; set; }
+        IDbSet<Filters> Filter { get; set; }
+        IDbSet<FilterChaildName> FilterChaildName { get; set; }
         int SaveChanges();
     }
 }

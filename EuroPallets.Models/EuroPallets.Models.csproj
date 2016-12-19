@@ -64,6 +64,9 @@
     <Compile Include="Category.cs" />
     <Compile Include="EuroPalletFurniture.cs" />
     <Compile Include="EuroPalletImages.cs" />
+    <Compile Include="Filter.cs" />
+    <Compile Include="FilterChaildName.cs" />
+    <Compile Include="Filters.cs" />
     <Compile Include="GlobalCategory.cs" />
     <Compile Include="Helper\Pager.cs" />
     <Compile Include="PayPalPayment.cs" />

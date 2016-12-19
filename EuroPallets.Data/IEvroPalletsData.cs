@@ -20,7 +20,8 @@ namespace EuroPallets.Data
         IRepository<PayPalPayment> PayPalPayments { get; }
         IRepository<Specification> Specification { get; }
         IRepository<EuroPalletImage> EuroPalletImages { get; }
-        
+        IRepository<Filters> Filter { get; }
+
         int SaveChanges();   
     }
 }

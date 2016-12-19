@@ -51,6 +51,14 @@ namespace EuroPallets.Data
             }
         }
 
+        public IRepository<Filters> Filter
+        {
+            get
+            {
+                return this.GetRepository<Filters>();
+            }
+        }
+
         public IRepository<ShopingCartEuroPalllets> ShopingCartEuroPalllets
         {
             get

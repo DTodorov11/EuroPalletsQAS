@@ -46,17 +46,97 @@ namespace EuroPallets.Data.Migrations
             {
                 SeedCategories(context);
             }
+            if (!context.Filter.Any())
+            {
+                SeedFilter(context);
+            }
+        }
+
+        private void SeedFilter(EuroPalletsDbContext context)
+        {
+            List<Filters> filterToSeed = new List<Filters>()
+            {
+                new Filters()
+                {
+                    Name ="Цена",
+                    FilterChaildName = new List<FilterChaildName>()
+                    {
+                        new FilterChaildName() {Name = "Всички"},
+                        new FilterChaildName() {Name = "0 - 100"},
+                        new FilterChaildName() {Name = "100 - 200"},
+                        new FilterChaildName() {Name = "200 - 350"},
+                        new FilterChaildName() {Name = "350 - 500"},
+                        new FilterChaildName() {Name = "над 500"},
+                    }
+                },
+                 new Filters()
+                {
+                    Name ="Категория",
+                    FilterChaildName = new List<FilterChaildName>()
+                    {
+                        new FilterChaildName() {Name = "Всички"},
+                        new FilterChaildName() {Name = "Кухненски маси"},
+                        new FilterChaildName() {Name = "Холни маси"},
+                        new FilterChaildName() {Name = "Маси за кафе"},
+                        new FilterChaildName() {Name = "Арт маси"},
+                    }
+                },
+                  new Filters()
+                {
+                    Name ="Размер",
+                    FilterChaildName = new List<FilterChaildName>()
+                    {
+                        new FilterChaildName() {Name = "Всички"},
+                        new FilterChaildName() {Name = "Малък"},
+                        new FilterChaildName() {Name = "Среден"},
+                        new FilterChaildName() {Name = "Голям"},
+                    }
+                },
+                    new Filters()
+                {
+                    Name ="Материал",
+                    FilterChaildName = new List<FilterChaildName>()
+                    {
+                        new FilterChaildName() {Name = "Всички"},
+                        new FilterChaildName() {Name = "Дърво"},
+                        new FilterChaildName() {Name = "Дърво и стъкло"},
+                        new FilterChaildName() {Name = "Дърво и друго"},
+                    }
+                },
+                     new Filters()
+                {
+                    Name ="Цвят",
+                    FilterChaildName = new List<FilterChaildName>()
+                    {
+                        new FilterChaildName() {Name = "Всички"},
+                        new FilterChaildName() {Name = "Необработен"},
+                        new FilterChaildName() {Name = "Боядисан"},
+                        new FilterChaildName() {Name = "Лакиран"},
+                    }
+                },
+            };
+
+            context.Categories.FirstOrDefault(x => x.Name == "Маси").Filter = filterToSeed;
+            context.SaveChanges();
         }
 
         private void SeedCategories(EuroPalletsDbContext context)
         {
-            List<Category> categoryToSeed = new List<Category>()
+            ICollection<Category> categoryToSeed = new List<Category>()
             {
-                new Category() { Name="Всекидневна" },
-                new Category() { Name="Градина" },
-                new Category() { Name="Хол" },
-                new Category() { Name="Баня" },
+                new Category() { Name="Маси" },
+                new Category() { Name="Дивани" },
+                new Category() { Name="Легла" },
+                new Category() { Name="Спални" },
+                new Category() { Name="Секции" },
+                new Category() { Name="Закачалки" },
+                new Category() { Name="Арт" },
                 new Category() { Name="Кухня" },
+                new Category() { Name="Фотьойли" },
+                new Category() { Name="Столове" },
+                new Category() { Name="Висящи мебели" },
+                new Category() { Name="Гардероби" },
+                new Category() { Name="Поставка за обувки" },
             };
 
             foreach (Category category in categoryToSeed)
@@ -64,25 +144,22 @@ namespace EuroPallets.Data.Migrations
                 context.Categories.Add(category);
             }
 
+            context.GlobalCategories.FirstOrDefault(x => x.Name == "Дом").Category = categoryToSeed;
             context.SaveChanges();
         }
-        
+
         private void SeedSubCategories(EuroPalletsDbContext context)
         {
             List<SubCategory> furnituresSubCategories = new List<SubCategory>()
             {
-                new SubCategory() { Name="Столове" },
-                new SubCategory() { Name="Дивани" },
-                new SubCategory() { Name="Маси" },
-                new SubCategory() { Name="Гардероби" },
-                new SubCategory() { Name="Закачалки" },
-                new SubCategory() { Name="Бюра" },
-                new SubCategory() { Name="Секции" },
+                new SubCategory() { Name="Маси за кафе" },
+                new SubCategory() { Name="Кухненски маси" },
+                new SubCategory() { Name="Помощни маси" },
                 new SubCategory() { Name="Други" },
             };
             var globalCategoryToMapp = context.GlobalCategories.FirstOrDefault(x => x.Name == "Продукти");
 
-            globalCategoryToMapp.SubCategories = furnituresSubCategories;
+            //globalCategoryToMapp.SubCategories = furnituresSubCategories;
             context.SaveChanges();
         }
 
@@ -90,10 +167,10 @@ namespace EuroPallets.Data.Migrations
         {
             List<GlobalCategory> globalCategoryToAdd = new List<GlobalCategory>()
             {
-                new GlobalCategory() {Name = "Продукти" },
-                new GlobalCategory() {Name = "Промоции" },
-                new GlobalCategory() {Name = "Подаръци" },
-                new GlobalCategory() {Name = "Страници" },
+                new GlobalCategory() {Name = "Градина" },
+                new GlobalCategory() {Name = "Дом" },
+                new GlobalCategory() {Name = "Заведения" },
+                new GlobalCategory() {Name = "Хотели" },
             };
 
             foreach (var item in globalCategoryToAdd)
@@ -139,10 +216,10 @@ namespace EuroPallets.Data.Migrations
         }
         private static void SeedEuroPalletsFurnitures(EuroPalletsDbContext context)
         {
-            var image = GetPhoto(@"C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets\Content\images\Products\diy-furniture-from-euro-pallets-101-craft-ideas-for-wood-pallets-41-359.jpg");
-            var image2 = GetPhoto(@"C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets\Content\images\Products\60-diy-furniture-from-euro-pallets-amazing-craft-ideas-for-you-41-130.jpg");
-            //var image = GetPhoto(@"C:\Users\tododani\Documents\GitHub\EuroPalletsQAS\EuroPallets\Content\images\Products\diy-furniture-from-euro-pallets-101-craft-ideas-for-wood-pallets-41-359.jpg");
-            //var image2 = GetPhoto(@"C:\Users\tododani\Documents\GitHub\EuroPalletsQAS\EuroPallets\Content\images\Products\60-diy-furniture-from-euro-pallets-amazing-craft-ideas-for-you-41-130.jpg");
+            //var image = GetPhoto(@"C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets\Content\images\Products\diy-furniture-from-euro-pallets-101-craft-ideas-for-wood-pallets-41-359.jpg");
+            //var image2 = GetPhoto(@"C:\Users\LapTop\Documents\GitHub\EuroPalletsQAS\EuroPallets\Content\images\Products\60-diy-furniture-from-euro-pallets-amazing-craft-ideas-for-you-41-130.jpg");
+            var image = GetPhoto(@"C:\Users\tododani\Documents\GitHub\QASDemo\EuroPalletsQAS\EuroPallets\Content\images\Products\diy-furniture-from-euro-pallets-101-craft-ideas-for-wood-pallets-41-359.jpg");
+            var image2 = GetPhoto(@"C:\Users\tododani\Documents\GitHub\QASDemo\EuroPalletsQAS\EuroPallets\Content\images\Products\60-diy-furniture-from-euro-pallets-amazing-craft-ideas-for-you-41-130.jpg");
 
             for (int i = 0; i < 10; i++)
             {
@@ -171,7 +248,6 @@ namespace EuroPallets.Data.Migrations
             }
             context.SaveChanges();
         }
-
 
         private static byte[] GetPhoto(string filePath)
         {

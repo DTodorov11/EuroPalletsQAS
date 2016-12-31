@@ -318,6 +318,10 @@
     <Content Include="assets\img\cursoel\cursoel-pic-1.jpg" />
     <Content Include="assets\img\forgot-password\fp-img.jpg" />
     <Content Include="assets\img\icon\favicon.ico" />
+    <Content Include="assets\js\plugins\master-slider\master-slider.js" />
+    <Content Include="assets\plugins\master-slider\masterslider\skins-default\style.css" />
+    <Content Include="assets\plugins\masterslider\jquery-easing.min.js" />
+    <Content Include="assets\plugins\masterslider\masterslider.min.js" />
     <Content Include="favicon.ico" />
     <Content Include="assets\img\logo-resz.png" />
     <Content Include="assets\img\map.png" />
@@ -1071,7 +1075,7 @@
     <Content Include="Views\Test\Index.cshtml" />
     <Content Include="Views\Shared\_NotificationsPartial.cshtml" />
     <Content Include="Views\Products\Index_OLD.cshtml" />
-    <Content Include="Views\Products\ShowProductDetails.cshtml" />
+    <Content Include="Views\Products\ShowProductDetails_OLD.cshtml" />
     <Content Include="Views\Admin\AdminPanel.cshtml" />
     <Content Include="Views\Products\ShowUserCart.cshtml" />
     <Content Include="Views\Admin\EmailEditor.cshtml" />
@@ -1093,6 +1097,7 @@
     <Content Include="Views\Products\Index.cshtml" />
     <Content Include="Views\Shared\_BasketPartial.cshtml" />
     <Content Include="Views\Shared\_ProductsPartial.cshtml" />
+    <Content Include="Views\Products\ShowProductDetails.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

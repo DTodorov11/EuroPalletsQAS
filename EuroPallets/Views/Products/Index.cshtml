@@ -24,11 +24,11 @@
             <h1>Филтри:</h1>
             @foreach (var filter in Model.Filters)
             {
-                <div class="panel-group" id="accordion">
+                <div class="panel-group" id="@filter.Id">
                     <div class="panel panel-default">
                         <div class="panel-heading">
                             <h2 class="panel-title">
-                                <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                                <a data-toggle="collapse" data-parent="@filter.Id" href="#@filter.Name">
                                     @filter.Name
                                     <i class="fa fa-angle-down"></i>
                                 </a>
@@ -36,7 +36,7 @@
                         </div>
 
 
-                        <div id="collapseOne" class="panel-collapse collapse in">
+                        <div id="@filter.Name" class="panel-collapse collapse in">
                             <div class="panel-body">
                                 <ul class="list-unstyled checkbox-list">
                                     @foreach (var name in filter.Name_Choisen)
@@ -230,7 +230,7 @@
 
             }
 
-            <button type="button" class="btn-u btn-brd btn-brd-hover btn-u-lg btn-u-sea-shop btn-block">Reset</button>
+            <button type="button" class="btn-u btn-brd btn-brd-hover btn-u-lg btn-u-sea-shop btn-block">Нулиране</button>
         </div>
         @*==END LEFT FILTER==*@
 

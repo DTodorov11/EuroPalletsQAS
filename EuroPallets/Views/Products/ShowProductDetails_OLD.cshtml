@@ -1,0 +1,232 @@
+﻿@model EuroPallets.Models.EuroPalletFurniture
+
+@{
+}
+@*<link href="~/assets/css/plugins/slick/slick.css" rel="stylesheet">
+    <link href="~/assets/css/plugins/slick/slick-theme.css" rel="stylesheet">*@
+
+@*<link href="~/assets/css/animate.css" rel="stylesheet">
+    <link href="~/assets/css/style.css" rel="stylesheet">*@
+
+
+<div class="wrapper">
+    <!--=== Shop Product ===-->
+    <div class="shop-product">
+        <!-- Breadcrumbs v5 -->
+        <div class="container">
+            <ul class="breadcrumb-v5">
+                <li><a href="index.html"><i class="fa fa-home"></i></a></li>
+                <li><a href="#">Products</a></li>
+                <li class="active">New</li>
+            </ul>
+        </div>
+        <!-- End Breadcrumbs v5 -->
+
+        <div class="container">
+            <div class="row">
+                <div class="col-md-6 md-margin-bottom-50">
+                    <div class="ms-showcase2-template" style="position: relative;">
+                        <!-- Master Slider -->
+                        <div class="master-slider ms-skin-default ms-wk" id="masterslider" style="visibility: visible; opacity: 1; margin: 0px;">
+                            <div class="ms-container">
+                                <div class="ms-inner-controls-cont" style="max-width: 550px;">
+                                    <div class="ms-view ms-fade-view ms-grab-cursor" style="width: 550px; height: 550px;">
+                                        <div class="ms-slide-container">
+                                            @foreach (var Images in Model.EuroPalletImages.Take(1))
+                                            {
+                                                               <div class="ms-slide-bgcont" style="height: 100%; opacity: 1;">
+                                                            <img class="ms-brd" src=@Url.Action("Details", "Image", new { imgId = Images.Id, id = Model.Id }) alt="lorem ipsum dolor sit" style="width: 550px; height: 560px; margin-top: -5px; margin-left: 0px;" />
+                                                        </div>
+                                                    </div>
+                                                    isFirst = false;
+                                                }
+                                                else if (Model.EuroPalletImages.LastOrDefault() == Images)
+                                                {
+                                                    isFirst = true;
+                                                }
+                                                else
+                                                {
+                                                    <div class="ms-slide" style="width: 550px; height: 550px; opacity: 0; visibility: hidden;">
+                                                        <div class="ms-slide-bgcont" style="height: 100%; opacity: 1;">
+                                                            <img class="ms-brd" src=@           }) alt="lorem ipsum dolor sit" style="width: 550px; height: 560px; margin-top: -5px; margin-left: 0px;" />
+                                                        </div>
+                                                    </div>
+                                                }
+                                            }
+
+                                        </div>
+                                    </div>
+                                    <div class="ms-nav-next ms-ctrl-hide" style="opacity: 0;"></div><div class="ms-nav-prev ms-ctrl-hide" style="opacity: 0;"></div>
+                                </div>
+                            </div>
+
+
+
+                            <div class="ms-thumb-list ms-dir-h ms-align-bottom" style="margin-top: 5px; position: relative; height: 170px;">
+                                <div class="ms-thumbs-cont" style="width: 555px; transform: translateX(-5px) translateZ(0px);">
+                                    @foreach (var Images in Model.EuroPalletImages.Skip(                                            <div class="ms-thumb-frame ms-thumb-frame-selected" style="width: 180px; height: 170px; margin-right: 5px;">
+                                                <img class="ms-thumb" src=@Url.Action("Details", "Image", new { imgId = Images.Id, id = Model.Id }) style="max-height:100%;max-width:100%" alt="thumb">
+                                                <div class="ms-thumb-ol">
+                                                </div>
+                                            </div>                                }
+                                        else
+                                        {
+                                            <div class="ms-thumb-frame" style="width: 180px; height: 170px; margin-right: 5px;">
+                                                <img class="ms-thumb" src=@Url.Action("Details", "Image", new { imgId = Images.Id, id = Model.Id }) style="max-height:100%;max-width:100%" alt="thumb">
+                                                <div class="ms-thumb-ol">
+                                                </div>
+                                            </div>
+                                        }
+                                    }
+                                </div>
+                            </div>
+                        </div>
+                        <!-- End Master Slider -->
+                    </div>
+                </div>
+
+                <div class="col-md-6">
+                    <div class="shop-product-heading">
+                        <h2>Corinna Foley</h2>
+                        <ul class="list-inline shop-product-social">
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                        </ul>
+                    </div><!--/end shop product social-->
+
+                    <ul class="list-inline product-ratings margin-bottom-30">
+                        <li><i class="rating-selected fa fa-star"></i></li>
+                        <li><i class="rating-selected fa fa-star"></i></li>
+                        <li><i class="rating-selected fa fa-star"></i></li>
+                        <li><i class="rating fa fa-star"></i></li>
+                        <li><i class="rating fa fa-star"></i></li>
+                        <li class="product-review-list">
+                            <span>(1) <a href="#">Review</a> | <a href="#"> Add Review</a></span>
+                        </li>
+                    </ul><!--/end shop product ratings-->
+
+                    <p>Integer <strong>dapibus ut elit</strong> non volutpat. Integer auctor purus a lectus suscipit fermentum. Vivamus lobortis nec erat consectetur elementum.</p><br>
+
+                    <ul class="list-inline shop-product-prices margin-bottom-30">
+                        <li class="shop-red">$57.00</li>
+                        <li class="line-through">$70.00</li>
+                        <li><small class="shop-bg-red time-day-left">4 days left</small></li>
+                    </ul><!--/end shop product prices-->
+
+                    <h3 class="shop-product-title">Size</h3>
+                    <ul class="list-inline product-size margin-bottom-30">
+                        <li>
+                            <input type="radio" id="size-1" name="size">
+                            <label for="size-1">S</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="size-2" name="size">
+                            <label for="size-2">M</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="size-3" name="size" checked="">
+                            <label for="size-3">L</label>
+                        </li>
+                        <li>
+                            <input type="radio" id="size-4" name="size">
+                            <label for="size-4">XL</label>
+                        </li>
+                    </ul><!--/end product size-->
+
+                    <h3 class="shop-product-title">Color</h3>
+                    <ul class="list-inline product-color margin-bottom-30">
+                        <li>
+                            <input type="radio" id="color-1" name="color">
+                            <label class="color-one" for="color-1"></label>
+                        </li>
+                        <li>
+                            <input type="radio" id="color-2" name="color" checked="">
+                            <label class="color-two" for="color-2"></label>
+                        </li>
+                        <li>
+                            <input type="radio" id="color-3" name="color">
+                            <label class="color-three" for="color-3"></label>
+                        </li>
+                    </ul><!--/end product color-->
+
+                    <h3 class="shop-product-title">Quantity</h3>
+                    <div class="margin-bottom-40">
+                        <form name="f1" class="product-quantity sm-margin-bottom-20">
+                            <button type="button" class="quantity-button" name="subtract" onclick="javascript: subtractQty();" value="-">-</button>
+                            <input type="text" class="quantity-field" name="qty" value="1" id="qty">
+                            <button type="button" class="quantity-button" name="add" onclick="javascript: document.getElementById(qty).value++;" value="+">+</button>
+                        </form>
+                        <button type="button" id="btnAddToCart" class="btn-u btn-u-sea-shop btn-u-lg">Добави в количката</button>
+                    </div><!--/end product quantity-->
+
+                    <ul class="list-inline add-to-wishlist add-to-wishlist-brd">
+                        <li class="wishlist-in">
+                            <i class="fa fa-heart"></i>
+                            <a href="#">Add to Wishlist</a>
+                        </li>
+                        <li class="compare-in">
+                            <i class="fa fa-exchange"></i>
+                            <a href="#">Add to Compare</a>
+                        </li>
+                    </ul>
+                    <p class="wishlist-category"><strong>Categories:</strong> <a href="#">Clothing,</a> <a href="#">Shoes</a></p>
+                </div>
+            </div><!--/end row-->
+        </div>
+    </div>
+    <!--=== End Shop Product ===-->
+</div>
+
+@section scripts{
+    <script src="~/assets/js/plugins/master-slider/masterslider.min.js"></script>
+    <script src="~/assets/js/plugins/master-slider/jquery.easing.min.js"></script>
+
+
+    <script>
+
+
+        $("#btnAddToCart").on("click", function () {
+            notification('Success', 'this was a success!');
+            $.ajax({
+                url: WebApiResolveUrl('/api/WebApiControllers/ProductWebApi/AddItemToCard'),
+                type: 'GET',
+                //data: { productId:@Model.Id , userName: @User.Identity.Name },
+                data: { productId:2 , userName: "admin@admin.com" },
+
+                success: function (result) {
+                    console.log(result);
+                },
+                error: function (data) {
+                    console.log(data);
+                }
+            })
+        });
+
+        function notification(type, message) {
+            if (type == 'Success') {
+                toastr.success(message, 'Success', { positionClass: "toast-bottom-right", });
+            } else if (type == 'Error') {
+                toastr.error(message, 'Error', 'Error', { positionClass: "toast-bottom-right", });
+            } else if (type == 'Email') {
+                toastr.warning(message, 'Email', 'Success', { positionClass: "toast-bottom-right", });
+            }
+        }
+
+        function WebApiResolveUrl(url) {
+            var host = window.location.origin;
+
+            return host + url;
+        }
+
+        function ResolveUrl(url) {
+            var baseUrl = window.location.origin;
+            var pathName = window.location.pathname.substr(0, window.location.pathname.lastIndexOf('/'))
+
+            url = baseUrl + pathName + url;
+
+            return url;
+        }
+    </script>
+}
